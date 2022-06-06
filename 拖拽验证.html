@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽验证</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      outline: 1px solid red;
+      overflow-x: auto;
+    }
+
+    #boss {
+      margin: 100px auto;
+      width: min(384px, 100%);
+    }
+
+    #imgBox {
+      outline: 1px solid;
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      font-size: 0;
+    }
+
+    #imgBox img {
+      width: 100%;
+      aspect-ratio: 384 / 242;
+      /* height: 242px; */
+      /* height: 100%; */
+    }
+
+    #huadong {
+      width: 100%;
+      line-height: 30px;
+      text-align: center;
+      background-color: #ccc;
+      margin: 10px 0;
+      border-radius: 10px;
+      position: relative;
+      color: #666;
+    }
+
+    #huadong #ball {
+      width: 60px;
+      height: 30px;
+      border-radius: 10%;
+      position: absolute;
+      background-color: #ff5858;
+      top: 0;
+    }
+
+    #imgBox #empty {
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      width: 60px;
+      height: 60px;
+      background-color: #fff;
+    }
+
+    #imgBox #follow {
+      position: absolute;
+      left: 0;
+      top: 100px;
+      width: 60px;
+      height: 60px;
+      background-image: url('./images/girl.png');
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="boss">
+    <div id="imgBox">
+      <img src="./images/girl.png" alt="">
+      <div id="empty"></div>
+      <div id="follow"></div>
+    </div>
+    <div id="huadong">
+      拖动滑块完成验证
+      <div id="ball"></div>
+    </div>
+  </div>
+</body>
+<script>
+  var maxX = imgBox.clientWidth - empty.clientWidth;
+  var maxY = imgBox.clientHeight - empty.clientHeight;
+  console.log(imgBox.clientHeight, empty.clientHeight, maxY)
+  var bgx = Math.round(Math.random() * maxX);
+  var bgy = Math.round(Math.random() * maxY);
+  while (bgx < 150) {
+    var bgx = Math.round(Math.random() * maxX);
+  }
+  empty.style.left = bgx + "px";
+  empty.style.top = bgy + "px";
+  follow.style.top = bgy + "px";
+  follow.style.backgroundPosition = `${-bgx}px ${-bgy}px`;
+
+  const checkMobile = /mobile/i.test(navigator.userAgent)
+  ball.onmousedown = !checkMobile && function (e) {
+    var ballx = e.offsetX;
+    console.log(ballx);
+    document.onmousemove = function (ele) {
+      var x = ele.pageX - huadong.offsetLeft - ballx;
+      if (x < 0) {
+        x = 0;
+      }
+      if (x > maxX) {
+        x = maxX;
+      }
+      ball.style.left = x + "px";
+      follow.style.left = x + "px";
+      console.log(66666);
+    }
+    document.onmouseup = function (e) {
+      document.onmousemove = null;
+      if (follow.offsetLeft >= empty.offsetLeft - 2 && follow.offsetLeft <= empty.offsetLeft + 2) {
+        alert("验证成功！");
+        location.href = "https://www.baidu.com/";
+      } else {
+        alert("验证失败，请再试一次！");
+        location.href = "";
+      }
+
+    }
+  }
+
+  ball.ontouchstart = checkMobile && function (e) {
+    let ele = e.touches[0]
+    let ballx = ele.clientX
+    ball.ontouchmove = function (evt) {
+      let ele = evt.touches[0]
+      let x = ele.pageX - huadong.offsetLeft - ballx;
+      if (x < 0) {
+        x = 0;
+      }
+      if (x > maxX) {
+        x = maxX;
+      }
+      ball.style.left = x + "px";
+      follow.style.left = x + "px";
+    }
+    ball.ontouchend = function () {
+      if (follow.offsetLeft >= empty.offsetLeft - 2 && follow.offsetLeft <= empty.offsetLeft + 2) {
+        alert("验证成功！");
+        location.href = "https://www.baidu.com/";
+      } else {
+        alert("验证失败，请再试一次！");
+        location.href = "";
+      }
+      ball.ontouchend = null
+      ball.ontouchmove = null
+    }
+  }
+
+</script>
+
+</html>

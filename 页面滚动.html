@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面滚动</title>
+</head>
+<style>
+  div {
+    border: solid;
+    height: 200px;
+  }
+</style>
+
+<body>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+  <div>07</div>
+  <div>08</div>
+  <div>09</div>
+  <div>10</div>
+</body>
+<script>
+  /**
+   @description 页面垂直平滑滚动到指定滚动高度
+  @author zhangxinxu(.com)
+  */
+  var scrollSmoothTo = function (position) {
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = function (callback, element) {
+        return setTimeout(callback, 17);
+      };
+    }
+    // 当前滚动高度
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    // 滚动step方法
+    var step = function () {
+      // 距离目标滚动距离
+      var distance = position - scrollTop;
+      // 目标滚动位置
+      scrollTop = scrollTop + distance / 5;
+      if (Math.abs(distance) < 1) {
+        window.scrollTo(0, position);
+      } else {
+        window.scrollTo(0, scrollTop);
+        requestAnimationFrame(step);
+      }
+    };
+    step();
+  };
+</script>
+
+</html>

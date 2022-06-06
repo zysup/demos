@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS实现的全排列组合算法示例</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 例子：
+            数据源a,b,c
+            1.拿出a，组合数据group为空，插入数据源a元素到组合数据group，此时group=[a]
+            2.拿出b，组合数据group拿出a，a和b组合，得到ab，把数据源b元素、ab插入组合数据group，此时group=[a,b,ab]
+            3.拿出c，组合数据group拿出a、b、ab，分别与c组合，分别得到ac、bc、abc，把数据源c元素、ac、bc、abc插入组合数据group，此时group=[a,b,ab,c,ac,bc,abc]
+         * @param {string}  
+         * @return {string} 
+         */
+        // var data = ['a', 'b', 'c', 'd'];
+        var data = ['0', '1', '2', '3'];
+        function getGroup(data, index = 0, group = []) {
+            // debugger
+            // var need_apply = new Array();
+            // need_apply.push(data[index]);
+            var need_apply = [data[index]]
+            for (var i = 0; i < group.length; i++) {
+                need_apply.push(group[i] + data[index]);
+            }
+            console.log('qwe need_apply',need_apply );
+            // group.push.apply(group, need_apply);
+            group.push(...need_apply)
+            if (index + 1 >= data.length) return group;
+            else return getGroup(data, index + 1, group);
+        }
+        console.log(getGroup(data));
+
+
+    </script>
+</body>
+
+</html>

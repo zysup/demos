@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script id="worker" type="app/worker">
+    addEventListener('message', function () {postMessage('some message');}, false);
+  </script>
+  <script>
+    function createWorker(f) {
+      var blob = new Blob(['(' + f.toString() + ')()']);
+      var url = window.URL.createObjectURL(blob);
+      var worker = new Worker(url);
+      return worker;
+    }
+
+    var pollingWorker = createWorker(function (e) {
+      var cache;
+
+      function compare(new_, old_) {
+        return false
+      };
+
+      setInterval(function () {
+        // fetch('http://httpbin.org/get').then(function (res) {
+        fetch('https://api.github.com/users/Zhang998').then(function (res) {
+          // console.log('qwe ', res);
+          // return
+          // return res.json();
+          // console.log('qwe ', data);
+
+          if (!compare(data, cache)) {
+            cache = data;
+            self.postMessage(data);
+          }
+        }).then(res => {
+          console.log('qwe ', res);
+        })
+      }, 1000)
+    });
+
+    pollingWorker.onmessage = function (event) {
+      console.log('Received message ' + event.data);
+    }
+
+    pollingWorker.postMessage('init');
+  </script>
+</body>
+
+</html>

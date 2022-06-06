@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>repeating-radial-gradient</title>
+    <style>
+        body {
+            background:
+                repeating-radial-gradient(circle,
+                    transparent,
+                    transparent 3em,
+                    hotpink 1em,
+                    transparent 6em,
+                    tomato 6.5em),
+                repeating-radial-gradient(ellipse farthest-corner,
+                    transparent 1em,
+                    cornflowerblue 1em,
+                    transparent 5em,
+                    cornflowerblue 2em),
+                repeating-radial-gradient(circle,
+                    transparent,
+                    transparent 3em,
+                    gold 1em,
+                    transparent 2em,
+                    gold 4em),
+                repeating-radial-gradient(circle,
+                    transparent 3em,
+                    gold 1em,
+                    transparent 2em,
+                    gold 4em), white;
+
+            background-blend-mode: multiply;
+            background-size: 10em 10em;
+            background-position: 0 0, 5em 5em, 15em 50em;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

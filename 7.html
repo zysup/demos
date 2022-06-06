@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gg {
+            line-height: 100px;
+            outline: solid;
+            font-size: 50px;
+        }
+
+        .gg span {
+            background-color: #f88;
+            line-height: 80px;
+            height: 90px;
+        }
+        /* @font-face {
+            font-family: 'Yapi SC';
+            src: local("Yapi SC");
+        } */
+        INPUT {
+            color: #333;
+            caret-color: red;
+            font-family: 'Yapi SC', serif;
+        }
+
+        @supports (-webkit-mask: none) and (not (cater-color: red)) {
+            input {
+                color: red;
+            }
+
+            input::first-line {
+                color: #333;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="这里是文本···" placeholder="···">
+    <!-- <iframe src="https://www.ruanyifeng.com/blog/2010/08/anti-frameset_javascript_codes_continued.html" frameborder="0"
+        width="500" title="ruanyifeng"></iframe> -->
+    <iframe src="//127.0.0.1:5500/6.html" frameborder="0" width="500" title="8.html"></iframe>
+    <a href="./8.html" target="_blank" style="display: none;">8.
+
+
+        html</a>
+    <script>
+        var aa = document.getElementsByTagName('a')[0]
+        console.log('qwe innertext', aa.innerText);
+        console.log('qwe textContent', aa.textContent);
+    </script>
+
+    <br>
+    <hr>
+    <div class="gg"><span>Lorem ipsum dolor sit amet.</span>x</div>
+</body>
+
+</html>

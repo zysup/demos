@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>html标签</title>
+  <link rel="stylesheet" href="https://qidian.gtimg.com/lulu/edge/css/common/ui.css">
+  <script type="module" src="https://qidian.gtimg.com/lulu/edge/js/common/all.js"></script>
+  <style>
+    figure {
+      text-align: center;
+    }
+
+    figcaption {
+      background-color: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>一、abbr</h3>
+  <abbr title="Daily Active User">
+    DAU
+  </abbr>
+  <span>，日活跃用户数 ......</span>
+  <hr />
+
+  <h3>二、mark</h3>
+  <div>我是<mark>高亮文本</mark>，颜色不一样</div>
+  <hr />
+
+  <h3>三、sup、sub</h3>
+  <div>3<sup>[2]</sup></div>
+  <div>4<sub>2</sub></div>
+  <hr />
+
+  <h3>四、figure</h3>
+  <figure>
+    <img src="./images/girl.png" alt="" />
+    <figcaption>这是一张美女的照片</figcaption>
+  </figure>
+  <hr />
+
+  <h3>五、progress</h3>
+  <!-- 进度条最大值为100，当前进度为60，即60% -->
+  <!-- <progress max="100" value="60" /> -->
+  <progress id="file" max="100" value="70"></progress>
+  <hr />
+
+  <h3>六、area</h3>
+  <img src="./images/girl.png" width="200" height="100" alt="" usemap="#map">
+
+  <map name="map">
+    <area shape="rect" coords="0,0,100,50" alt="baidu" href="https://www.baidu.com">
+    <area shape="rect" coords="0,50,100,100" alt="sougou" href="https://www.sogou.com/">
+  </map>
+  <hr />
+
+  <h3>七、details</h3>
+  <details>
+    <p>我是一段被隐藏的内容</p>
+  </details>
+  <details>
+    <summary>点击查看更多</summary>
+    <p>我是一段被隐藏的内容</p>
+  </details>
+  <hr />
+
+  <h3>八、dialog</h3>
+  <dialog id="dialog">
+    <!-- <input type="text"> -->
+    <input type="date" name="date" id="date" />
+    <button id="close">ok</button>
+  </dialog>
+  <button id="openBtn">打开弹框</button>
+
+  <script>
+    const dialog = document.getElementById('dialog')
+    const openBtn = document.getElementById('openBtn')
+    const closeBtn = document.getElementById('close')
+
+    openBtn.addEventListener('click', () => {
+      // 打开弹框
+      dialog.showModal()
+    })
+    closeBtn.addEventListener('click', () => {
+      console.log(date.value)
+      // 隐藏弹框
+      dialog.close()
+    })
+  </script>
+  <br />
+
+  <h3>九、datalist</h3>
+  <label for="ipt"> 输入C开头的英文单词：</label>
+  <input list="c_words" id='ipt' />
+
+  <datalist id="c_words">
+    <option value="China">
+    <option value="Click">
+    <option value="Close">
+    <option value="Const">
+    <option value="Count">
+  </datalist>
+  <script>
+    ipt.onchange = function (evt) {
+      console.log(evt.target.value)
+    }
+  </script>
+  <br />
+
+  <h3>十、fieldset</h3>
+  <form action="/example">
+    <fieldset disabled>
+      <legend>被禁用区域</legend>
+      <label>ID：</label>
+      <input type="text" name="id" value="1">
+      <label>邮箱：</label>
+      <input type="text" name="email" value="1234567@163.com">
+    </fieldset>
+    <label>名字：</label>
+    <input type="text" name="name">
+    <button type="submit">提交</button>
+  </form>
+
+  <h3>十一、noscript</h3>
+  <noscript>
+    不好意思，你的浏览器不支持或禁用了 JavaScript，请更换浏览器或启用 JavaScript
+  </noscript>
+  <br />
+
+  <h3>十二、pre</h3>
+  <pre>
+    (function(root, factory) {
+      if (typeof module === 'object' && typeof module.exports === 'object') {
+          console.log('是commonjs模块规范，nodejs环境')
+          module.exports = factory();
+      } else if (typeof define === 'function' && define.amd) {
+          console.log('是AMD模块规范，如require.js')
+          define(factory())
+      } else if (typeof define === 'function' && define.cmd) {
+          console.log('是CMD模块规范，如sea.js')
+          define(function(require, exports, module) {
+              module.exports = factory()
+          })
+      } else {
+          console.log('没有模块环境，直接挂载在全局对象上')
+          root.umdModule = factory();
+      }
+    }(this, function() {
+      return {
+          name: '我是一个umd模块'
+      }
+    }))
+  </pre>
+</body>
+
+</html>

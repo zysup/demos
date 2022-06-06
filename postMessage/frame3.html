@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iframe3</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+
+<body>
+  <h4>iframe3 page<small>(我的端口不一样)</small></h4>
+  <button onclick="changeHash()">改变iframe的hash</button>
+  <textarea name="showlog" id="showlog" cols="30" rows="10" readonly></textarea>
+  <script>
+    window.name = 'iframe3'
+    window.onhashchange = checkMessage;
+    function checkMessage(e) {
+      console.log('iframe3 checkMessage', e)
+      var message = window.location.hash;
+      showlog.textContent += `onhashchange => ${message}\n`
+    }
+
+    /**
+     * 通过片段识别符向父窗口传参数
+     */
+    function changeHash(params) {
+      parent.location.replace('http://192.168.0.21:5501/postMessage/home.html#我是frame3里传递出来的数据')
+    }
+
+    window.addEventListener('message', function (e) {
+      var payload = JSON.stringify(e.data, null, 2)
+      showlog.textContent += `resmessage => ${payload}\n`
+    }, false)
+  </script>
+</body>
+
+</html>

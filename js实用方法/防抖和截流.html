@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖和截流</title>
+  <style>
+    body {
+      height: 5000px;
+      outline: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" id="ipt">
+</body>
+
+<script>
+  // 防抖
+  function fn() {
+    console.log('onkeydown触发...', this.value);
+  }
+  ipt.onkeydown = debounce(fn, 2000, 1);
+  function debounce(fn, delay = 1000) {
+    var timer = null;
+    var args = arguments;
+    console.log(args)
+    return function () {
+      var context = this;
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        fn.apply(context, args)
+      }, delay);
+    }
+  }
+</script>
+
+<script>
+  // 截流
+  window.addEventListener('scroll', scrollThrottler, false);
+
+  var scrollTimeout;
+  function scrollThrottler() {
+    console.log('滚动触发中...');
+    if (!scrollTimeout) {
+      scrollTimeout = setTimeout(function () {
+        scrollTimeout = null;
+        actualScrollHandler();
+      }, 2000);
+    }
+  }
+
+  function actualScrollHandler() {
+    console.log('逻辑处理...');
+  }
+</script>
+
+</html>

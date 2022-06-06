@@ -1,0 +1,117 @@
+<!--
+ * Author:Router
+ * Description:html注释  
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="//at.alicdn.com/t/font_900373_o2q9oz0nivf.woff2" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_900373_o2q9oz0nivf.css">
+    
+    <style>
+        div:empty::after {
+            content: '暂无数据';
+            color: red;
+        }
+
+        ul li {
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        ul li:not(:last-child):after {
+            content: '\276D';
+            margin: 5px;
+        }
+
+        @font-face {
+            font-family: 'iconfont';
+            src: url('//at.alicdn.com/t/font_900373_o2q9oz0nivf.woff2?t=1616757390140') format('woff2'),
+                url('//at.alicdn.com/t/font_900373_o2q9oz0nivf.woff?t=1616757390140') format('woff');
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+    <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        @font-face {
+            font-family: 'iconfont2';
+            /* Project id 2388624 */
+            src: url('//at.alicdn.com/t/font_2388624_3cfi9jto4iu.woff2?t=1631033440618') format('woff2'),
+                url('//at.alicdn.com/t/font_2388624_3cfi9jto4iu.woff?t=1631033440618') format('woff'),
+                url('//at.alicdn.com/t/font_2388624_3cfi9jto4iu.ttf?t=1631033440618') format('truetype');
+        }
+
+        .iconfont2 {
+            font-family: "iconfont2" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .px1{
+            background-image: url('./images/小汽车.svg');
+            margin: auto;
+            display: block;
+            box-shadow: 3px 3px 3px 0 red,5px 5px 5px 0 blue,-5px 5px 5px 0 inset green;
+            border-radius: 50%;
+        }
+    </style>
+    <script src="//at.alicdn.com/t/font_2445412_4dhzxl9tcms.js"></script>
+    <script src="//at.alicdn.com/t/font_2799712_5g1z6uykkzi.js"></script>
+</head>
+
+<body>
+    <div>有数据</div>
+    <div></div>
+    <ul>
+        <li>第1个</li>
+        <li>第2个</li>
+        <li>第3个</li>
+    </ul>
+    <dl>
+        <dt>123</dt>
+        <dd>456</dd>
+    </dl>
+    <img src="./images/eye.svg" alt="" srcset="">
+    <img src="./images/小汽车.svg" srcset="">
+    <svg t="1631033562705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1457" width="200" height="200">
+        <path
+            d="M512 56.878545c251.345455 0 455.121455 203.776 455.121455 455.121455S763.345455 967.121455 512 967.121455 56.878545 763.345455 56.878545 512 260.654545 56.878545 512 56.878545z m0 284.439273C320.046545 341.317818 227.607273 504.087273 227.607273 512c0 7.959273 90.018909 170.682182 284.439272 170.682182S796.439273 519.912727 796.439273 512c0-7.912727-92.485818-170.682182-284.392728-170.682182z m0 56.925091a113.757091 113.757091 0 1 1 0 227.514182 113.757091 113.757091 0 0 1 0-227.514182z m0 56.878546a56.878545 56.878545 0 1 0 0 113.75709 56.878545 56.878545 0 0 0 0-113.75709z"
+            fill="#333333" p-id="1458"></path>
+    </svg>
+    <br>
+    <span class="iconfont">&#xe74d;</span><br>
+    <span class="iconfont icon-xiaochulei"></span><br>
+    <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-p2"></use>
+    </svg><br>
+    <span class="iconfont2">&#xea55;</span><br>
+    <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-goutou-changcao"></use>
+    </svg><br>
+<br><br>
+<img src="data:image/gif;base64,i   V   BORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" style="width:200px;border:solid 1px rgb(100, 15, 15);" class="px1" alt=""/>
+</body>
+
+</html>

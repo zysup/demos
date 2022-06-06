@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="factorial(100)">计算阶乘1</button>
+  <button onclick="factorial2(100, 1)">计算阶乘2</button>
+  <script>
+    function factorial(n) {
+      if (n === 1) return 1;
+      return n * factorial(n - 1);
+    }
+    function factorial2(n, total) {
+      if (n === 1) return total;
+      return factorial2(n - 1, n * total);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双 Sticky 粘性定位</title>
+  <style>
+    body {
+      --height-outer: 120px;
+      --height-inner: 60px;
+
+      background-color: #eee;
+      margin: 0;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      position: sticky;
+      height: var(--height-outer);
+      top: calc(var(--height-inner) - var(--height-outer));
+      border-bottom: 1px solid #ccc;
+      background-color: rgb(219, 141, 141);
+    }
+
+    header-inner {
+      display: flex;
+      line-height: var(--height-inner);
+      width: 980px;
+      max-width: calc(100% - 2rem);
+      margin: 0 auto;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background-color: rgb(138, 226, 153);
+    }
+    div{
+      font-size: 30px;
+      height: 1500px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <header-inner>
+      <span>logo</span>
+      <span>主页</span>
+      <span>关于</span>
+    </header-inner>
+  </header>
+  <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum tempora quo amet rem officiis necessitatibus voluptas accusantium corrupti.</div>
+</body>
+
+</html>

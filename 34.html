@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let getUserInfo = function (user) {
+      return new Promise((resolve, reject) => {
+        let time = Math.floor(400 * Math.random())
+        console.log('qwe time', time);
+        setTimeout(() => resolve('姓名：张鑫旭'), time);
+      });
+    }
+
+    let showUserInfo = function (user) {
+      console.count('qwe')
+      return getUserInfo()
+        .then(info => {
+          console.log('用户信息', info);
+        }).then(() => {
+          // console.log('qwe 123123',);
+          return true;
+        });
+    }
+
+    let timeout = function (delay, result) {
+      return new Promise(resolve => {
+        setTimeout(() => resolve(result), delay);
+      });
+    }
+    // loading时间显示需要
+    // const time = +new Date();
+    // let showToast = function () {
+    //   console.log('show loading...');
+    // }
+    // let hideToast = function () {
+    //   ;
+    //   console.log('hide loading' + (+new Date() - time));
+    // }
+    // 执行代码示意
+    // showToast();
+    // Promise.all([showUserInfo(), timeout(200)]).then(([a, b]) => {
+    //   console.log('qwe ', a, b);
+    //   hideToast();
+    // });
+
+
+    // loading时间显示需要
+    // let time = 0;
+    // let showToast = function () {
+    //   time = +new Date()
+    //   console.log('show loading...');
+    // }
+    // let hideToast = function () {
+    //   ;
+    //   console.log('hide loading' + (+new Date() - time));
+    // }
+    // 执行代码示意
+    // let promiseUserInfo = showUserInfo();
+    // Promise.race([promiseUserInfo, timeout(200)]).then((display) => {
+    //   if (!display) {
+    //     showToast();
+
+    //     Promise.all([promiseUserInfo, new Promise(resolve => {
+    //       setTimeout(() => resolve(), 200);
+    //     })]).then(() => {
+    //       hideToast();
+    //     });
+    //   }
+    // });
+
+    let startTime = +new Date();
+    let importUnpkg = import('https://unpkg.com/vue@3.0.11/dist/vue.runtime.esm-browser.js');
+    let importJsdelivr = import('https://cdn.jsdelivr.net/npm/vue@3.0.11/dist/vue.runtime.esm-browser.js');
+    Promise.any([importUnpkg, importJsdelivr]).then(vue => {
+      console.log('加载完毕，时间是：' + (+new Date() - startTime) + 'ms');
+      console.log(vue.version);
+    });
+    Promise.any([Promise.resolve(123), Promise.reject(456)]).then(vue => {
+      console.log('qwe ,000009999999555', );
+    }).catch(()=>{
+      console.log('qwe 111', );
+    });
+    // let aa = import('./1.json')
+    // console.log('qwe ,aa', aa);
+  </script>
+</body>
+
+</html>

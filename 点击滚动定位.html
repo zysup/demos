@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>点击滚动定位</title>
+  <style>
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    ul {
+      margin: 0;
+      list-style: none;
+      outline: 1px solid red;
+      font-size: 0;
+      padding: 0;
+      width: 500px;
+      margin: auto;
+      overflow-x: scroll;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    li {
+      font-size: 30px;
+      display: inline-block;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      width: 80px;
+      outline: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="ul">
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+    <li>04</li>
+    <li>05</li>
+    <li>06</li>
+    <li>07</li>
+    <li>08</li>
+    <li>09</li>
+    <li>10</li>
+    <li>11</li>
+  </ul>
+</body>
+<script>
+  function clickfn(evt) {
+    // console.log(evt.target.offsetLeft)
+    let startPoint = ul.scrollLeft
+    let endPoint = evt.target.offsetLeft + evt.target.offsetWidth / 2 - ul.offsetWidth / 2
+    // console.log('qwe ', startPoint, endPoint)
+    let timer = setInterval(() => {
+      if (Math.abs(endPoint - startPoint) < 7) {
+        clearInterval(timer)
+      }
+      if (startPoint < endPoint) {
+        startPoint += 7
+      } else {
+        startPoint -= 7
+      }
+      // console.log(startPoint)
+      ul.scrollLeft = startPoint
+    }, 16);
+  }
+  ul.onclick = clickfn
+</script>
+
+</html>

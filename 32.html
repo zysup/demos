@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <section>
+    <div class="boss">=
+      <p id="p1"><b>Hello</b> world!</p>=
+      <div id="p2">hello world</div>
+    </div>
+    <button>按钮</button>
+  </section>
+
+  <script>
+    var range1 = document.createRange(),
+      range2 = document.createRange(),
+      p1 = document.getElementById("p1");
+    range1.selectNode(p1);
+    range2.selectNodeContents(p1);
+    console.log('qwe ', range1);
+    console.log('qwe ', range2);
+    // p1.innerHTML = ''
+    // range2.deleteContents()
+
+    var range = document.createRange();
+    p2 = document.getElementById('p2').childNodes[0];
+    range.setStart(p2, 2);
+    range.setEnd(p2, 8);
+    console.log('qwe ', p2);
+    console.log('qwe ', range);
+    range.deleteContents()
+  </script>
+</body>
+
+</html>

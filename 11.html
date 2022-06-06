@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul"></ul>
+    <script type="module">
+        var docfrag = document.createDocumentFragment();
+        var element = document.getElementById('ul');
+        var timeout = function (params) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(true)
+                }, 1000);
+            })
+        }
+        // await timeout();
+        // console.log('qwe ',);
+
+        // [1, 2, 3, 4].forEach(async function (e) {
+        //     var li = document.createElement('li');
+        //     li.textContent = e;
+        //     // docfrag.appendChild(li);
+        //     await timeout();
+        //     element.appendChild(li);
+
+        // });
+        for (let index = 0; index < [1, 2, 3, 4].length; index++) {
+            // const  = [1, 2, 3, 4][index];
+            var li = document.createElement('li');
+            li.textContent = index;
+            await timeout();
+            element.appendChild(li);
+
+        }
+
+        setTimeout(() => {
+            // element.appendChild(docfrag);
+
+        }, 2000);
+    </script>
+</body>
+
+</html>

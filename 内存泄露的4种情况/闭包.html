@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="closure()">Closure</button>
+
+    <script>
+        var funcs = []
+        function outer() {
+            var someText = new Array(1000_000)
+            return function inner() {
+                return someText
+            }
+        }
+        function closure() {
+            funcs.push(outer())
+        }
+        // setInterval(function timer() {
+        //     return 'hello';
+        // }, 2000)
+    </script>
+
+</body>
+
+</html>

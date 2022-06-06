@@ -1,0 +1,133 @@
+<!--
+ * Author: Router
+ * Description: ...
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: #f88;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Hello World -->
+    <span class="material-icons-outlined material-icons md-24 orange600">
+        arrow_drop_down_circle
+    </span>
+    <span class="material-icons-outlined material-icons" style="color:red">
+        face
+    </span>
+    <span class="material-icons-two-tone material-icons">
+        schedule
+    </span>
+    <i class="material-icons">
+        &#xe8b5;
+    </i>
+
+    收到罚单舒服
+    <div></div>
+    <p></p>
+    <span></span>
+    <ul>
+        <li>qwe01</li>
+        <li>qwe02</li>
+        <li>qwe03</li>
+        <li>qwe04</li>
+        <li>qwe05</li>
+    </ul>
+    <div id="abc"></div>
+    <div class="bbb"></div>
+    <ul>
+        <li class="item1"></li>
+        <li class="item2"></li>
+        <li class="item3"></li>
+        <li class="item4"></li>
+        <li class="item5"></li>
+    </ul>
+</body>
+<script>
+    /* Hello World */
+    /* Hello World 380183 */
+    /* Hello World 394002 */
+    /* Hello World 711236 17 */
+    function name(params) {
+        return params
+    }
+    /**
+     * Author: Router
+     * Description: ...
+     */
+    function Timer() {
+        this.time1 = 0;
+        this.time2 = 0;
+        setInterval(() => {
+            this.time1 += 1;
+        }, 100);
+        setInterval(function bbb(params) {
+            this.time2 += 1;
+        }, 100);
+    }
+    var time = new Timer;
+    setTimeout(() => {
+        console.log('time1', time.time1);
+    }, 310);
+    setTimeout(() => {
+        console.log('time1', time.time2);
+    }, 310);
+    // for
+    let { groups: { year, month } } = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec('2021-10-09')
+    console.log('qwe groups', year, month);
+    let bb = 'hello world'.replace(/(\w+) (\w+)/, '$2 $1')
+    let cc = Math.floor(Math.random() * (10 - 5)) + 5
+    console.log('qwe cc', cc);
+    let dd = {
+        abc() {
+            console.log('qwe abc', 123);
+        },
+        def() {
+            console.log('qwe def', 456);
+        }
+    }
+    dd.abc()
+    var rr = { aa: 123 }
+    // var obj = {
+    //     __proto__:rr,
+    //     bb:456
+    // }
+    // var obj = Object.assign(
+    //     Object.create(rr),
+    //     {bb:45678}
+    // )
+    var obj = Object.create(rr)
+    obj.bb = 6789
+    var message = {
+        body: {
+            user: {
+                firstName: 'zhangsan'
+            }
+        }
+    };
+    const firstName = message?.body?.user?.firstName || 'default';
+    var span = document.createElement('span')
+    span.textContent = '?.可用' + firstName;
+    document.body.appendChild(span)
+    console.log('qwe firstName', firstName);
+    setTimeout(function () {
+        // alert(document.body.innerHTML);
+        document.write('asdf')
+    }, 5000);
+</script>
+
+</html>
