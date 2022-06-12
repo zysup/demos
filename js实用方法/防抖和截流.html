@@ -28,10 +28,9 @@
     var args = arguments;
     console.log(args)
     return function () {
-      var context = this;
       clearTimeout(timer)
       timer = setTimeout(() => {
-        fn.apply(context, args)
+        fn.apply(this, args)
       }, delay);
     }
   }
