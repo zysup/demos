@@ -1,4 +1,4 @@
-{
+let example = {
     "log": {
         "version": "1.2",
         "creator": {

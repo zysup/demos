@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>焦点事件</title>
+  <style>
+    textarea {
+      outline: 1px solid #ccc;
+      position: fixed;
+      right: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <label for="ipt1">名字：</label>
+  <input type="text" id="ipt1" value="我是ipt1 输入框">
+  <br><br />
+  <input type="text" id="ipt2" value="我是ipt2 输入框">
+  <br /><br />
+  <button type="button" onclick="focusMethod()">ipt2聚焦</button>
+  <br><br />
+  <button type="button" onclick="focusMethod2()">点这里将焦点设置到按钮上！</button>
+  <br><br />
+  <button type="button" onclick="focusScrollMethod()">Click me to focus on the button!</button>
+  <br><br />
+  <button type="button" onclick="focusNoScrollMethod()">Click me to focus on the button without scrolling!</button>
+
+  <div id="container" style="height: 5000px; width: 1000px;"> </div>
+  <button type="button" id="myButton">Click Me!</button>
+
+
+  <textarea name="log" id="log" cols="30" rows="10"></textarea>
+</body>
+<script>
+  function focus() {
+    event.target.style.background = 'blue';
+  }
+  ipt1.addEventListener('focusin', function (event) {
+    log.textContent += 'focusin触发\n'
+  });
+  ipt1.addEventListener('focusout', function (event) {
+    log.textContent += 'focusout触发\n'
+  });
+  ipt1.addEventListener('focus', function (event) {
+    log.textContent += 'focus触发\n'
+    console.log(event);
+    event.target.style.background = 'pink';
+  });
+
+  ipt1.addEventListener('blur', function (event) {
+    log.textContent += 'blur触发\n'
+    event.target.removeAttribute('style')
+    // event.target.style.background = '';
+  });
+
+  focusMethod = function getFocus() {
+    ipt2.focus();
+  }
+
+
+  focusMethod2 = function getFocus() {
+    myButton.focus();
+  }
+  focusScrollMethod = function getFocus() {
+    myButton.focus({ preventScroll: false });
+  }
+  focusNoScrollMethod = function getFocusWithoutScrolling() {
+    myButton.focus({ preventScroll: true });
+  }
+</script>
+
+</html>
