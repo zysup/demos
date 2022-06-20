@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>2</title>
+</head>
+
+<body>
+  <a href="3.html">去到页面3</a><br><br>
+  <a href="3.html?abc=123&def=456#/one/two">去到3（带search和hash ?abc=123&def=456#/one/two）</a><br><br>
+  <a href="3.html?abc=123&def=456#three">去到3（带search和hash ?abc=123&def=456#three）</a><br><br>
+  search: age <span id="log"></span>
+  <hr />
+  <h3>replaceState</h3>
+  <button onclick="clear_search()">清除url的search参数</button>
+  <button onclick="clear_hash()">清除url的hash参数</button>
+  <button onclick="clear_all()">清除url的hash和search参数</button>
+  <hr />
+  <h3>pushState</h3>
+  <button onclick="clear_search2()">清除url的search参数</button>
+  <button onclick="clear_hash2()">清除url的hash参数</button>
+  <button onclick="clear_all2()">清除url的hash和search参数</button>
+</body>
+<script>
+  console.log('history.length: ', history.length);
+  if (location.search) {
+    // 方法1
+    // let { groups: { age } } = /age=(?<age>\d+)/.exec(location.search)
+
+    // 方法2  
+    // let age = new URL(location).searchParams.get('age')
+
+    // 方法3
+    var age = new URLSearchParams(location.search).get('age');
+
+    log.textContent = age;
+  }
+  window.onpopstate = function (event) {
+    console.log('location: ' + document.location);
+    console.log('state: ' + JSON.stringify(event.state));
+  };
+
+  function clear_search() {
+    window.history.replaceState({ page: 1 }, '', `${location.pathname}${location.hash}`);
+  }
+  function clear_hash() {
+    window.history.replaceState({ page: 2 }, '', `${location.pathname}${location.search}`);
+  }
+  function clear_all() {
+    window.history.replaceState({ page: 3 }, '', `${location.pathname}`);
+  }
+  function clear_search2() {
+    window.history.pushState({ page: 1 }, '', `${location.pathname}${location.hash}`);
+  }
+  function clear_hash2() {
+    window.history.pushState({ page: 2 }, '', `${location.pathname}${location.search}`);
+  }
+  function clear_all2() {
+    window.history.pushState({ page: 3 }, '', `${location.pathname}`);
+  }
+</script>
+
+</html>
