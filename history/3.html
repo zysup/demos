@@ -40,10 +40,13 @@
 </body>
 <script>
   console.log('history.length: ', history.length);
-  window.onpopstate = function (event) {
+  window.onpopstate = function (evt) {
     console.log('location: ' + document.location);
-    console.log('state: ' + JSON.stringify(event.state));
+    console.log('state: ' + JSON.stringify(evt.state));
   };
+  window.addEventListener('hashchange', function (evt) {
+    console.log('The hash has changed!', evt)
+  });
 
 </script>
 
