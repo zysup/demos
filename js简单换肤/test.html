@@ -8,89 +8,51 @@
   <title>简单换肤</title>
   <link rel="stylesheet" href="./css/default.css" id="changelink">
 
+  <link href="./css/default.css" rel="stylesheet" type="text/css" title="默认">
+  <link href="./css/red.css" rel="alternate stylesheet" type="text/css" title="红色">
+  <link href="./css/green.css" rel="alternate stylesheet" type="text/css" title="绿色">
+
   <style>
     :root {
-      --theme-color: rgba(255, 255, 0, .3);
+      --theme-bg-color: #ffffcc;
+      --theme-text-color: #000000;
     }
 
     body {
-      background-color: var(--theme-color);
+      background-color: var(--theme-bg-color);
     }
 
+    span {
+      color: var(--theme-text-color);
+    }
+
+
     .default {
-      background-color: rgba(255, 255, 0, .3);
+      background-color: #ffffcc;
     }
 
     .default span {
-      font-size: 24px;
+      color: #000000;
     }
 
     .red {
-      background-color: rgb(224, 109, 109);
+      background-color: #ff8888;
     }
 
     .red span {
-      font-size: 32px;
-      font-style: italic;
+      color: #ffffff;
     }
 
     .green {
-      background-color: rgb(91, 204, 100);
+      background-color: #008800;
     }
 
     .green span {
-      font-size: 24px;
+      color: #ffff88;
     }
   </style>
 
-  <script title="切换外部样式表">
-    var csslink = document.getElementById("changelink");
-    //初始化主题
-    loadtheme();
-    function loadtheme() {
-      //从cookies读取主题
-      var themevalue = document.cookie.split(";")[0].split("=")[1];
-      if (themevalue == null) {
-        csslink.href = "css/default.css";
-      } else {
-        csslink.href = "css/" + themevalue + ".css";
-      }
-    }
 
-    function changetheme(color) {
-      document.querySelectorAll('style').forEach(item => {
-        // item.remove()
-        item.setAttribute('type', 'abc')
-      })
-      csslink.href = "css/" + color + ".css";
-      //保存主题到cookies
-      document.cookie = "theme=" + color;
-    }
-  </script>
-
-  <script title="变量换肤">
-    function changetheme2(color = 'rgba(255,255, 0,.3)') {
-      document.body.removeAttribute('class')
-      document.querySelectorAll('style').forEach(item => {
-        item.removeAttribute('type')
-      })
-      console.log(document.documentElement.style);
-      document.documentElement.style.setProperty("--theme-color", color);
-    }
-  </script>
-
-  <script title="命名空间，权重覆盖">
-    function changetheme3(color = 'default') {
-      document.querySelectorAll('style').forEach(item => {
-        item.removeAttribute('type')
-      })
-      sessionStorage.theme = color;
-      document.body.className = color;
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      changetheme3(sessionStorage.theme)
-    })
-  </script>
 </head>
 
 <body class="theme-default">
@@ -101,15 +63,23 @@
   <hr>
   <br>
   <button onclick="changetheme2()">默认</button>
-  <button onclick="changetheme2('rgb(224, 109, 109)')">红色</button>
-  <button onclick="changetheme2('rgb(91, 204, 100)')">绿色</button>
+  <button onclick="changetheme2('#ff8888', '#ffffff')">红色</button>
+  <button onclick="changetheme2('#008800', '#ffff88')">绿色</button>
   --CSS 变量换肤(要注册很多css变量)
   <hr>
   <br>
   <button onclick="changetheme3()">默认</button>
   <button onclick="changetheme3('red')">红色</button>
   <button onclick="changetheme3('green')">绿色</button>
-  --命名空间，权重覆盖(有白屏闪动)
+  --命名空间，权重覆盖(代码啰嗦)
+  <hr>
+  <br>
+  <p>
+    <input id="default" type="radio" name="skin" value="./css/default.css" checked><label for="default">默认</label>
+    <input id="red" type="radio" name="skin" value="./css/red.css"><label for="red">红色</label>
+    <input id="green" type="radio" name="skin" value="./css/green.css"><label for="green">绿色</label>
+    --link rel=alternate方案实现：
+  </p>
   <hr>
   <br>
   <span>我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界,
@@ -122,5 +92,87 @@
 
 </body>
 
+<script>
+  var csslink = document.getElementById("changelink");
+  let titleLink = document.querySelectorAll('link[title]')
+  let styleEle = document.querySelector('style')
+  //初始化主题
+  loadtheme();
+  function loadtheme() {
+    //从cookies读取主题
+    var themevalue = document.cookie.split(";")[0].split("=")[1];
+    if (themevalue == null) {
+      csslink.href = "css/default.css";
+    } else {
+      csslink.href = "css/" + themevalue + ".css";
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    changetheme3(sessionStorage.theme)
+  })
+
+  function clear(type) {
+    if (type == 1) {
+      titleLink.forEach(link => {
+        link.disabled = true
+      })
+      styleEle.setAttribute('type', 'abc')
+    }
+    if (type == 2 || type == 3) {
+      titleLink.forEach(link => {
+        link.disabled = true
+      })
+      csslink.disabled = true
+      document.body.removeAttribute('class')
+      styleEle.removeAttribute('type')
+    }
+    if (type == 4) {
+      styleEle.setAttribute('type', 'abc')
+    }
+  }
+
+
+</script>
+
+<script title="切换外部样式表">
+  function changetheme(color) {
+    clear(1)
+    csslink.disabled = false
+    csslink.href = "css/" + color + ".css";
+    //保存主题到cookies
+    document.cookie = "theme=" + color;
+  }
+</script>
+
+<script title="变量换肤">
+  function changetheme2(bgcolor = '#ffffcc', textcolor = '#000000') {
+    clear(2)
+    document.documentElement.style.setProperty("--theme-bg-color", bgcolor);
+    document.documentElement.style.setProperty("--theme-text-color", textcolor);
+  }
+</script>
+
+<script title="命名空间，权重覆盖">
+  function changetheme3(color = 'default') {
+    clear(3)
+    sessionStorage.theme = color;
+    document.body.className = color;
+  }
+</script>
+
+<script title="link rel=alternate方法实现">
+  document.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+    radio.addEventListener('click', function () {
+      clear(4)
+      var value = this.value;
+      titleLink.forEach(function (link) {
+        link.disabled = true;
+        if (link.getAttribute('href') == value) {
+          link.disabled = false;
+        }
+      });
+    });
+  });
+</script>
 
 </html>

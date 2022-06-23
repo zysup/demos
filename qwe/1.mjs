@@ -1,0 +1,1 @@
+console.log('qwe 1.mjs', )

@@ -1,6 +1,7 @@
-body{
-    background-color: rgba(255,255, 0,.3);
+body {
+  background-color: #ffffcc;
 }
-span{
-    font-size: 24px;
+
+span {
+  color: #000000;
 }
