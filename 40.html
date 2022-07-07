@@ -19,7 +19,7 @@
       width: min-content;
       color: yellow var(--color,);
       box-shadow: 12px 12px 14px blue var(--box-shadow,);
-      background: linear-gradient(deeppink, deepskyblue) var(--bgcolor);
+      background: linear-gradient(deeppink, deepskyblue) var(--bgcolor,);
     }
   </style>
 
@@ -28,9 +28,19 @@
 <body>
   <p class="zhang">颜色是？</p>
   <p class="xinxu">颜色是？</p><br /><br />
-  <a href tabindex="0">点击我</a><br />
+  <a tabindex="0">点击我</a><br />
   <a href >点击我</a><br />
   <a href tabindex="10">点击我</a>
+  <a href="http://www.baidu.com" >baidu</a>
+  <a href="/39.html" target="_blank" rel="opener">baidu222</a>
+  <script>
+    window.addEventListener('beforeunload', function (event) {
+  if (true) {
+    // event.preventDefault();
+    return event.returnValue = '？';
+  }
+});
+  </script>
 </body>
 
 </html>
