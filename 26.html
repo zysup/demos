@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
-    <script>
-      // var myWorker = new Worker('./2.js', { name : 'myWorker' });
-      var fn = function abc(){
-        console.log('qwe 333', );
-      }
-      // fn()
-      // eval('alert(123)')
-      new Blob(['(' + fn.toString() + ')()'])
-      // (String(fn))()
 
-    </script>
+<body>
+  <button onclick="fn()">点击</button>
+  <script>
+    // var myWorker = new Worker('./2.js', { name : 'myWorker' });
+    var fn = function abc() {
+      console.log('qwe 333',);
+    }
+    // fn()
+    // eval('alert(123)')
+    new Blob(['(' + fn.toString() + ')()'])
+    // (String(fn))()
+
+
+    function debounce(f, wait) {
+      let timer
+      return (...args) => {
+        clearTimeout(timer)
+        // timer = setTimeout(() => f(...args), wait)
+        timer = setTimeout(f, ...args, wait)
+      }
+    }
+    fn = debounce(fn, 2000)
+  </script>
 </body>
+
 </html>
