@@ -20,9 +20,11 @@
 <script>
   // 防抖
   function fn() {
-    console.log('onkeydown触发...', this.value);
+    console.log('onkeydown触发...', this.value, arguments);
   }
-  ipt.onkeydown = debounce(fn, 2000, 1);
+  // ipt.onkeydown = debounce(fn, 2000, 1);
+  ipt.onkeydown = debounce2(fn, 2000, 1);
+  // ipt.onkeydown = fn;
   function debounce(fn, delay = 1000) {
     var timer = null;
     var args = arguments;
@@ -34,11 +36,20 @@
       }, delay);
     }
   }
+  // 防抖2，对比参数
+  function debounce2() {
+    let timer;
+    return function (...args) {
+      clearTimeout(timer)
+      timer = setTimeout(fn.bind(this), 2000, ...args);
+    }
+  }
 </script>
 
 <script>
   // 截流
-  window.addEventListener('scroll', scrollThrottler, false);
+  // window.addEventListener('scroll', scrollThrottler, false);
+  window.addEventListener('scroll', scrollThrottler2(actualScrollHandler));
 
   var scrollTimeout;
   function scrollThrottler() {
@@ -51,8 +62,23 @@
     }
   }
 
+  function scrollThrottler2(fn) {
+    var scrollTimeout;
+    console.log('截流函数调用',arguments);
+    return function (...args) {
+      console.log('qwe ', )
+      if (!scrollTimeout) {
+        scrollTimeout = setTimeout(function () {
+          scrollTimeout = null;
+          fn(...args);
+        }, 2000);
+      }
+
+    }
+  }
+
   function actualScrollHandler() {
-    console.log('逻辑处理...');
+    console.log('逻辑处理...',arguments);
   }
 </script>
 
