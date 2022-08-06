@@ -1,7 +1,9 @@
 /*
   1. 使用更直观的盒模型（box-sizing）
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -16,7 +18,8 @@
 /*
   3. 允许通过百分比设置应用的高度
 */
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -27,13 +30,17 @@ html, body {
 body {
   /* line-height: 1.2; */
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
 }
 
 /*
   6. 更合理的多媒体默认展示方式
 */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -41,20 +48,58 @@ img, picture, video, canvas, svg {
 /*
   7. 避免奇怪的默认文字风格
 */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /*
   8. 避免换行布局混乱
 */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
+
 /*
-  9. 叠层处理(react 开发时会用到)
+9. 叠层处理(react 开发时会用到)
 */
-#root, #__next {
+/* #root,
+#__next {
   isolation: isolate;
+} */
+
+
+ul,
+ol {
+  list-style: none;
 }
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+/* @media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+} */
