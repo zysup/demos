@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>找出泄漏的全局变量</title>
-</head>
-
-<body>
-  <script>
-    let a;
-    var b;
-    for (var c = 0; c < 3; c++) {
-      console.log('qwe c', c);
-    }
-  </script>
-
-</body>
-<script>
   /**
  * RuntimeGlobalsChecker
  * 
@@ -30,7 +9,7 @@
  * "window.__runtimeGlobalsChecker__.getRuntimeGlobals()".
  * 
  */
-  window.__runtimeGlobalsChecker__ = (function createGlobalsChecker() {
+   window.__runtimeGlobalsChecker__ = (function createGlobalsChecker() {
     // Globals on the window object set by default by the browser.
     // We collect them to then filter them out of from the list of globals (since
     // we don't care about them).
@@ -79,6 +58,3 @@
       getRuntimeGlobals,
     };
   })();
-</script>
-
-</html>

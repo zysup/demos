@@ -9,38 +9,58 @@
   <!-- <meta http-equiv="refresh" content="5"> -->
   <style>
     .zhang {
-      color: deeppink var(--color,);
+      color: deeppink var(--color, );
     }
 
     .xinxu {
-      --color:123;
-      --box-shadow: ,-10px -10px 5px red;
+      --color: 123;
+      --box-shadow: , -10px -10px 5px red;
       border: 1px solid red;
       width: min-content;
-      color: yellow var(--color,);
-      box-shadow: 12px 12px 14px blue var(--box-shadow,);
-      background: linear-gradient(deeppink, deepskyblue) var(--bgcolor,);
+      color: yellow var(--color, );
+      box-shadow: 12px 12px 14px blue var(--box-shadow, );
+      background: linear-gradient(deeppink, deepskyblue) var(--bgcolor, );
+    }
+
+    ul[role='list'],
+    ol[role='list'] {
+      list-style: none;
     }
   </style>
-
+  <script src="./js/html2json.js"></script>
 </head>
 
 <body>
   <p class="zhang">颜色是？</p>
   <p class="xinxu">颜色是？</p><br /><br />
   <a tabindex="0">点击我</a><br />
-  <a href >点击我</a><br />
+  <a href>点击我</a><br />
   <a href tabindex="10">点击我</a>
-  <a href="http://www.baidu.com" >baidu</a>
+  <a href="http://www.baidu.com">baidu</a>
   <a href="/39.html" target="_blank" rel="opener">baidu222</a>
   <script>
     window.addEventListener('beforeunload', function (event) {
-  if (true) {
-    // event.preventDefault();
-    return event.returnValue = '？';
-  }
-});
+      if (true) {
+        // event.preventDefault();
+        return event.returnValue = '？';
+      }
+    });
   </script>
+
+
+
+  <br />
+  <ul role="list">
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+  </ul>
+  <ol>
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+  </ol>
+  <audio src="sadf">asdf</audio>
 </body>
 
 </html>
