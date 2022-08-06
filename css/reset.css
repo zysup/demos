@@ -10,6 +10,7 @@
 */
 * {
   margin: 0;
+  /* scroll-behavior: smooth; */
 }
 
 /*
@@ -24,6 +25,7 @@ html, body {
   5. 优化text的渲染平滑度
 */
 body {
+  /* line-height: 1.2; */
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -51,7 +53,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /*
-  9. 叠层处理
+  9. 叠层处理(react 开发时会用到)
 */
 #root, #__next {
   isolation: isolate;
