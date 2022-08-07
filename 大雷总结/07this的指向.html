@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
 </head>
 
@@ -30,10 +29,24 @@
   }
   var f = new fn();
   var f1 = f.say();
-  f1()
+  // f1()
   // f1.bind({
   //   username: "lili"
   // })();
+
+  function Timer() {
+    this.time1 = 0;
+    this.time2 = 0;
+    setTimeout(() => {
+      console.log('qwe time1', this)
+      this.time1 += 1;
+    }, 1000);
+    setTimeout(function () {
+      console.log('qwe time2', this)
+      this.time2 += 1;
+    }, 1000);
+  }
+  new Timer;
 </script>
 
 </html>

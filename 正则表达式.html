@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>正则表达式</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  let { groups: { year, month } } = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec('2021-10-09')
+  console.log('qwe groups', year, month);
+  let bb = 'hello world'.replace(/(\w+) (\w+)/, '$2 $1')
+  console.log('qwe cc', bb);
+</script>
+
+</html>

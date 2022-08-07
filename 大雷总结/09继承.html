@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 </head>
 
 <body>
 
 </body>
 <script>
-    var person = {
-        username: "leson"
-    }
-    var yellowPerson = {
-        __proto__: person //内部原型链
-    }
-    alert(yellowPerson.username);
-    //yellowPerson.constructor.prototype  === Object.prototype ture
+  var person = {
+    username: "leson"
+  }
+  var yellowPerson = {
+    __proto__: person //内部原型链
+  }
+  console.log('qwe ', yellowPerson.username)
+  console.log('qwe ', yellowPerson.constructor.prototype === Object.prototype)
+
+  var rr = { aa: 123 }
+  var obj1 = {
+    __proto__: rr,
+    bb: 111
+  }
+  var obj2 = Object.assign(
+    Object.create(rr),
+    { bb: 222 }
+  )
+  var obj3 = Object.create(rr)
 </script>
 
 </html>
