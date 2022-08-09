@@ -20,10 +20,10 @@
 <script>
   // 防抖
   function fn() {
-    console.log('onkeydown触发...', this.value, arguments);
+    console.log('onkeydown触发... \n value => %s \n arguments => %s', this.value, Array.from(arguments));
   }
   // ipt.onkeydown = debounce(fn, 2000, 1);
-  ipt.onkeydown = debounce2(fn, 2000, 1);
+  ipt.onkeydown = debounce2(fn, 2000);
   // ipt.onkeydown = fn;
   function debounce(fn, delay = 1000) {
     var timer = null;
@@ -37,11 +37,12 @@
     }
   }
   // 防抖2，对比参数
-  function debounce2() {
+  function debounce2(fn, delay = 1000) {
     let timer;
     return function (...args) {
+      console.log('qwe ', args)
       clearTimeout(timer)
-      timer = setTimeout(fn.bind(this), 2000, ...args);
+      timer = setTimeout(fn.bind(this), delay, ...args);
     }
   }
 </script>
@@ -52,21 +53,21 @@
   window.addEventListener('scroll', scrollThrottler2(actualScrollHandler));
 
   var scrollTimeout;
-  function scrollThrottler() {
+  function scrollThrottler(fn) {
     console.log('滚动触发中...');
     if (!scrollTimeout) {
       scrollTimeout = setTimeout(function () {
         scrollTimeout = null;
-        actualScrollHandler();
+        fn();
       }, 2000);
     }
   }
 
   function scrollThrottler2(fn) {
     var scrollTimeout;
-    console.log('截流函数调用',arguments);
+    // console.log('截流函数调用', arguments);
     return function (...args) {
-      console.log('qwe ', )
+      console.log('qwe ',)
       if (!scrollTimeout) {
         scrollTimeout = setTimeout(function () {
           scrollTimeout = null;
@@ -78,7 +79,7 @@
   }
 
   function actualScrollHandler() {
-    console.log('逻辑处理...',arguments);
+    console.log('逻辑处理...', arguments);
   }
 </script>
 
