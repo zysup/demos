@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+  hello world
 </body>
 <script>
   function say() {
@@ -37,16 +37,31 @@
   function Timer() {
     this.time1 = 0;
     this.time2 = 0;
-    setTimeout(() => {
-      console.log('qwe time1', this)
-      this.time1 += 1;
-    }, 1000);
     setTimeout(function () {
-      console.log('qwe time2', this)
       this.time2 += 1;
+      console.log('qwe 我是普通函数里面的this', this)
+    }, 1000);
+    setTimeout(() => {
+      this.time1 += 1;
+      console.log('qwe 我是箭头函数里面的this', this)
     }, 1000);
   }
-  new Timer;
+  // new Timer;
+
+
+  var Something = function (element) {
+    this.name = 'Something Good';
+    this.onclick1 = function (event) {
+      console.log(this);
+    };
+    this.onclick2 = function (event) {
+      console.log(this.name);
+    };
+    element.addEventListener('click', this.onclick1, false);
+    element.addEventListener('click', this.onclick2.bind(this), false);
+    console.log('qwe ', this)
+  }
+  // new Something(document.body);
 </script>
 
 </html>
