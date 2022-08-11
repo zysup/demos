@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  async function fetchText() {
+    let response = await fetch('./1.json');
+    console.log('qwe response', response);
+    let aa = await response.json()
+    console.log('qwe aa', aa);
+  }
+  fetchText()
+</script>
+
+</html>
