@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="//unpkg.com/@element-plus/icons-vue"></script> -->
+  <!-- <script type="importmap">
+    {
+      "imports": {
+         "fmt/": "https://deno.land/std@0.103.0/fmt/"
+      }
+   }
+
+  </script> -->
+  <script src="/1.mjs"></script>
+</head>
+
+<body>
+  <button id="btn">按钮</button>
+  <script>
+    // console.log(import.meta)
+    function dosomething() {
+      console.log('qwe ',)
+      return true
+    }
+    btn.onclick = () => dosomething()
+  </script>
+
+  <script type="module">
+    // import  './1.mjs?a=1'
+    // console.log('qwe ', aa)
+    // console.log(import.meta)
+    // let b = new URL(import.meta.url)
+    // console.log('qwe ', b)
+    // import { red } from "fmt/colors.ts";
+
+    // console.log(red("hello world"));
+
+  </script>
+</body>
+
+</html>
