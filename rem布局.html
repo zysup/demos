@@ -7,6 +7,7 @@
   <title>rem布局</title>
   <script>
     (function (doc, win) {
+      return
       var docEl = doc.documentElement,
         // resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
         recalc = function () {
@@ -30,9 +31,9 @@
       }
     })(document, window);
   </script>
-  <style>
+  <style style="display: none;">
     html {
-      /* font-size: 26.667vw; */
+      font-size: 26.667vw;
       /* font-size: 100px; */
       margin: 0 auto;
       max-width: 414px;
@@ -49,6 +50,14 @@
     div {
       /* font-size: 0.32rem; */
       font-size: 0.16rem;
+    }
+  </style>
+  <style>
+    html {
+      font-size: 0.26667vw;
+    }
+    div {
+      font-size: 16rem;
     }
   </style>
 </head>
