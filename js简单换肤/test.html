@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- https://www.zhangxinxu.com/wordpress/2019/02/link-rel-alternate-website-skin/ -->
 
 <head>
   <meta charset="UTF-8">
@@ -63,8 +64,8 @@
   <hr>
   <br>
   <button onclick="changetheme2()">默认</button>
-  <button onclick="changetheme2('#ff8888', '#ffffff')">红色</button>
-  <button onclick="changetheme2('#008800', '#ffff88')">绿色</button>
+  <button onclick="changetheme2(1)">红色</button>
+  <button onclick="changetheme2(2)">绿色</button>
   --CSS 变量换肤(要注册很多css变量)
   <hr>
   <br>
@@ -145,10 +146,41 @@
 </script>
 
 <script title="变量换肤">
-  function changetheme2(bgcolor = '#ffffcc', textcolor = '#000000') {
+  // function changetheme2(bgcolor = '#ffffcc', textcolor = '#000000') {
+  function changetheme2(flag) {
     clear(2)
-    document.documentElement.style.setProperty("--theme-bg-color", bgcolor);
-    document.documentElement.style.setProperty("--theme-text-color", textcolor);
+    // document.documentElement.style.setProperty("--theme-bg-color", bgcolor);
+    // document.documentElement.style.setProperty("--theme-text-color", textcolor);
+
+    let theme, strcontant = ''
+    const theme1 = {
+      "bg-color": '#ff8888',
+      "text-color":' #ffffff'
+    }
+    const theme2 = {
+      "bg-color": '#008800',
+      "text-color": '#ffff88',
+    }
+    theme = flag === 1 ? theme1 : theme2
+    for (const key in theme) {
+      if (Object.hasOwnProperty.call(theme, key)) {
+        const element = theme[key];
+        console.log('qwe ', key, element)
+        strcontant += `\n  --theme-${key}: ${element};`
+      }
+    }
+    strcontant = `:root {${strcontant}}\n`
+    
+    let themeEle = document.getElementById('theme')
+    if (!themeEle) {
+      let style = document.createElement('style')
+      style.id = 'theme'
+      style.type = 'text/css'
+      document.head.appendChild(style)
+    } else {
+      themeEle.innerHTML = strcontant
+    }
+
   }
 </script>
 
