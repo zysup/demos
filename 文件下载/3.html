@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>location.href 下载</title>
+</head>
+
+<body>
+  <button onclick="download('http://127.0.0.1:5500/download/test-pptx.pptx')">location.href下载</button>
+  <button onclick="download('/download/test-pptx.pptx')">location.href下载</button>
+  <script>
+    function download(url) {
+      window.location.href = url;
+    }
+  </script>
+</body>
+
+</html>
