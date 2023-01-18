@@ -1,6 +1,7 @@
 
 var bb = {
   cc: undefined,
+  // dd: null
 }
 /**
  * 这个方法不严谨
