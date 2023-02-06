@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      position: relative;
+    }
+    .boss {
+      outline: 1px solid red;
+      /* position: fixed; */
+      /* inset: 0; */
+      /* inset-block: 0; */
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height: 300px;
+    padding: 50px;
+
+    }
+    .test {
+      margin-top: 10%;
+      display: inline-block;
+      position: absolute;
+      width: 100px;
+      /* margin-block: 50px;
+      border-block: 1px solid green;
+      border-inline: 1px solid red; */
+    }
+    p {
+      text-align: center;
+      direction: rtl;
+    }
+    p span {
+      display: inline-block;
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="boss">
+    <!-- <div>999</div> -->
+    <span class="test">abc</span>
+  </div>
+  <p>
+    <span class="confirm">确定</span>
+    <span class="cancel">取消</span>
+  </p>
+</body>
+</html>
