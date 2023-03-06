@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- https://www.zhangxinxu.com/wordpress/2019/02/link-rel-alternate-website-skin/ -->
+<!-- https://www.zhangxinxu.com/wordpress/2019/02/link-rel-alternate-website-skin/ -->
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>简单换肤</title>
   <link rel="stylesheet" href="./css/default.css" id="changelink">
 
@@ -155,7 +154,7 @@
     let theme, strcontant = ''
     const theme1 = {
       "bg-color": '#ff8888',
-      "text-color":' #ffffff'
+      "text-color": ' #ffffff'
     }
     const theme2 = {
       "bg-color": '#008800',
@@ -170,7 +169,7 @@
       }
     }
     strcontant = `:root {${strcontant}}\n`
-    
+
     let themeEle = document.getElementById('theme')
     if (!themeEle) {
       let style = document.createElement('style')

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>content: url</title>
+    <style>
+        .boss{
+            width: 400px;
+            height: 200px;
+            content: url(./images/小汽车.svg);
+            outline: 1px solid red;
+        }
+        .boss1{
+            width: 400px;
+            height: 200px;
+            content: url('./images/元素福.png');
+            object-fit: contain;
+            object-fit: scale-down;
+            object-fit: cover;
+            object-fit: fill;
+            object-fit: none;
+            object-position: right top;
+            object-position: left bottom;
+            outline: 1px solid green;
+            background-color: #dfd;
+        }
+        .boss2::after {
+            width: 400px;
+            height: 200px;
+            content: url('./images/元素福.png');
+            outline: 1px solid blue;
+        }
+        .boss3{
+            width: 400px;
+            height: 200px;
+            content: url();
+            outline: 1px solid black;
+        }
+        span{
+            display: block;
+            border: outset 1em;
+            border: inset 1em;
+            border: ridge 1em;
+            border: groove .6em;
+        }
+        img{
+            width: 300px;
+            height: 500px;
+            outline: solid;
+            object-fit: cover;
+            border: inset;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boss">
+        Hello World
+    </div>
+    <div class="boss1">
+        Hello World
+    </div>
+    <div class="boss2">
+        Hello World
+    </div>
+    <div class="boss3">
+        Hello World
+    </div>
+    <span>qwe</span>
+    <img src="./images/eye.png" alt="">
+</body>
+
+</html>

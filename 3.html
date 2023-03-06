@@ -53,10 +53,16 @@
   
 </body>
 <script>
+  console.log('qwe window.name', window.name)
+
   btn.onclick = function (){
     // window.name = 'ab'
     // let aa = window.open('http://www.baidu.com', '', 'height=1500,width=1500,location=no,status=yes,resizable=yes,scrollbars=yes')
-    let aa = window.open('2.html', 'a', ' sdf')
+    console.log('qwe aaa', localStorage.aaa)
+    console.log('qwe  window.name',  window.name)
+    localStorage.aaa = 123
+    window.name = 'aaa'
+    let aa = window.open('3.html')
     // location.href = 'http://127.0.0.1:5501/2.html'
     // console.log('qwe aa', aa)
     // setTimeout(() => {
@@ -66,8 +72,8 @@
   }
   btn2.onclick = function (){
     // window.name = 'ab'
-    // let aa = window.open('http://www.baidu.com', '', 'height=1500,width=1500,location=no,status=yes,resizable=yes,scrollbars=yes')
-    let aa = window.open('http://www.baidu.com', 'b','qew')
+    let aa = window.open('http://www.baidu.com', '', 'height=1500,width=1500,location=no,status=yes,resizable=yes,scrollbars=yes')
+    // let aa = window.open('http://www.baidu.com', 'b','qew')
     // location.href = 'http://127.0.0.1:5501/2.html'
     // console.log('qwe aa', aa)
     // setTimeout(() => {
@@ -75,20 +81,20 @@
       
     // }, 2000);
   }
-  let aa = '你好吗'
+  // let aa = '你好吗'
   // let cc = {
   //     你: '我',
   //     好: '来',
   //     吗: '了',
   //   }
-  let bb = aa.replace(/[\u4e00-\u9fa5]{1}/g, function (match) {
-    console.log('qwe ', match)
-    return ({
-      你: '我',
-      好: '来',
-      吗: '了',
-    })[match]
-  })
-  console.log('qwe bb', bb)
+  // let bb = aa.replace(/[\u4e00-\u9fa5]{1}/g, function (match) {
+  //   console.log('qwe ', match)
+  //   return ({
+  //     你: '我',
+  //     好: '来',
+  //     吗: '了',
+  //   })[match]
+  // })
+  // console.log('qwe bb', bb)
 </script>
 </html>

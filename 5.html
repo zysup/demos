@@ -40,7 +40,9 @@
     }
 
     @keyframes fadeIn {
-      0%, 100% {
+
+      0%,
+      100% {
         /* opacity: 0; */
         width: 300px;
       }
@@ -55,13 +57,39 @@
 
 <body>
 
-  <body>
     <!-- <section>
       <p>This is a paragraph!</p>
     </section> -->
     <img src="./images/girl.png" alt="" />
-  </body>
 
 </body>
+
+<script>
+  // console.log(123);
+  // alert()
+  let data = {
+    type: 1,
+  }
+  let payload = {
+    data,
+    id: 123,
+  }
+  function getUrl(params) {
+    console.log('qwe ', JSON.stringify(params) )
+  }
+  data.type = 2
+  getUrl(payload)
+
+  function aaaa() {
+    try {
+      return JSON.parse('""')
+    } catch (error) {
+      return 'qwe'
+    }
+  }
+
+  console.log('qwe aaaa', aaaa())
+
+</script>
 
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 26.667vw;">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+</body>
+<script>
+
+  const arr = [
+    {name:'zhangsan', age: 18},
+    {name:'lisi', age: 28}
+  ]
+  function fn(arr) {
+    
+    arr = JSON.parse(JSON.stringify(arr))
+    arr[0].name = 'wangwu'
+    console.log('qwe arr fn', arr)
+  }
+  fn(arr)
+  function fn2(arr) {
+    console.log('qwe arr', arr)
+    console.log('qwe arr', JSON.stringify(arr))
+    
+  }
+  fn2(arr)
+
+</script>
+</html>
