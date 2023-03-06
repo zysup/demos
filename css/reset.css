@@ -108,3 +108,7 @@ html:focus-within {
 em, i {
   font-style: normal;
 }
+/*表格元素相邻的单元格共用同一条边框*/
+table {
+  border-collapse: collapse;
+}

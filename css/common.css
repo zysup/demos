@@ -1,21 +1,6 @@
-table {
-  border-collapse: collapse;
-}
+/*全局类名写在这里*/
 
-.g-tal {
-  text-align: left;
-}
-.g-tar {
-  text-align: right;
-}
-.g-tac {
-  text-align: center;
-}
-.g-fwb {
-  font-weight: bold;
-}
-
-
+/* #region 字体样式相关 */
 .g-fs10 {
   font-size: 10px;
 }
@@ -34,15 +19,483 @@ table {
 .g-fs20 {
   font-size: 20px;
 }
+.g-tal {
+  text-align: left;
+}
+.g-tar {
+  text-align: right;
+}
+.g-tac {
+  text-align: center;
+}
+.g-fwb {
+  font-weight: bold;
+}
+/* #endregion 字体样式相关 */
 
-.g-toe{
+/* #region 弹性盒布局 */
+.g-df {
+  display: flex;
+}
+.g-f1 {
+  flex: 1;
+}
+
+/* .g-fdr{
+  flex-direction: row;
+} */
+.g-fdrr {
+  flex-direction: row-reverse;
+}
+.g-fdc {
+  flex-direction: column;
+}
+.g-fdcr {
+  flex-direction: column-reverse;
+}
+
+/* .g-fwn{
+  flex-wrap: nowrap;
+} */
+.g-fww {
+  flex-wrap: wrap;
+}
+.g-fwwr {
+  flex-wrap: wrap-reverse;
+}
+
+/* .g-jcfs {
+  justify-content: flex-start;
+} */
+.g-jcfe {
+  justify-content: flex-end;
+}
+.g-jcc {
+  justify-content: center;
+}
+.g-jcsb {
+  justify-content: space-between;
+}
+.g-jcsa {
+  justify-content: space-around;
+}
+.g-jcse {
+  justify-content: space-evenly;
+}
+
+/* .g-ais {
+  align-items: stretch;
+} */
+.g-aifs {
+  align-items: flex-start;
+}
+.g-aife {
+  align-items: flex-end;
+}
+.g-aic {
+  align-items: center;
+}
+.g-aib {
+  align-items: baseline;
+}
+
+/* .g-acs {
+  align-content: stretch;
+} */
+.g-acfs {
+  align-content: flex-start;
+}
+.g-acfe {
+  align-content: flex-end;
+}
+.g-acc {
+  align-content: center;
+}
+.g-acsb {
+  align-content: space-between;
+}
+.g-acsa {
+  align-content: space-around;
+}
+.g-acse {
+  align-content: space-evenly;
+}
+
+/* .g-asa{
+  align-self: auto;
+} */
+.g-asfs {
+  align-self: flex-start;
+}
+.g-asfe {
+  align-self: flex-end;
+}
+.g-asc {
+  align-self: center;
+}
+.g-asb {
+  align-self: baseline;
+}
+.g-ass {
+  align-self: stretch;
+}
+/* #endregion 弹性盒布局 */
+
+/* #region 定位相关*/
+.g-pa {
+  position: absolute;
+}
+.g-pr {
+  position: relative;
+}
+.g-pf {
+  position: fixed;
+}
+.g-ps {
+  position: sticky;
+}
+/* #endregion  定位相关*/
+
+.g-db {
+  display: block;
+}
+.g-dib {
+  display: inline-block;
+}
+.g-dn {
+  display: none;
+}
+.g-o0 {
+  opacity: 0;
+}
+.g-vh {
+  visibility: hidden;
+}
+.g-cp {
+  cursor: pointer;
+}
+
+.g-ellipsis {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  display: block;
+}
+.g-ellipsis2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-.g-clear:after {
+/* .g-clear::after {
   content: '';
   display: block;
   clear: both;
+} */
+
+/* #region 圆角 */
+.g-br4 {
+  border-radius: 4px;
 }
+.g-br8 {
+  border-radius: 8px;
+}
+/* #endregion 圆角 */
+
+/* #region 内外边距 */
+.g-ml2 {
+  margin-left: 2px;
+}
+.g-ml4 {
+  margin-left: 4px;
+}
+.g-ml6 {
+  margin-left: 6px;
+}
+.g-ml8 {
+  margin-left: 8px;
+}
+.g-ml10 {
+  margin-left: 10px;
+}
+.g-ml12 {
+  margin-left: 12px;
+}
+.g-ml14 {
+  margin-left: 14px;
+}
+.g-ml16 {
+  margin-left: 16px;
+}
+.g-ml18 {
+  margin-left: 18px;
+}
+.g-ml20 {
+  margin-left: 20px;
+}
+.g-mr2 {
+  margin-right: 2px;
+}
+.g-mr4 {
+  margin-right: 4px;
+}
+.g-mr6 {
+  margin-right: 6px;
+}
+.g-mr8 {
+  margin-right: 8px;
+}
+.g-mr10 {
+  margin-right: 10px;
+}
+.g-mr12 {
+  margin-right: 12px;
+}
+.g-mr14 {
+  margin-right: 14px;
+}
+.g-mr16 {
+  margin-right: 16px;
+}
+.g-mr18 {
+  margin-right: 18px;
+}
+.g-mr20 {
+  margin-right: 20px;
+}
+.g-mx2 {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.g-mx4 {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.g-mx6 {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+.g-mx8 {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.g-mx10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.g-mx12 {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.g-mx14 {
+  margin-left: 14px;
+  margin-right: 14px;
+}
+.g-mx16 {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.g-mx18 {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+.g-mx20 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.g-my2 {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.g-my4 {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.g-my6 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.g-my8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.g-my10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.g-my12 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.g-my14 {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.g-my16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.g-my18 {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+.g-my20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.g-pl2 {
+  padding-left: 2px;
+}
+.g-pl4 {
+  padding-left: 4px;
+}
+.g-pl6 {
+  padding-left: 6px;
+}
+.g-pl8 {
+  padding-left: 8px;
+}
+.g-pl10 {
+  padding-left: 10px;
+}
+.g-pl12 {
+  padding-left: 12px;
+}
+.g-pl14 {
+  padding-left: 14px;
+}
+.g-pl16 {
+  padding-left: 16px;
+}
+.g-pl18 {
+  padding-left: 18px;
+}
+.g-pl20 {
+  padding-left: 20px;
+}
+.g-pr2 {
+  padding-right: 2px;
+}
+.g-pr4 {
+  padding-right: 4px;
+}
+.g-pr6 {
+  padding-right: 6px;
+}
+.g-pr8 {
+  padding-right: 8px;
+}
+.g-pr10 {
+  padding-right: 10px;
+}
+.g-pr12 {
+  padding-right: 12px;
+}
+.g-pr14 {
+  padding-right: 14px;
+}
+.g-pr16 {
+  padding-right: 16px;
+}
+.g-pr18 {
+  padding-right: 18px;
+}
+.g-pr20 {
+  padding-right: 20px;
+}
+.g-px2 {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.g-px4 {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.g-px6 {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.g-px8 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.g-px10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.g-px12 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.g-px14 {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.g-px16 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.g-px18 {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.g-px20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.g-py2 {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.g-py4 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.g-py6 {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.g-py8 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.g-py10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.g-py12 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.g-py14 {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.g-py16 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.g-py18 {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.g-py20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* #endregion 内外边距 */
+
+/* #region 自定义动画 */
+.g-rotate360 {
+  animation: rotate360 1s ;
+}
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* #endregion 自定义动画 */
