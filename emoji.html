@@ -21,8 +21,9 @@
 <script>
   let el = document.getElementById('emojibox')
   const start = 0x1F601
+  // const start = 0x1F101
   let htmlStr = ''
-  for (let i = 0; i < 1500; i++) {
+  for (let i = 0; i < 3000; i++) {
     htmlStr += `<span>${String.fromCodePoint(start + i)}</span>`
   }
   emojibox.innerHTML = htmlStr
