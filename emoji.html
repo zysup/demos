@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>emoji</title>
+  <style>
+    html {
+      font-size: 32px;
+    }
+  </style>
+</head>
+
+<body>
+  <p id="emojibox"></p>
+  <br /><hr />
+  <p id="emojibox2"></p>
+</body>
+<script>
+  let el = document.getElementById('emojibox')
+  const start = 0x1F601
+  let htmlStr = ''
+  for (let i = 0; i < 1500; i++) {
+    htmlStr += `<span>${String.fromCodePoint(start + i)}</span>`
+  }
+  emojibox.innerHTML = htmlStr
+  emojibox2.innerHTML = '😀😃😄😁😆😅🤣😂🙂🙃 😉 😊 😇 🥰 😍 🤩 😘 😗 ☺ 😚 😙 🥲 😋 😛 😜 🤪 😝 🤑 🤗 🤭 🤫 🤔 🤐 🤨 😐 😑 😶 😏 😒 🙄 😬 🤥 😌 😔 😪 🤤 😴 😷 🤒 🤕 🤢 🤮 🤧 🥵 🥶 🥴 😵 🤯 🤠 🥳 🥸 😎 🤓 🧐 😕 😟 🙁 ☹ 😮 😯 😲 😳 🥺 😦 😧 😨 😰 😥 😢 😭 😱 😖 😣 😞 😓 😩 😫 🥱 😤 😡 😠 🤬 😈 👿 💀 ☠ * 🤡 👹 👺 👻 👽 👾 🤖 😺 😸 😹 😻 😼 😽 🙀 😿 😾 🙈 🙉 🙊 💋 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣ 💔 ❤ 🧡 💛 💚 💙 💜 🤎 🖤 🤍 💯 💢 💥 💫 💦 💨 🕳 💣 💬 👁‍🗨 🗨 🗯 💭 💤'
+</script>
+
+</html>
