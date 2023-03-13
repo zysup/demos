@@ -16,14 +16,22 @@
 <body>
   <input type="text" id="ipt">
 </body>
-
-<script>
+<!-- <script src="../js/utils.js"></script> -->
+<script type="module">
+  import utils, {throttle,formatDate} from '../js/utils.js'
+  console.log(formatDate(Date.now(), 'yyyy/M/d h:m:s'))
+  function fn() {
+    console.log('onkeydown触发... \n value => %s \n arguments => %s', this.value, Array.from(arguments));
+  }
+  ipt.onkeydown = throttle(fn, 2000, { leading: true, trailing: false });
+</script>
+<script type="abc">
   // 防抖
   function fn() {
     console.log('onkeydown触发... \n value => %s \n arguments => %s', this.value, Array.from(arguments));
   }
-  // ipt.onkeydown = debounce(fn, 2000, 1);
-  ipt.onkeydown = debounce2(fn, 2000);
+  ipt.onkeydown = debounce(fn, 2000, 1);
+  // ipt.onkeydown = debounce2(fn, 2000);
   // ipt.onkeydown = fn;
   function debounce(fn, delay = 1000) {
     var timer = null;
@@ -47,7 +55,7 @@
   }
 </script>
 
-<script>
+<script type="abc">
   // 截流
   // window.addEventListener('scroll', scrollThrottler, false);
   window.addEventListener('scroll', scrollThrottler2(actualScrollHandler));
