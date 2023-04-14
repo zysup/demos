@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>骨架屏动画</title>
+  <style>
+    .is-loading {
+      /* 宽度和高度根据要展示元素大小设定 */
+      width: 500px;
+      height: 500px;
+      position: relative;
+      margin: 0 auto;
+      top: 100px;
+
+      /* 以下代码实现背景动画效果 */
+      animation: loading 1.4s ease infinite;
+      background-image: linear-gradient(90deg, #f0f0f0 25%, #e3e3e3 37%, #f0f0f0 63%);
+      background-size: 400% 100%
+    }
+
+    @keyframes loading {
+      0% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0 50%
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="is-loading"></div>
+</body>
+
+</html>
