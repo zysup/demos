@@ -32,6 +32,7 @@
     p {
       text-align: center;
       direction: rtl;
+      text-orientation: sideways-right;
     }
     p span {
       display: inline-block;
@@ -45,8 +46,8 @@
     <span class="test">abc</span>
   </div>
   <p>
-    <span class="confirm">确定</span>
-    <span class="cancel">取消</span>
+    <span class="confirm" onclick="alert(123)">确定</span>
+    <span class="cancel" onclick="alert(456)">取消</span>
   </p>
   <button id="btn">打开新窗口</button>
   <button id="btn2">打开新窗口2</button>
@@ -58,21 +59,21 @@
   btn.onclick = function (){
     // window.name = 'ab'
     // let aa = window.open('http://www.baidu.com', '', 'height=1500,width=1500,location=no,status=yes,resizable=yes,scrollbars=yes')
-    console.log('qwe aaa', localStorage.aaa)
-    console.log('qwe  window.name',  window.name)
-    localStorage.aaa = 123
-    window.name = 'aaa'
-    let aa = window.open('3.html')
+    // console.log('qwe aaa', localStorage.aaa)
+    // console.log('qwe  window.name',  window.name)
+    // localStorage.aaa = 123
+    // window.name = 'aaa'
+    let aa = window.open('3.html','qwe999')
     // location.href = 'http://127.0.0.1:5501/2.html'
     // console.log('qwe aa', aa)
-    // setTimeout(() => {
-    //   aa.location =  'http://www.baidu.com'
+    setTimeout(() => {
+      aa.location =  'http://www.baidu.com'
       
-    // }, 2000);
+    }, 2000);
   }
   btn2.onclick = function (){
     // window.name = 'ab'
-    let aa = window.open('http://www.baidu.com', '', 'height=1500,width=1500,location=no,status=yes,resizable=yes,scrollbars=yes')
+    let aa = window.open('http://www.baidu.com', 'qwe333', 'height=500,width=500,location=no,status=yes,resizable=yes,scrollbars=yes')
     // let aa = window.open('http://www.baidu.com', 'b','qew')
     // location.href = 'http://127.0.0.1:5501/2.html'
     // console.log('qwe aa', aa)
@@ -81,20 +82,16 @@
       
     // }, 2000);
   }
-  // let aa = '你好吗'
-  // let cc = {
-  //     你: '我',
-  //     好: '来',
-  //     吗: '了',
-  //   }
-  // let bb = aa.replace(/[\u4e00-\u9fa5]{1}/g, function (match) {
-  //   console.log('qwe ', match)
-  //   return ({
-  //     你: '我',
-  //     好: '来',
-  //     吗: '了',
-  //   })[match]
-  // })
-  // console.log('qwe bb', bb)
+  let aa = '你好吗'
+  let cc = {
+      你: '我',
+      好: '来',
+      吗: '了',
+    }
+  let bb = aa.replace(/[\u4e00-\u9fa5]{1}/g, function (match) {
+    console.log('qwe ', match)
+    return cc[match]
+  })
+  console.log('qwe bb', bb)
 </script>
 </html>

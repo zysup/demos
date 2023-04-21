@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <!-- <script src="//unpkg.com/@element-plus/icons-vue"></script> -->
-  <!-- <script type="importmap">
+  <script type="importmap">
     {
       "imports": {
          "fmt/": "https://deno.land/std@0.103.0/fmt/"
       }
    }
 
-  </script> -->
-  <script src="/1.mjs"></script>
+  </script>
+  <!-- <script src="/1.mjs"></script> -->
 </head>
 
 <body>
@@ -23,15 +23,18 @@
   <script>
     // console.log(import.meta)
     function dosomething() {
-      console.log('qwe ',)
-      return true
+      // console.log('qwe ',)
+      return console.log('qwe ',)
     }
     btn.onclick = () => dosomething()
   </script>
 
   <script type="module">
-    // import  './1.mjs?a=1'
-    // console.log('qwe ', aa)
+    import './1.mjs?a=1'
+    setTimeout(() => {
+      console.log('qwe ', aaa)
+
+    }, 100);
     // console.log(import.meta)
     // let b = new URL(import.meta.url)
     // console.log('qwe ', b)
