@@ -16,11 +16,10 @@
       window.onresize = function resize(params) {
         boss.innerText = window.screen.orientation.type
         boss2.innerText = window.screen.orientation.angle
-        // document.write('<span>'+window.screen.orientation+'</span>')
       }
 
       screen.orientation.onchange = function(e) { 
-        alert(e)
+        console.log(e)
        }
     </script>
 </body>
