@@ -295,6 +295,28 @@ Date.prototype.formatDate = function (fmt) {
   return formatDate(this.getTime(), fmt);
 }
 
+/**
+ * url查询字符串转对象
+ * @param {string} search url查询字符串
+ * @returns {object}
+ */
+export function getUrlSearchParams(search) {
+  let obj = {}
+  try {
+    search = search.match(/\?([^#]+)/)[1]
+    const arr = search.split('&')
+    for (const item of arr) {
+      const subArr = item.split('=')
+      const key = decodeURIComponent(subArr[0])
+      const value = decodeURIComponent(subArr[1])
+      obj[key] = value
+    }
+    return obj
+  } catch (e) {
+    return obj
+  }
+}
+
 
 export default {
   isEmptyObject,
@@ -308,6 +330,7 @@ export default {
   sleep,
   deepCopy,
   formatDate,
+  getUrlSearchParams,
 }
 
 
