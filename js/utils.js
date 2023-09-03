@@ -317,6 +317,15 @@ export function getUrlSearchParams(search) {
   }
 }
 
+/**
+ * 休眠xxxms
+ * @param {time} number 延迟多少毫秒 
+ */
+export function dely(time) {
+  const start = Date.now()
+  while (Date.now() - start < time) { }
+}
+
 
 export default {
   isEmptyObject,
@@ -328,6 +337,7 @@ export default {
   debounce,
   throttle,
   sleep,
+  dely,
   deepCopy,
   formatDate,
   getUrlSearchParams,
