@@ -15,6 +15,9 @@
   <div id="boss2">
     &lt;span&gt;by zhangxinxu&lt;/span&gt;
   </div>
+  <div id="boss3">
+    a<span hidden>b</span><style>#boss3{color: red}</style><script>const a=123;</script>
+  </div>
   <script>
     let textNode = document.createTextNode('<span>by zhangxinxu</span>');
     let div = document.createElement('div');
@@ -32,6 +35,9 @@
     
     console.log('qwe boss2', boss2.innerHTML)
     console.log('qwe boss2', boss2.innerText)
+
+    console.log('qwe boss3', boss3.innerText)
+    console.log('qwe boss3', boss3.textContent)
   </script>
 </body>
 
