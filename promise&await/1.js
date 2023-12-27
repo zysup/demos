@@ -11,10 +11,13 @@ const fetchUser = (id) => {
  
 const cache = {};
 const cacheFetchUser = (id) => {
+  console.log('qwe 1', )
   if (cache[id]) {
     return cache[id];
   }
+  console.log('qwe ', )
   cache[id] = fetchUser(id);
+  console.log('qwe 2', )
   return cache[id];
 };
 
