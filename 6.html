@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    @scope(nav) {
+      :scope {
+        border: double red;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          border: 2px solid blue;
+
+          a {
+            display: block;
+            padding: 6px 12px;
+            text-decoration: none;
+            background: pink;
+          }
+        }
+      }
+
+
+    }
+
+    p {
+      outline: 1px solid red;
+      overflow: hidden;
+      resize: both;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="">链接1</a></li>
+      <li><a href="">链接2</a></li>
+      <li><a href="">链接3</a></li>
+    </ul>
+  </nav>
+  <p><a>我呢？</a></p>
+  <a href="">sadf</a>
+
+  <p>感谢您的支持!</p>
+</body>
+
+</html>
