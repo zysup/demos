@@ -19,13 +19,17 @@
   }
 
   let showUserInfo = function (user) {
-    return getUserInfo()
-      .then(info => {
-        return info;
-      }).then((info) => {
-        console.log('showUserInfo 获取到了用户信息', info);
-        return 'qwe'
-      }).finally(() => {
+    return getUserInfo().catch(() => { }).then((res) => {
+      return res
+      console.log(res)
+    })
+      // .then(info => {
+      //   return info;
+      // }).then((info) => {
+      //   console.log('showUserInfo 获取到了用户信息', info);
+      //   return 'qwe'
+      // })
+      .finally(() => {
         console.log('showUserInfo finally',)
       });
   }
@@ -45,17 +49,20 @@
   }
   // 执行代码示意
   showToast();
-  Promise.all([showUserInfo(), timeout(200, 999)]).then(([a, b]) => {
+  // console.log('qwe', showUserInfo())
+  Promise.all([showUserInfo(), timeout(2000, 999)]).then(([a, b]) => {
     console.log('qwe ', a, b);
     hideToast();
   });
 
 
-  Promise.all([Promise.resolve(123), Promise.reject(456)]).then(vue => {
-    // console.log('qwe ,000009999999555',);
-  }).catch(() => {
-    // console.log('qwe 111',);
-  });
+
+
+  // Promise.all([Promise.resolve(123), Promise.resolve(456)]).then(vue => {
+  //   console.log('qwe', vue);
+  // }).catch(() => {
+  //   console.log('qwe 111',);
+  // });
 </script>
 
 </html>
