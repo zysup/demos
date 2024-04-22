@@ -6,6 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <style>
+    :root {
+      --mode: 'unknown';
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+      /* 黑暗模式 */
+      :root {
+        --abc: 123;
+        --mode: "dark";
+        --colorLink: #bfdbff;
+        --colorMark: #cc0000;
+        --colorText: #ffffff;
+        --colorLight: #777777;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+
+      /* 浅色主题 */
+      :root {
+        --mode: "light";
+        --colorLink: #34538b;
+        --colorMark: #cc0000;
+        --colorText: #000000;
+        --colorLight: #cccccc;
+      }
+    }
+
+    :root:root {
+      color: blue;
+    }
+
+    :root {
+      color: red;
+    }
+
     .space a {
       display: inline-block;
       padding: .5em 1em;
@@ -32,9 +69,8 @@
   <div class="space">
     <!-- <a href="##">惆怅</a>
     <a href="##">淡定</a> <a href="##">热血</a>
-    asdfx
-    <img src="./images/01.jpg" alt="" srcset="" /> -->
-    <img src="./images/01.jpg" alt="" srcset="" /><span>xxx</span>
+    asdfx -->
+    <img src="./images/01.jpg" alt="" srcset="" /><img src="./images/01.jpg" alt="" srcset="" /><span>xyx</span>
     <!-- <input type="text" /><input type="text" /> -->
   </div>
 </body>
