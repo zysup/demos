@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>模拟select实现hover效果</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .big-box {
+      width: 300px;
+      height: 32px;
+      line-height: 32px;
+      margin: 30vh auto;
+
+      #show_box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1em;
+        border-radius: 10px;
+        outline: 1px solid pink;
+
+        span {
+          height: 32px;
+        }
+
+        img {
+          width: 16px;
+          height: 16px;
+          transition: transform .3s;
+        }
+      }
+
+      #show_box.active {
+        border-radius: 10px 10px 0 0;
+
+        img {
+          transform: scaleY(-1);
+        }
+      }
+
+      ul {
+        border-radius: 0 0 10px 10px;
+        cursor: pointer;
+        list-style: none;
+        display: none;
+        outline: 1px solid pink;
+        transform: translateY(1px);
+      }
+
+      ul.active {
+        display: block;
+      }
+
+      li {
+        padding-left: .5em;
+      }
+
+      li:hover,li.active {
+        background-color: paleturquoise;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="big-box">
+    <div id="show_box">
+      <span id="text_box"></span>
+      <img src="./images/icon/svg/arrow-down-bold.svg" alt="" />
+    </div>
+    <ul id="be_select" tabindex="0">
+      <li>Option 1</li>
+      <li>Option 2</li>
+      <li>Option 3</li>
+      <li>Option 4</li>
+      <li>Option 5</li>
+      <li>Option 6</li>
+    </ul>
+  </div>
+</body>
+<script>
+  show_box.onclick = function () {
+    be_select.classList.toggle("active")
+    show_box.classList.toggle("active")
+    setTimeout(() => {
+      document.querySelectorAll('li').forEach((el) => {
+        el.classList.remove('active')
+        if (el.innerText === text_box.innerText) {
+          el.classList.add('active')
+        }
+      })
+
+    });
+  }
+  be_select.onclick = function (evt) {
+    console.log(evt.target.nodeName)
+    if (evt.target.nodeName === 'LI') {
+      text_box.innerText = evt.target.innerText
+      be_select.classList.toggle("active")
+      show_box.classList.toggle("active")
+    }
+  }
+</script>
+
+</html>
