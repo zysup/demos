@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    zxx-grid {
+      display: grid;
+      grid-template: 1fr 2fr / 1fr 1fr;
+      /* grid-template-rows: 1fr 1fr; */
+      grid-auto-flow: column;
+    }
+
+    zxx-item {
+      outline: 1px solid salmon;
+
+    }
+
+    zxx-item:first-child {
+      /* grid-area: a; */
+    }
+  </style>
+</head>
+
+<body>
+  <zxx-grid>
+    <zxx-item>格子1</zxx-item>
+    <zxx-item>格子2</zxx-item>
+    <zxx-item>格子3</zxx-item>
+    <zxx-item>格子4</zxx-item>
+    <zxx-item>格子5</zxx-item>
+    <zxx-item>格子6</zxx-item>
+    <zxx-item>格子7</zxx-item>
+    <zxx-item>格子8</zxx-item>
+    <zxx-item>格子9</zxx-item>
+  </zxx-grid>
+</body>
+
+</html>
