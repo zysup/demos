@@ -8,7 +8,7 @@
     <title>IntersectionObserver</title>
     <style>
         body {
-            padding-top: 500px;
+            padding-top: 10px;
             padding-bottom: 1500px;
         }
 
@@ -26,8 +26,8 @@
     <div class="box1">01</div>
     <!-- <div class="box2">02</div>
     <div class="box3">03</div> -->
-    <img src="./images/eye.png" alt="" data-src="./images/小汽车.png">
-    <img src="./images/eye.png" alt="" data-src="./images/元素福.png">
+    <img src="../images/eye.png" alt="" data-src="./images/小汽车.png">
+    <img src="../images/eye.png" alt="" data-src="./images/元素福.png">
 </body>
 <script>
     let target = document.querySelector('div');
@@ -35,14 +35,15 @@
         // root: document.querySelector('#scrollArea'),
         root: null,
         // delay: 3000,
-        rootMargin: '0px',
-        threshold: 0,
-        // threshold: [0.5],
+        // rootMargin: '100px',
+        // threshold: 0,
+        // rootMargin: '-33% 0% -33% 0%'
+        // threshold: [0.1,0.5,0.7],
         // rootMargin: '50px',
     }
 
     let observer = new IntersectionObserver((entries, observer) => {
-        console.log('qwe entires', entries, observer);
+        console.log('qwe entires', entries[0], observer);
     }, options);
     observer.observe(target);
 
@@ -59,6 +60,7 @@
         console.log('qwe imgcallback', );
         entries.forEach((item) => { // 遍历entries数组
             if (item.isIntersecting) { // 当前元素可见
+              console.log('qwe imgcallback',item );
                 item.target.src = item.target.dataset.src  // 替换src
                 io.unobserve(item.target)  // 停止观察当前元素 避免不可见时候再次调用callback函数
             }

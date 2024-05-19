@@ -1,0 +1,100 @@
+<!-- https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API#the_intersection_root_and_root_margin -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      height: 200vh;
+    }
+
+    #box {
+      background-color: rgba(40, 40, 190, 1);
+      border: 4px solid rgb(20, 20, 120);
+      transition: background-color 1s, border 1s;
+      width: 350px;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .vertical {
+      color: white;
+      font: 32px "Arial";
+    }
+
+    .extra {
+      width: 350px;
+      height: 350px;
+      margin-top: 10px;
+      border: 4px solid rgb(20, 20, 120);
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div class="vertical">来看看<strong>这个盒子</strong>吧！</div>
+  </div>
+</body>
+<script>
+  const numSteps = 20.0;
+
+  let boxElement;
+  let prevRatio = 0.0;
+  let increasingColor = "rgba(40, 40, 190, ratio)";
+  let decreasingColor = "rgba(190, 40, 40, ratio)";
+
+  // 设定好一切
+  window.addEventListener(
+    "load",
+    (event) => {
+      boxElement = document.querySelector("#box");
+
+      createObserver();
+    },
+    false,
+  );
+
+  function createObserver() {
+    let observer;
+
+    let options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: buildThresholdList(),
+    };
+
+    observer = new IntersectionObserver(handleIntersect, options);
+    observer.observe(boxElement);
+  }
+
+  function buildThresholdList() {
+    let arr = Array.from({ length: 21 }).map((_, i) => i * 5 / 100);
+    console.log('qwe arr', arr)
+    return arr
+  }
+
+  function handleIntersect(entries, observer) {
+    entries.forEach((entry) => {
+      console.log('qwe ', entry.intersectionRatio)
+      entry.target.style.backgroundColor = (entry.intersectionRatio > prevRatio ? increasingColor : decreasingColor).replace(
+        "ratio",
+        entry.intersectionRatio,
+      );
+
+      prevRatio = entry.intersectionRatio;
+    });
+  }
+
+</script>
+
+</html>

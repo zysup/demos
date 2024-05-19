@@ -36,11 +36,11 @@
     }
 
     :root:root {
-      color: blue;
+      /* color: blue; */
     }
 
     :root {
-      color: red;
+      /* color: red; */
     }
 
     .space a {
@@ -62,21 +62,60 @@
       vertical-align: middle;
 
     }
+
     svg {
-    background-color: deepskyblue;
-    fill: crimson;
-    stroke: white;
-    stroke-width: 6px;
-    font-size: 40px;
-    font-weight: bold;
-}
-.paint-order {
-    paint-order: stroke;    
-}
+      background-color: deepskyblue;
+      fill: crimson;
+      stroke: white;
+      stroke-width: 6px;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .paint-order {
+      paint-order: stroke;
+    }
+
+    /* .b.b.a {
+      color: red;
+    } */
+    .b {
+      color: BLUE;
+    }
+
+    .a {
+      color: pink;
+    }
+
+    /* body :has(h3, li) {
+      color: red;
+    } */
+
+    /* .container-a {
+      container: aside / inline-size;
+    }
+
+    .container-b {
+      container: banner / inline-size;
+    }
+
+    @container banner (max-width: 480px) {
+      p {
+        font-weight: bold;
+      }
+    } */
+
+    div {
+      p {
+        color: red;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <H1 CLASS="a b">h1.a</H1>
+
   <div class="space">
     <!-- <a href="##">惆怅</a>
     <a href="##">淡定</a> <a href="##">热血</a>
@@ -84,11 +123,30 @@
     <img src="./images/01.jpg" alt="" srcset="" /><img src="./images/01.jpg" alt="" srcset="" /><span>xyx</span>
     <!-- <input type="text" /><input type="text" /> -->
 
-    <svg xmlns="http://www.w3.org/2000/svg">
+    <svg >
       <text x="10" y="50">张旭旭是大帅锅</text>
       <text x="10" y="120" class="paint-order">张旭旭是大帅锅</text>
-  </svg>
+    </svg>
+    <ul>
+      <li>我是ul里面的li</li>
+      <li>我是ul里面的li</li>
+    </ul>
+    <article>
+      <ul>
+        <li>我是article ul里面的li</li>
+        <li>我是article ul里面的li</li>
+      </ul>
+    </article>
+    <div class="container-b">
+
+      <p>asdasdf asdf asdffqqqqqqqqqq </p>
+
+    </div>
+    <p>asdasdf asdf asdff</p>
   </div>
+
+  <iframe width="1280" height="720" src="https://www.youtube.com/embed/vHa2XvW58EE?list=LL" title="【每天堅持聽1小时 英語越聽越清】沉浸式英語聽力練習｜美式英语｜這樣學英文天天有進步｜English Listening Practice 【从零开始学英语】  #從零開始學英語 #英文學習" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 </body>
 
 </html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    
+    h3 {
+      border: 1px solid currentColor;
+      margin-bottom: 200px;
+      margin: 0;
+      height: 300px;
+    }
+    h3 span {
+      display: none;
+    }
+
+    h3.active {
+      border-color: red;
+      span {
+        display: initial;
+      }
+    }
+
+    .box {
+      height: 700px;
+      outline: 1px solid olive;
+      overflow-y: auto;
+    }
+    .h3box {
+      padding: 80px 0 100px;
+      outline: 1px solid olive;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="box"> -->
+    <h3>01</h3>
+    <h3>02</h3>
+    <h3>03</h3>
+    <h3>04</h3>
+    <h3>05</h3>
+    <h3>06</h3>
+    <h3>07</h3>
+    <h3>08</h3>
+    <h3><span>09</span></h3>
+    <div class="h3box">
+      <h3>10</h3>
+    </div>
+    <h3>11</h3>
+    <h3>12</h3>
+    <h3>13</h3>
+    <h3>14</h3>
+    <h3>15</h3>
+    <h3>16</h3>
+    <h3>17</h3>
+    <h3>18</h3>
+    <h3>19</h3>
+    <h3>20</h3>
+  <!-- </div> -->
+</body>
+<script>
+  var zxxObserver = new IntersectionObserver(function (entries) {
+    console.log('qwe ', entries.length, entries[0].target.innerText)
+    entries.forEach(function (entry) {
+      console.log('qwe', entry)
+      entry.target.classList.toggle('active', entry.isIntersecting)
+    });
+  }, {
+    // root: document.querySelector('.box'),
+    rootMargin: "300px",
+    // threshold: 1.0,
+  });
+  // 观察标题元素
+  document.querySelectorAll('h3').forEach(function (ele) {
+    zxxObserver.observe(ele);
+  });
+</script>
+
+</html>
