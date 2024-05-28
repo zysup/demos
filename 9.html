@@ -10,6 +10,11 @@
       --mode: 'unknown';
     }
 
+    .border-stripe {
+      border: 12px solid;
+      border-image: repeating-linear-gradient(-45deg, red, red 5px, transparent 5px, transparent 10px) 12;
+    }
+
     @media (prefers-color-scheme: dark) {
 
       /* 黑暗模式 */
@@ -27,7 +32,7 @@
 
       /* 浅色主题 */
       :root {
-        --mode: "light";
+        --mode: light;
         --colorLink: #34538b;
         --colorMark: #cc0000;
         --colorText: #000000;
@@ -123,7 +128,7 @@
     <img src="./images/01.jpg" alt="" srcset="" /><img src="./images/01.jpg" alt="" srcset="" /><span>xyx</span>
     <!-- <input type="text" /><input type="text" /> -->
 
-    <svg >
+    <svg>
       <text x="10" y="50">张旭旭是大帅锅</text>
       <text x="10" y="120" class="paint-order">张旭旭是大帅锅</text>
     </svg>
@@ -145,8 +150,33 @@
     <p>asdasdf asdf asdff</p>
   </div>
 
-  <iframe width="1280" height="720" src="https://www.youtube.com/embed/vHa2XvW58EE?list=LL" title="【每天堅持聽1小时 英語越聽越清】沉浸式英語聽力練習｜美式英语｜這樣學英文天天有進步｜English Listening Practice 【从零开始学英语】  #從零開始學英語 #英文學習" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="border-stripe">我们可以使用红色条纹边框表示警示</div>
+
+  <div style="width: 500px;overflow-x: auto;height: 30px;white-space: nowrap;">
+    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio adipisci eum inventore dicta dignissimos, exercitationem facilis vero minima voluptates consequuntur! </span>
+    <span>qwe</span>
+  </div>
+
+  <!-- <iframe width="1280" height="720" src="https://www.youtube.com/embed/vHa2XvW58EE?list=LL" title="【每天堅持聽1小时 英語越聽越清】沉浸式英語聽力練習｜美式英语｜這樣學英文天天有進步｜English Listening Practice 【从零开始学英语】  #從零開始學英語 #英文學習" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+
+  <form action="/sdf/">
+    <input type="file" name="image" accept="image/*" capture="environment">
+    <input type="file" name="image" accept="image/*" capture="user">
+  </form>
+
+  <button id="button">选择图片</button>
+
+
 
 </body>
+<script>
+  setTimeout(() => {
+    button.addEventListener('click', function () {
+      // 打开文件
+      window.showOpenFilePicker();
+  });
+    
+  });
+</script>
 
 </html>

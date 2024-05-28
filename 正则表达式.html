@@ -11,10 +11,20 @@
 
 </body>
 <script>
-  let { groups: { year, month } } = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec('2021-10-09')
-  console.log('qwe groups', year, month);
-  let bb = 'hello world'.replace(/(\w+) (\w+)/, '$2 $1')
-  console.log('qwe cc', bb);
+  // let { groups: { year, month } } = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec('2021-10-09')
+  // console.log('qwe groups', year, month);
+  // let bb = 'hello world'.replace(/(\w+) (\w+)/, '$2 $1')
+  // console.log('qwe cc', bb);
+
+  const punctuation = /[^!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~0-9A-Za-z]/igm;
+  console.log('qwe', punctuation.source)
+
+  // 示例：使用正则表达式匹配字符串中的符号
+  const str = "Hello, World{.你好";
+  const matchedSymbols = str.match(punctuation);
+  console.log(matchedSymbols); // 输出：[,!]
+  console.log(str.replace(punctuation, ''))
+  console.log('qweqwe', "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".length)
 </script>
 
 </html>
