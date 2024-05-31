@@ -1,39 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
-</body>
-<script>
+  <body></body>
+  <script>
     //面向对象；封装 继承  多态  $("div").html()  $("div").html("6666")
     //继承五种
     Object.prototype.username = "人类";
     var person = {
-        username: "人类***"
-    }
+      username: "人类***",
+    };
 
     function YellowPerson() {
-      this.age = 18
-
+      this.age = 18;
     }
     YellowPerson.prototype = person;
-    YellowPerson.prototype.say = function() {
-        alert("6666");
-        return this;
-    }
-    YellowPerson.prototype.eat = function() {
-        alert("8888");
-    }
+    YellowPerson.prototype.say = function () {
+      alert("6666");
+      return this;
+    };
+    YellowPerson.prototype.eat = function () {
+      alert("8888");
+    };
 
     var yp = new YellowPerson();
-    yp.myname = 'zhangsan'
+    yp.myname = "zhangsan";
     yp.say().eat(); //链式结构
 
     //  alert(yp.username);
@@ -41,6 +37,5 @@
 
     var list = [];
     alert(list.username);
-</script>
-
+  </script>
 </html>

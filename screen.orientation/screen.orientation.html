@@ -1,26 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>orientation</title>
-</head>
-<body>
-  <div id="boss"></div>
-  <div id="boss2"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>orientation</title>
+  </head>
+  <body>
+    <div id="boss"></div>
+    <div id="boss2"></div>
     <script>
-      let boss = document.getElementById('boss')
-      let boss2 = document.getElementById('boss2')
+      let boss = document.getElementById("boss");
+      let boss2 = document.getElementById("boss2");
       // 苹果手机有兼容问题
       window.onresize = function resize(params) {
-        boss.innerText = window.screen.orientation.type
-        boss2.innerText = window.screen.orientation.angle
-      }
+        boss.innerText = window.screen.orientation.type;
+        boss2.innerText = window.screen.orientation.angle;
+      };
 
-      screen.orientation.onchange = function(e) { 
-        console.log(e)
-       }
+      screen.orientation.onchange = function (e) {
+        console.log(e);
+      };
     </script>
-</body>
+  </body>
 </html>

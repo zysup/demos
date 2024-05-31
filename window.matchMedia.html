@@ -1,27 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>window.matchMedia</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var mql = window.matchMedia('(max-width: 600px)');
+      var mql = window.matchMedia("(max-width: 600px)");
 
-        mql.onchange = function (e) {
-            if (e.matches) {
-                console.log('qwe 视口不超过 600 像素',);
-                /* 视口不超过 600 像素 */
-            } else {
-                console.log('qwe 视口超过 600 像素',);
-                /* 视口超过 600 像素 */
-            }
+      mql.onchange = function (e) {
+        if (e.matches) {
+          console.log("qwe 视口不超过 600 像素");
+          /* 视口不超过 600 像素 */
+        } else {
+          console.log("qwe 视口超过 600 像素");
+          /* 视口超过 600 像素 */
         }
+      };
     </script>
-</body>
-
+  </body>
 </html>

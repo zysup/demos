@@ -1,44 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innerHTML&&innerText</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>innerHTML&&innerText</title>
-</head>
+  <body>
+    <div id="boss">
+      <span>by zhangxinxu</span>
+    </div>
+    <div id="boss2">&lt;span&gt;by zhangxinxu&lt;/span&gt;</div>
+    <div id="boss3">
+      a<span hidden>b</span
+      ><style>
+        #boss3 {
+          color: red;
+        }
+      </style>
+      <script>
+        const a = 123;
+      </script>
+    </div>
+    <script>
+      let textNode = document.createTextNode("<span>by zhangxinxu</span>");
+      let div = document.createElement("div");
+      div.append(textNode);
+      console.log("qwe 111", div.innerHTML);
+      console.log("qwe 111", div.innerText);
 
-<body>
-  <div id="boss">
-    <span>by zhangxinxu</span>
-  </div>
-  <div id="boss2">
-    &lt;span&gt;by zhangxinxu&lt;/span&gt;
-  </div>
-  <div id="boss3">
-    a<span hidden>b</span><style>#boss3{color: red}</style><script>const a=123;</script>
-  </div>
-  <script>
-    let textNode = document.createTextNode('<span>by zhangxinxu</span>');
-    let div = document.createElement('div');
-    div.append(textNode);
-    console.log('qwe 111', div.innerHTML);
-    console.log('qwe 111', div.innerText);
+      let div2 = document.createElement("div");
+      div2.append("<span>by zhangxinxu</span>");
+      console.log("qwe 222", div2.innerHTML);
+      console.log("qwe 222", div2.innerText);
 
-    let div2 = document.createElement('div')
-    div2.append('<span>by zhangxinxu</span>')
-    console.log('qwe 222', div2.innerHTML)
-    console.log('qwe 222', div2.innerText)
-    
-    console.log('qwe boss', boss.innerHTML)
-    console.log('qwe boss', boss.innerText)
-    
-    console.log('qwe boss2', boss2.innerHTML)
-    console.log('qwe boss2', boss2.innerText)
+      console.log("qwe boss", boss.innerHTML);
+      console.log("qwe boss", boss.innerText);
 
-    console.log('qwe boss3', boss3.innerText)
-    console.log('qwe boss3', boss3.textContent)
-  </script>
-</body>
+      console.log("qwe boss2", boss2.innerHTML);
+      console.log("qwe boss2", boss2.innerText);
 
+      console.log("qwe boss3", boss3.innerText);
+      console.log("qwe boss3", boss3.textContent);
+    </script>
+  </body>
 </html>

@@ -1,68 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>点击页面弹出文字</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        height: 100%;
+      }
+      body:active::after {
+        transform: translate(-50%, -100%);
+        opacity: 0.5;
+        transition: 0s;
+        left: -999px;
+        color: red;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>点击页面弹出文字</title>
-  <style>
-    body,html{
-      margin: 0;
-      height: 100%;
-    }
-    body:active::after {
-      transform: translate(-50%, -100%);
-      opacity: 0.5;
-      transition: 0s;
-      left: -999px;
-      color: red;
-    }
+      body::after {
+        content: "zhangxinxu.com";
+        position: fixed;
+        z-index: 999;
+        left: calc(var(--clientx, -999) * 1px);
+        top: calc(var(--clienty, -999) * 1px);
+        transform: translate(-50%, calc(-100% - 20px));
+        opacity: 0;
+        transition:
+          transform 0.6s,
+          opacity 1s;
+        border: 1px solid;
+      }
+      body:active {
+        color: blue;
+      }
+    </style>
+  </head>
 
-    body::after {
-      content: 'zhangxinxu.com';
-      position: fixed;
-      z-index: 999;
-      left: calc(var(--clientx, -999) * 1px);
-      top: calc(var(--clienty, -999) * 1px);
-      transform: translate(-50%, calc(-100% - 20px));
-      opacity: 0;
-      transition: transform .6s, opacity 1s;
-      border: 1px solid;
-    }
-    body:active{
-      color: blue;
-    }
-  </style>
-</head>
+  <body></body>
+  <script>
+    /**
+     * @author zhangxinxu(.com)
+     * @description 点击页面任意位置，标记坐标位置
+     */
+    document.addEventListener("mousedown", function (event) {
+      var target = event.target;
+      var body = document.body;
+      var html = document.documentElement;
 
-<body>
-</body>
-<script>
-  /**
- * @author zhangxinxu(.com)
- * @description 点击页面任意位置，标记坐标位置
- */
-  document.addEventListener('mousedown', function (event) {
-    var target = event.target;
-    var body = document.body;
-    var html = document.documentElement;
+      // 设置自定义属性值
+      body.style.setProperty("--pagex", event.pageX);
+      body.style.setProperty("--pagey", event.pageY);
 
-    // 设置自定义属性值
-    body.style.setProperty('--pagex', event.pageX);
-    body.style.setProperty('--pagey', event.pageY);
+      html.style.setProperty("--clientx", event.clientX);
+      html.style.setProperty("--clienty", event.clientY);
+      html.style.setProperty("--scrolly", window.pageYOffset);
 
-    html.style.setProperty('--clientx', event.clientX);
-    html.style.setProperty('--clienty', event.clientY);
-    html.style.setProperty('--scrolly', window.pageYOffset);
-
-    target.style.setProperty('--offsetx', event.offsetX);
-    target.style.setProperty('--offsety', event.offsetY);
-    target.parentElement.style.setProperty('--target-width', target.clientWidth);
-    target.parentElement.style.setProperty('--target-height', target.clientHeight);
-    target.parentElement.style.setProperty('--target-left', target.offsetLeft);
-    target.parentElement.style.setProperty('--target-top', target.offsetTop);
-  });
-</script>
-
+      target.style.setProperty("--offsetx", event.offsetX);
+      target.style.setProperty("--offsety", event.offsetY);
+      target.parentElement.style.setProperty(
+        "--target-width",
+        target.clientWidth,
+      );
+      target.parentElement.style.setProperty(
+        "--target-height",
+        target.clientHeight,
+      );
+      target.parentElement.style.setProperty(
+        "--target-left",
+        target.offsetLeft,
+      );
+      target.parentElement.style.setProperty("--target-top", target.offsetTop);
+    });
+  </script>
 </html>

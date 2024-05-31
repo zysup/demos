@@ -1,25 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>分离的DOM节点</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <button id="button">移除列表</button>
-    <ul id="list"><li>项目1</li></ul>
+    <ul id="list">
+      <li>项目1</li>
+    </ul>
     <script>
-        var button = document.getElementById('button')
-        var list = document.getElementById('list')
-        button.addEventListener('click', function () {
-            // var list = document.getElementById('list')
-            list.remove()
-            // list = null
-        })
+      var button = document.getElementById("button");
+      var list = document.getElementById("list");
+      button.addEventListener("click", function () {
+        // var list = document.getElementById('list')
+        list.remove();
+        // list = null
+      });
     </script>
-</body>
-
+  </body>
 </html>

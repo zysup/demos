@@ -1,93 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>点击滚动定位</title>
-  <style>
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    ul {
-      margin: 0;
-      list-style: none;
-      outline: 1px solid red;
-      /* font-size: 0; */
-      padding: 0;
-      width: 500px;
-      margin: auto;
-      overflow-x: scroll;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    li {
-      display: inline-block;
-      vertical-align: top;
-      height: 20px;
-      line-height: 20px;
-      text-align: center;
-      padding: 0 1em;
-      outline: 1px solid black;
-      cursor: pointer;
-    }
-    #line {
-      all: initial;
-      box-sizing: border-box;
-      border: 2px solid pink;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      transition: all 300ms;
-    }
-  </style>
-</head>
-
-<body>
-  <ul id="ul">
-    <li>我的咨询</li>
-    <li>小游戏</li>
-    <li>购物</li>
-    <li>娱乐</li>
-    <li>世界杯赛事</li>
-    <li>要闻</li>
-    <li>生活</li>
-    <li>财经</li>
-    <li>体育</li>
-    <li>阅读天下</li>
-    <li>萌宠</li>
-    <li id="line"></li>
-  </ul>
-</body>
-<script>
-  function clickfn(evt) {
-    // console.log(evt.target.offsetLeft)
-    let startPoint = ul.scrollLeft
-    let osw = evt.target.offsetWidth
-    let osl = evt.target.offsetLeft
-    let endPoint = osl + osw / 2 - ul.offsetWidth / 2
-
-    line.style.width = osw + 'px'
-    line.style.left = osl + 'px'
-
-    // console.log('qwe ', startPoint, endPoint)
-    let timer = setInterval(() => {
-      if (Math.abs(endPoint - startPoint) < 7) {
-        clearInterval(timer)
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>点击滚动定位</title>
+    <style>
+      ::-webkit-scrollbar {
+        display: none;
       }
-      if (startPoint < endPoint) {
-        startPoint += 7
-      } else {
-        startPoint -= 7
+      ul {
+        margin: 0;
+        list-style: none;
+        outline: 1px solid red;
+        /* font-size: 0; */
+        padding: 0;
+        width: 500px;
+        margin: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        position: relative;
       }
-      // console.log(startPoint)
-      ul.scrollLeft = startPoint
-    }, 16);
-  }
-  ul.onclick = clickfn
-  line.style.width = (ul.firstElementChild?.offsetWidth ?? 60) + 'px'
-</script>
 
+      li {
+        display: inline-block;
+        vertical-align: top;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        padding: 0 1em;
+        outline: 1px solid black;
+        cursor: pointer;
+      }
+      #line {
+        all: initial;
+        box-sizing: border-box;
+        border: 2px solid pink;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transition: all 300ms;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul id="ul">
+      <li>我的咨询</li>
+      <li>小游戏</li>
+      <li>购物</li>
+      <li>娱乐</li>
+      <li>世界杯赛事</li>
+      <li>要闻</li>
+      <li>生活</li>
+      <li>财经</li>
+      <li>体育</li>
+      <li>阅读天下</li>
+      <li>萌宠</li>
+      <li id="line"></li>
+    </ul>
+  </body>
+  <script>
+    function clickfn(evt) {
+      // console.log(evt.target.offsetLeft)
+      let startPoint = ul.scrollLeft;
+      let osw = evt.target.offsetWidth;
+      let osl = evt.target.offsetLeft;
+      let endPoint = osl + osw / 2 - ul.offsetWidth / 2;
+
+      line.style.width = osw + "px";
+      line.style.left = osl + "px";
+
+      // console.log('qwe ', startPoint, endPoint)
+      let timer = setInterval(() => {
+        if (Math.abs(endPoint - startPoint) < 7) {
+          clearInterval(timer);
+        }
+        if (startPoint < endPoint) {
+          startPoint += 7;
+        } else {
+          startPoint -= 7;
+        }
+        // console.log(startPoint)
+        ul.scrollLeft = startPoint;
+      }, 16);
+    }
+    ul.onclick = clickfn;
+    line.style.width = (ul.firstElementChild?.offsetWidth ?? 60) + "px";
+  </script>
 </html>

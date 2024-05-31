@@ -1,60 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- <script src="//unpkg.com/@element-plus/icons-vue"></script> -->
-  <script type="importmap">
-    {
-      "imports": {
-         "fmt/": "https://deno.land/std@0.103.0/fmt/"
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="//unpkg.com/@element-plus/icons-vue"></script> -->
+    <script type="importmap">
+      {
+        "imports": {
+          "fmt/": "https://deno.land/std@0.103.0/fmt/"
+        }
       }
-   }
+    </script>
+    <!-- <script src="/1.mjs"></script> -->
+    <style>
+      body {
+        /* font-family: Arial, Helvetica, sans-serif; */
+        font-family: "Courier New", Courier, monospace;
+      }
 
-  </script>
-  <!-- <script src="/1.mjs"></script> -->
-  <style>
-    body {
-      /* font-family: Arial, Helvetica, sans-serif; */
-      font-family: 'Courier New', Courier, monospace;
-    }
+      button {
+        font: inherit;
+      }
+    </style>
+  </head>
 
-    button {
-      font: inherit;
-    }
-  </style>
-</head>
+  <body>
+    按钮ABCIABC
+    <button id="btn">按钮ABCIABC</button>
+    <script>
+      // console.log(import.meta)
+      function dosomething() {
+        // console.log('qwe ',)
+        return console.log("qwe ");
+      }
+      btn.onclick = () => dosomething();
+    </script>
 
-<body>
-  按钮ABCIABC
-  <button id="btn">按钮ABCIABC</button>
-  <script>
-    // console.log(import.meta)
-    function dosomething() {
-      // console.log('qwe ',)
-      return console.log('qwe ',)
-    }
-    btn.onclick = () => dosomething()
-  </script>
+    <script type="module">
+      import { aa } from "./1.mjs?a=1";
+      setTimeout(() => {
+        console.log("qwe ", aaa);
+        console.log("qwe ", aa);
+      }, 100);
+      console.log(import.meta);
+      let b = new URL(import.meta.url);
+      console.log("qwe ", b);
+      // import { red } from "fmt/colors.ts";
 
-  <script type="module">
-    import { aa } from './1.mjs?a=1'
-    setTimeout(() => {
-      console.log('qwe ', aaa)
-      console.log('qwe ', aa)
-
-    }, 100);
-    console.log(import.meta)
-    let b = new URL(import.meta.url)
-    console.log('qwe ', b)
-    // import { red } from "fmt/colors.ts";
-
-    // console.log(red("hello world"));
-
-  </script>
-</body>
-
+      // console.log(red("hello world"));
+    </script>
+  </body>
 </html>

@@ -1,84 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>半像素的实现</title>
+    <style>
+      .box {
+        width: 360px;
+        height: 50px;
+        border-radius: 5px;
+        margin-top: 20px;
+        line-height: 50px;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>半像素的实现</title>
-  <style>
-    .box {
-      width: 360px;
-      height: 50px;
-      border-radius: 5px;
-      margin-top: 20px;
-      line-height: 50px;
-    }
+      /* 直接设置border-width */
+      .box-normal {
+        border: 0.5px solid red;
+      }
 
-    /* 直接设置border-width */
-    .box-normal {
-      border: 0.5px solid red;
-    }
+      /* 方案1：伪元素+scale */
+      .box1 {
+        position: relative;
+      }
 
-    /* 方案1：伪元素+scale */
-    .box1 {
-      position: relative;
-    }
+      .box1::after {
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        width: 200%;
+        height: 200%;
+        content: "";
+        display: block;
+        border: 1px solid red;
+        border-radius: 5px;
+        transform: scale(0.5);
+        transform-origin: left bottom;
+      }
 
-    .box1::after {
-      position: absolute;
-      bottom: 0;
-      z-index: -1;
-      width: 200%;
-      height: 200%;
-      content: "";
-      display: block;
-      border: 1px solid red;
-      border-radius: 5px;
-      transform: scale(0.5);
-      transform-origin: left bottom;
-    }
+      /* 方案2：背景渐变 */
+      .box2 {
+        position: relative;
+      }
 
-    /* 方案2：背景渐变 */
-    .box2 {
-      position: relative;
-    }
+      .box2::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-image: linear-gradient(0deg, red 50%, transparent 50%);
+      }
 
-    .box2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background-image: linear-gradient(0deg, red 50%, transparent 50%);
-    }
+      /* 方案3：用阴影代替边框 */
+      .box3 {
+        box-shadow: 0 0 0 0.5px red;
+      }
+    </style>
+  </head>
 
-    /* 方案3：用阴影代替边框 */
-    .box3 {
-      box-shadow: 0 0 0 0.5px red;
-    }
-  </style>
+  <body>
+    <div class="box box-normal">直接设置boder-width（NO，不可靠）</div>
 
+    <div class="box box1">方案1：伪元素+scale (OK，兼容性好，推荐)</div>
 
+    <div class="box box2">方案2：背景渐变 (OK，简单方便，适合一根线)</div>
 
-</head>
-
-<body>
-  <div class="box box-normal">
-    直接设置boder-width（NO，不可靠）
-  </div>
-
-  <div class="box box1">
-    方案1：伪元素+scale (OK，兼容性好，推荐)
-  </div>
-
-  <div class="box box2">
-    方案2：背景渐变 (OK，简单方便，适合一根线)
-  </div>
-
-  <div class="box box3">
-    方案3：利用阴影代替边框 (OK)
-  </div>
-</body>
-
+    <div class="box box3">方案3：利用阴影代替边框 (OK)</div>
+  </body>
 </html>

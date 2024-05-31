@@ -1,11 +1,11 @@
-function getJSON(url, callback){
+function getJSON(url, callback) {
   let xhr = new XMLHttpRequest();
   xhr.onload = function () {
-      callback(this.responseText)
+    callback(this.responseText);
   };
-  xhr.open('GET', url, true);
+  xhr.open("GET", url, true);
   xhr.send();
 }
-function getUserFulContents(url, callback){
-  getJSON(url, data => callback(JSON.parse(data)));
+function getUserFulContents(url, callback) {
+  getJSON(url, (data) => callback(JSON.parse(data)));
 }

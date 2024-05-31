@@ -1,120 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>几种CSS渐变背景图片transtion动画方法</title>
-  <style>
-    .box {
-      max-width: 400px;
-      height: 200px;
-      background: linear-gradient(to right, olive, green, purple);
-      background-size: 200%;
-      transition: background-position .5s;
-    }
-
-    .box:hover {
-      background-position: 100% 0;
-    }
-
-    .box2 {
-      max-width: 400px;
-      height: 200px;
-      background: olive linear-gradient(to right, rgba(0, 255, 0, 0), rgba(0, 255, 0, .5));
-      transition: background-color .5s;
-    }
-
-    .box2:hover {
-      background-color: purple;
-    }
-
-    .box3 {
-      max-width: 400px;
-      height: 200px;
-      background: linear-gradient(to right, olive, green);
-      position: relative;
-      z-index: 0;
-    }
-
-    .box3::before {
-      content: '567890';
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to right, green, purple);
-      opacity: 0;
-      transition: opacity .5s;
-      z-index: -1;
-    }
-
-    .box3:hover::before {
-      opacity: 1;
-    }
-
-    .box3::before:hover {
-      color: red;
-    }
-
-    .box4 {
-      max-width: 400px;
-      height: 200px;
-      --start-stop: olive;
-      --end-stop: green;
-      background: linear-gradient(to right, var(--start-stop), var(--end-stop));
-      transition: --start-stop .5s, --end-stop .5s;
-    }
-
-    .box4:hover {
-      --start-stop: green;
-      --end-stop: purple;
-    }
-
-    .box5 {
-      max-width: 400px;
-      height: 200px;
-      background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);
-      animation: hue 6s linear infinite;
-    }
-
-    @keyframes hue {
-      from {
-        filter: hue-rotate(0deg);
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>几种CSS渐变背景图片transtion动画方法</title>
+    <style>
+      .box {
+        max-width: 400px;
+        height: 200px;
+        background: linear-gradient(to right, olive, green, purple);
+        background-size: 200%;
+        transition: background-position 0.5s;
       }
 
-      to {
-        filter: hue-rotate(360deg);
+      .box:hover {
+        background-position: 100% 0;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <script>
-    // 注册css属性
-    if (window.CSS) {
-      CSS.registerProperty({
-        name: '--start-stop',
-        syntax: '<color>',
-        inherits: false,
-        initialValue: 'transparent'
-      });
-      CSS.registerProperty({
-        name: '--end-stop',
-        syntax: '<color>',
-        inherits: false,
-        initialValue: 'transparent'
-      });
-    }
-  </script>
-  <div class="box"></div>
-  <div class="box2"></div>
-  <div class="box3">123</div>
-  <div class="box4"></div>
-  <div class="box5"></div>
-</body>
+      .box2 {
+        max-width: 400px;
+        height: 200px;
+        background: olive
+          linear-gradient(to right, rgba(0, 255, 0, 0), rgba(0, 255, 0, 0.5));
+        transition: background-color 0.5s;
+      }
 
+      .box2:hover {
+        background-color: purple;
+      }
+
+      .box3 {
+        max-width: 400px;
+        height: 200px;
+        background: linear-gradient(to right, olive, green);
+        position: relative;
+        z-index: 0;
+      }
+
+      .box3::before {
+        content: "567890";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to right, green, purple);
+        opacity: 0;
+        transition: opacity 0.5s;
+        z-index: -1;
+      }
+
+      .box3:hover::before {
+        opacity: 1;
+      }
+
+      .box3::before:hover {
+        color: red;
+      }
+
+      .box4 {
+        max-width: 400px;
+        height: 200px;
+        --start-stop: olive;
+        --end-stop: green;
+        background: linear-gradient(
+          to right,
+          var(--start-stop),
+          var(--end-stop)
+        );
+        transition:
+          --start-stop 0.5s,
+          --end-stop 0.5s;
+      }
+
+      .box4:hover {
+        --start-stop: green;
+        --end-stop: purple;
+      }
+
+      .box5 {
+        max-width: 400px;
+        height: 200px;
+        background: linear-gradient(
+          to right,
+          red,
+          orange,
+          yellow,
+          green,
+          cyan,
+          blue,
+          purple
+        );
+        animation: hue 6s linear infinite;
+      }
+
+      @keyframes hue {
+        from {
+          filter: hue-rotate(0deg);
+        }
+
+        to {
+          filter: hue-rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      // 注册css属性
+      if (window.CSS) {
+        CSS.registerProperty({
+          name: "--start-stop",
+          syntax: "<color>",
+          inherits: false,
+          initialValue: "transparent",
+        });
+        CSS.registerProperty({
+          name: "--end-stop",
+          syntax: "<color>",
+          inherits: false,
+          initialValue: "transparent",
+        });
+      }
+    </script>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <div class="box3">123</div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+  </body>
 </html>

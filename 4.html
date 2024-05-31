@@ -1,56 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .target {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        width: fit-content;
+        margin-inline: auto;
+        outline: 1px solid red;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <style>
-    .target {
-      position: fixed;
-      left: 1rem;
-      right: 1rem;
-      width: fit-content;
-      margin-inline: auto;
-      outline: 1px solid red;
-    }
+      table {
+        margin-top: 100px;
+        /* border: 1px solid blue; */
+        height: 200px;
+      }
 
-    table {
-      margin-top: 100px;
-      /* border: 1px solid blue; */
-      height: 200px;
-    }
+      .background {
+        height: 100vh;
+      }
 
-    .background {
-      height: 100vh;
-    }
+      .background {
+        background-color: red;
+      }
 
-    .background {
-      background-color: red;
-    }
+      .background[foo]::after {
+        content: attr(foo) " asd " attr(foo) attr(data-abc);
+        background-color: attr(data-background, yellow);
+      }
+    </style>
+  </head>
 
-    .background[foo]::after {
-      content: attr(foo) ' asd ' attr(foo) attr(data-abc);
-      background-color: attr(data-background, yellow);
-    }
-  </style>
-</head>
-
-<body>
-  <span class="target">Lorem ipsum dolocing elit. Sapm assumenda, harum dolorem autem unde, accusantium nostrum culpa tenetur iusto ut! Quasi, porro provident.</span>
-  <table border="1">
-    <tr>
-      <td>想必有经验的小伙伴一定见过下面这样</td>
-      <td>Loreiquid eos?</td>
-      <td>Lorem,dita?</td>
-    </tr>
-  </table>
-  <div class="background" foo="blue" data-abc="qwe"="">颜色应该是红色而不是绿色因为浏览器并不支持 attr() 的高级用法</div>
-  <script type="module">
-    import {getUrlSearchParams} from './js/utils.js'
-    console.log('qwe',getUrlSearchParams(location.search))
-  </script>
-</body>
-
+  <body>
+    <span class="target"
+      >Lorem ipsum dolocing elit. Sapm assumenda, harum dolorem autem unde,
+      accusantium nostrum culpa tenetur iusto ut! Quasi, porro provident.</span
+    >
+    <table border="1">
+      <tr>
+        <td>想必有经验的小伙伴一定见过下面这样</td>
+        <td>Loreiquid eos?</td>
+        <td>Lorem,dita?</td>
+      </tr>
+    </table>
+    <div class="background" foo="blue" data-abc="qwe" ="">
+      颜色应该是红色而不是绿色因为浏览器并不支持 attr() 的高级用法
+    </div>
+    <script type="module">
+      import { getUrlSearchParams } from "./js/utils.js";
+      console.log("qwe", getUrlSearchParams(location.search));
+    </script>
+  </body>
 </html>

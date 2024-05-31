@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
-</body>
-<script>
+  <body></body>
+  <script>
     //class
     class person {
-        constructor(username) {
-            this.username = username;
-        }
+      constructor(username) {
+        this.username = username
+      }
     }
     class yp extends person {
-        say() {
-            alert(this.username);
-        }
+      say() {
+        alert(this.username)
+      }
     }
-    var yellow = new yp("黄种人");
-    alert(yellow.username);
+    var yellow = new yp('黄种人')
+    alert(yellow.username)
     // yellow.say();
-</script>
-
+  </script>
 </html>

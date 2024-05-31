@@ -1,46 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webworker</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>webworker</title>
-</head>
+  <body>
+    <script type="text/javascript">
+      const worker1 = new Worker("worker1.js");
+      const worker2 = new Worker("./worker2.js");
+      const worker3 = new Worker("worker3.js");
 
-<body>
-  <script type="text/javascript">
-    const worker1 = new Worker('worker1.js');
-    const worker2 = new Worker('./worker2.js');
-    const worker3 = new Worker('worker3.js');
+      worker1.onmessage = (e) => {
+        console.log(e.data);
+      };
+      worker2.onmessage = (e) => {
+        console.log(e.data);
+      };
+      worker3.onmessage = (e) => {
+        console.log(e.data);
+      };
+    </script>
 
-    worker1.onmessage = e => {
-      console.log(e.data)
-    }
-    worker2.onmessage = e => {
-      console.log(e.data)
-    }
-    worker3.onmessage = e => {
-      console.log(e.data)
-    }
-  </script>
-
-
-  <script type="单线程模式">
-    function fb(n) {
-      if (n == 1 || n == 2) {
-        return 1
+    <script type="单线程模式">
+      function fb(n) {
+        if (n == 1 || n == 2) {
+          return 1
+        }
+        return fb(n - 1) + fb(n - 2)
       }
-      return fb(n - 1) + fb(n - 2)
-    }
 
-    console.time('worker_total')
-    var result1 = fb(41)
-    var result2 = fb(42)
-    var result3 = fb(43)
-    console.log('qwe ', { result1, result2, result3 });
-    console.timeEnd('worker_total')
-  </script>
-</body>
-
+      console.time('worker_total')
+      var result1 = fb(41)
+      var result2 = fb(42)
+      var result3 = fb(43)
+      console.log('qwe ', { result1, result2, result3 });
+      console.timeEnd('worker_total')
+    </script>
+  </body>
 </html>

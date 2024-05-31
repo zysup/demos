@@ -1,25 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="content">666</div>
-</body>
-<script src="js/jquery-1.11.3.js"></script>
-<script>
+  </body>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
     $("#content").html("7777");
 
     $.fn.extend({
-        say: function() {
-            alert($(this).html());
-        }
-    })
+      say: function () {
+        alert($(this).html());
+      },
+    });
     $("#content").say();
 
     // $.ajax();
@@ -31,6 +30,5 @@
     // })
 
     // $.say();
-</script>
-
+  </script>
 </html>

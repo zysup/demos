@@ -1,134 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #beatbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <style>
-    #beatbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, .5);
+      div {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        animation-iteration-count: 1, 1;
+        animation-direction: normal, normal;
+        animation-timing-function: linear, ease-in;
+        /* backface-visibility: hidden; */
+      }
+
+      .hb-container {
+        position: absolute;
+        width: 60px;
+        height: 88px;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+        backface-visibility: hidden;
+        background: url("./images/hb.png") no-repeat center/100% 100%;
+        cursor: pointer;
+      }
+
+      @keyframes fade {
+        0%,
+        90% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes drop {
+        0% {
+          transform: translateY(0);
+        }
+
+        100% {
+          transform: translateY(1100px);
+        }
+      }
+
+      @keyframes clockwiseSpin {
+        0% {
+          transform: rotate(0) var(--scale,);
+        }
+
+        100% {
+          transform: rotate(480deg) var(--scale,);
+        }
+      }
+
+      @keyframes counterclockwiseSpinAndFlip {
+        0% {
+          transform: rotate(0) var(--scale,);
+        }
+
+        100% {
+          transform: rotate(-480deg) var(--scale,);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main id="beatbox"></main>
+  </body>
+
+  <script>
+    function clickQhb(params) {
+      alert("红包点击");
+    }
+    function randomFloat(low, high) {
+      return low + Math.random() * (high - low);
+    }
+    function randomInteger(low, high) {
+      return low + Math.floor(Math.random() * (high - low));
+    }
+    // 生成红包
+    function createBeat() {
+      let leafDiv = document.createElement("div");
+      let image = document.createElement("i");
+      let fadeAndDropDuration = randomInteger(2000, 5000) + "ms";
+      let leafDelay = randomInteger(0, 2000) + "ms";
+
+      leafDiv.style.top = randomInteger(-200, -100) + "px";
+      leafDiv.style.left = randomInteger(0, 3000) + "px";
+      leafDiv.style.animationName = "fade, drop";
+      leafDiv.style.animationDuration =
+        fadeAndDropDuration + ", " + fadeAndDropDuration;
+      leafDiv.style.animationDelay = leafDelay + ", " + leafDelay;
+
+      image.className = "hb-container";
+      image.style.animationName =
+        Math.random() < 0.5 ? "clockwiseSpin" : "counterclockwiseSpinAndFlip";
+      image.style.setProperty(
+        "--scale",
+        "scale(" + randomFloat(0.8, 1.2) + ")",
+      );
+      image.style.animationDuration = fadeAndDropDuration;
+      image.addEventListener("click", clickQhb);
+
+      leafDiv.appendChild(image);
+      return leafDiv;
     }
 
-    div {
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      animation-iteration-count: 1, 1;
-      animation-direction: normal, normal;
-      animation-timing-function: linear, ease-in;
-      /* backface-visibility: hidden; */
-    }
-
-    .hb-container {
-      position: absolute;
-      width: 60px;
-      height: 88px;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-      animation-timing-function: linear;
-      backface-visibility: hidden;
-      background: url('./images/hb.png') no-repeat center/100% 100%;
-      cursor: pointer;
-    }
-
-    @keyframes fade {
-
-      0%,
-      90% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
+    function createEle() {
+      let container = document.getElementById("beatbox");
+      if (container) {
+        let NUMBER_OF_LEAVES = 40;
+        for (let i = 0; i < NUMBER_OF_LEAVES; i++) {
+          container.appendChild(createBeat());
+        }
       }
     }
-
-    @keyframes drop {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(1100px);
-      }
-    }
-
-    @keyframes clockwiseSpin {
-      0% {
-        transform: rotate(0) var(--scale, );
-      }
-
-      100% {
-        transform: rotate(480deg) var(--scale, );
-      }
-    }
-
-    @keyframes counterclockwiseSpinAndFlip {
-      0% {
-        transform: rotate(0) var(--scale, );
-      }
-
-      100% {
-        transform: rotate(-480deg) var(--scale, );
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <main id="beatbox"></main>
-
-</body>
-
-<script>
-  function clickQhb(params) {
-    alert('红包点击')
-  }
-  function randomFloat(low, high) {
-    return low + Math.random() * (high - low)
-  }
-  function randomInteger(low, high) {
-    return low + Math.floor(Math.random() * (high - low))
-  }
-  // 生成红包
-  function createBeat() {
-    let leafDiv = document.createElement('div')
-    let image = document.createElement('i')
-    let fadeAndDropDuration = randomInteger(2000, 5000) + 'ms'
-    let leafDelay = randomInteger(0, 2000) + 'ms'
-
-    leafDiv.style.top = randomInteger(-200, -100) + 'px'
-    leafDiv.style.left = randomInteger(0, 3000) + 'px'
-    leafDiv.style.animationName = 'fade, drop'
-    leafDiv.style.animationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration
-    leafDiv.style.animationDelay = leafDelay + ', ' + leafDelay
-
-    image.className = 'hb-container'
-    image.style.animationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip'
-    image.style.setProperty('--scale', 'scale(' + randomFloat(0.8, 1.2) + ')')
-    image.style.animationDuration = fadeAndDropDuration
-    image.addEventListener('click', clickQhb)
-
-    leafDiv.appendChild(image)
-    return leafDiv
-  }
-
-  function createEle() {
-    let container = document.getElementById('beatbox')
-    if (container) {
-      let NUMBER_OF_LEAVES = 40
-      for (let i = 0; i < NUMBER_OF_LEAVES; i++) {
-        container.appendChild(createBeat())
-      }
-    }
-  }
-  createEle()
-</script>
-
+    createEle();
+  </script>
 </html>

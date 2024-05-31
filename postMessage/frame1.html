@@ -1,65 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iframe1</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <style></style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iframe1</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-  <style>
-
-  </style>
-</head>
-
-<body>
-  <h4>iframe1 page</h4>
-  <button onclick="setCookie()">设置cookie</button>
-  <button onclick="delCookie()">删除cookie</button>
-  <button onclick="logContextInfo()">打印上下文信息</button>
-  <textarea name="showlog" id="showlog" cols="30" rows="10" readonly></textarea>
-  <script>
-    function setCookie() {
-      document.cookie = "test1=hello";
-    }
-    function delCookie() {
-      document.cookie = 'test1=;expires=Thu, 01-Jan-1970 00:00:01 GMT';
-    }
-    function logContextInfo(params) {
-      console.log('window.name =>', window.name);
-      console.log('window.top =>', window.top);
-      console.log('window.parent =>', window.parent);
-      console.log('window.self =>', window.self);
-      console.log('window.top === window.parent? =>', window.top === window.parent);
-      console.log('window.self === window.parent? =>', window.self === window.parent);
-    }
-    showlog.textContent = `window.name => ${window.name}\n`
-
-    window.onhashchange = function () {
-      var message = window.location.hash;
-      showlog.textContent += `onhashchange => ${message}\n`
-    }
-    // 父窗口和子窗口都可以用下面的代码，
-    // 监听 message 消息
-    // event.source：发送消息的窗口
-    // event.origin: 消息发向的网址
-    // event.data: 消息内容
-    window.addEventListener('message', function (e) {
-      // console.log(e, e.source, e.target, e.origin, e.data)
-      var payload = JSON.stringify(e.data, null, 2)
-      showlog.textContent += `resmessage => ${payload}\n`
-
-      // 子窗口向父窗口发消息
-      // window.opener.postMessage('Nice to see you', 'http://192.168.0.21:5501/postMessage/home.html');
-      window.top.postMessage('Nice to see you', 'http://192.168.0.21:5501/postMessage/home.html');
-
-      // 子窗口将父窗口发来的消息，写入自己的 LocalStorage
-      if (e.origin !== 'http://192.168.0.21:5501') {
-        return;
+  <body>
+    <h4>iframe1 page</h4>
+    <button onclick="setCookie()">设置cookie</button>
+    <button onclick="delCookie()">删除cookie</button>
+    <button onclick="logContextInfo()">打印上下文信息</button>
+    <textarea
+      name="showlog"
+      id="showlog"
+      cols="30"
+      rows="10"
+      readonly
+    ></textarea>
+    <script>
+      function setCookie() {
+        document.cookie = "test1=hello";
       }
-      localStorage.setItem(e.data.key, payload);
-    }, false)
-  </script>
+      function delCookie() {
+        document.cookie = "test1=;expires=Thu, 01-Jan-1970 00:00:01 GMT";
+      }
+      function logContextInfo(params) {
+        console.log("window.name =>", window.name);
+        console.log("window.top =>", window.top);
+        console.log("window.parent =>", window.parent);
+        console.log("window.self =>", window.self);
+        console.log(
+          "window.top === window.parent? =>",
+          window.top === window.parent,
+        );
+        console.log(
+          "window.self === window.parent? =>",
+          window.self === window.parent,
+        );
+      }
+      showlog.textContent = `window.name => ${window.name}\n`;
 
-</body>
+      window.onhashchange = function () {
+        var message = window.location.hash;
+        showlog.textContent += `onhashchange => ${message}\n`;
+      };
+      // 父窗口和子窗口都可以用下面的代码，
+      // 监听 message 消息
+      // event.source：发送消息的窗口
+      // event.origin: 消息发向的网址
+      // event.data: 消息内容
+      window.addEventListener(
+        "message",
+        function (e) {
+          // console.log(e, e.source, e.target, e.origin, e.data)
+          var payload = JSON.stringify(e.data, null, 2);
+          showlog.textContent += `resmessage => ${payload}\n`;
 
+          // 子窗口向父窗口发消息
+          // window.opener.postMessage('Nice to see you', 'http://192.168.0.21:5501/postMessage/home.html');
+          window.top.postMessage(
+            "Nice to see you",
+            "http://192.168.0.21:5501/postMessage/home.html",
+          );
+
+          // 子窗口将父窗口发来的消息，写入自己的 LocalStorage
+          if (e.origin !== "http://192.168.0.21:5501") {
+            return;
+          }
+          localStorage.setItem(e.data.key, payload);
+        },
+        false,
+      );
+    </script>
+  </body>
 </html>

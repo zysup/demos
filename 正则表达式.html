@@ -1,30 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>正则表达式</title>
-</head>
+  <body></body>
+  <script>
+    // let { groups: { year, month } } = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec('2021-10-09')
+    // console.log('qwe groups', year, month);
+    // let bb = 'hello world'.replace(/(\w+) (\w+)/, '$2 $1')
+    // console.log('qwe cc', bb);
 
-<body>
+    const punctuation = /[^0-9A-Za-z!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/gim;
+    // console.log('qwe', punctuation.source)
 
-</body>
-<script>
-  // let { groups: { year, month } } = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec('2021-10-09')
-  // console.log('qwe groups', year, month);
-  // let bb = 'hello world'.replace(/(\w+) (\w+)/, '$2 $1')
-  // console.log('qwe cc', bb);
-
-  const punctuation = /[^!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~0-9A-Za-z]/igm;
-  console.log('qwe', punctuation.source)
-
-  // 示例：使用正则表达式匹配字符串中的符号
-  const str = "Hello, World{.你好";
-  const matchedSymbols = str.match(punctuation);
-  console.log(matchedSymbols); // 输出：[,!]
-  console.log(str.replace(punctuation, ''))
-  console.log('qweqwe', "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".length)
-</script>
-
+    // 示例：使用正则表达式匹配字符串中的符号
+    let str = "Hello, 123World{.你好";
+    str = str.replace(/[^0-9A-Za-z!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/gim, "");
+    console.log(str);
+    // const matchedSymbols = str.match(punctuation);
+    // console.log(matchedSymbols); // 输出：[,!]
+    // console.log(str.replace(punctuation, ''))
+    // console.log('qweqwe', "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".length)
+  </script>
 </html>

@@ -1,41 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>async</title>
-</head>
+  </head>
 
-<body>
-    <input type="text" id="input-box">
-</body>
-<script>
+  <body>
+    <input type="text" id="input-box" />
+  </body>
+  <script>
     async function timeout() {
-        if (!true) {
-            return "成功";
-        } else {
-            throw new Error("失败");
-        }
+      if (!true) {
+        return "成功";
+      } else {
+        throw new Error("失败");
+      }
     }
 
-    
-    timeout().then(result => {
+    timeout().then(
+      (result) => {
         console.log(result);
-    }, reject => {
-        console.log(reject)
-    })
-    console.log('虽然在后面，但是我先执行');
+      },
+      (reject) => {
+        console.log(reject);
+      },
+    );
+    console.log("虽然在后面，但是我先执行");
 
     //----------------------------------------
     // async function timeout(flag) {
-        // if (flag) {
-        //     return 'hello world'
-        // } else {
-            // let abc = this.aser.toString();
-            // throw 'my god, failure'
-            // return 'my god, failure'
-        // }
+    // if (flag) {
+    //     return 'hello world'
+    // } else {
+    // let abc = this.aser.toString();
+    // throw 'my god, failure'
+    // return 'my god, failure'
+    // }
     // }
     // console.log(timeout(true)) // 调用Promise.resolve() 返回promise 对象。
     // console.log(timeout(false).catch(console.log)); // 调用Promise.reject() 返回promise 对象。
@@ -54,11 +55,11 @@
     //     } catch (error) {
     //         console.log(error,'cc');
     //     }
-        // return await doubleAfter2seconds(30);
-        // let result = await doubleAfter2seconds(30);
-        // console.log(result);
-        // return new Error('失败')
-        // throw 123
+    // return await doubleAfter2seconds(30);
+    // let result = await doubleAfter2seconds(30);
+    // console.log(result);
+    // return new Error('失败')
+    // throw 123
     //     return "123"
     // }
 
@@ -83,10 +84,8 @@
     //         return;
     //     }
     // );
-    
 
-
-//----------------------------------------
+    //----------------------------------------
     // function timeout(ms) {
     //     return new Promise((resolve, reject) => {
     //         setTimeout(resolve, ms, 'done');
@@ -97,9 +96,5 @@
     //     reject(new Error('失败'));
     // });
     // p2.then(console.log, console.error);
-
-
-
-</script>
-
+  </script>
 </html>

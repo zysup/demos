@@ -1,3 +1,13 @@
 {
-  "svg.preview.background": "transparent"
+  "svg.preview.background": "transparent",
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 120,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

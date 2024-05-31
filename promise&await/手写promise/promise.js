@@ -1,30 +1,30 @@
 class Promise {
   // Promise 等待态（初始状态）
-  static PENDING = 'pending';
+  static PENDING = "pending";
   // Promise 失败态
-  static REJECTED = 'rejected';
+  static REJECTED = "rejected";
   // Promise 成功态
-  static FULFILLED = 'fulfilled';
+  static FULFILLED = "fulfilled";
 
   constructor(executor) {
     // 初始化 Promise 初始状态
     this.status = Promise.PENDING;
     // 定义 Promise 成功的值
-    this.value = undefined
+    this.value = undefined;
     // 定义 Promise 失败的原因
     this.reason = undefined;
     // 定义 resolve 函数
     const resolve = (value) => {
       if (this.status === Promise.PENDING) {
         this.status = Promise.FULFILLED;
-        this.value = value
+        this.value = value;
       }
-    }
+    };
     // 定义 reject 函数
     const reject = (reason) => {
       if (this.status === Promise.PENDING) {
         this.status = Promise.REJECTED;
-        this.reason = reason
+        this.reason = reason;
       }
     };
     try {
@@ -32,14 +32,13 @@ class Promise {
     } catch (e) {
       reject(e);
     }
-
   }
   then(onFulfilled, onRejected) {
     if (this.status === Promise.FULFILLED) {
-      onFulfilled(this.value)
+      onFulfilled(this.value);
     }
     if (this.status === Promise.REJECTED) {
-      onRejected(this.reason)
+      onRejected(this.reason);
     }
   }
 }

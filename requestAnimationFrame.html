@@ -1,20 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>requestAnimationFrame</title>
     <style>
-        div {
-            outline: inset;
-            width: 100px;
-        }
+      div {
+        outline: inset;
+        width: 100px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>01</div>
     <div>02</div>
     <div>03</div>
@@ -25,50 +24,47 @@
     <div>08</div>
     <div>09</div>
     <div>10</div>
-    <hr>
+    <hr />
     <button onclick="addHeight2()">div元素加高</button>
-</body>
-<script>
-    let divs = document.querySelectorAll('div')
+  </body>
+  <script>
+    let divs = document.querySelectorAll("div");
     // 重绘代价高
     function doubleHeight(element) {
-        var currentHeight = element.clientHeight;
-        console.log('qwe ', Date.now());
-        element.style.height = (currentHeight * 2) + 'px';
+      var currentHeight = element.clientHeight;
+      console.log("qwe ", Date.now());
+      element.style.height = currentHeight * 2 + "px";
     }
 
     // 重绘代价低
     function doubleHeight2(element) {
-        var currentHeight = element.clientHeight;
+      var currentHeight = element.clientHeight;
 
-        window.requestAnimationFrame(function () {
-            console.log('qwe ', performance.now());
-            element.style.height = (currentHeight * 2) + 'px';
-        });
+      window.requestAnimationFrame(function () {
+        console.log("qwe ", performance.now());
+        element.style.height = currentHeight * 2 + "px";
+      });
     }
     function addHeight(params) {
-        divs.forEach(doubleHeight2);
+      divs.forEach(doubleHeight2);
     }
-
-</script>
-<script type="module">
+  </script>
+  <script type="module">
     console.log(window);
     const timeout = function name() {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve(true)
-            }, 1000)
-        })
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(true);
+        }, 1000);
+      });
     };
     // console.log('qwe ', window);
     window.addHeight2 = async function addHeight2() {
-        for (let index = 0; index < divs.length; index++) {
-            await timeout()
-            doubleHeight(divs[index])
-            // console.log('qwe ', doubleHeight(divs[index]));
-        }
-    }
-
-</script>
-
+      for (let index = 0; index < divs.length; index++) {
+        await timeout();
+        doubleHeight(divs[index]);
+        // console.log('qwe ', doubleHeight(divs[index]));
+      }
+    };
+  </script>
 </html>

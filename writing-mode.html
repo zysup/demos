@@ -1,162 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://qidian.gtimg.com/lulu/edge/css/common/ui.css"
+    />
+    <script
+      type="module"
+      src="https://qidian.gtimg.com/lulu/edge/js/common/all.js"
+    ></script>
+    <style>
+      body {
+        /* font-style: italic; */
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://qidian.gtimg.com/lulu/edge/css/common/ui.css">
-  <script type="module" src="https://qidian.gtimg.com/lulu/edge/js/common/all.js"></script>
-  <style>
-    body {
-      /* font-style: italic; */
-    }
-
-    /* body * {
+      /* body * {
       color: aqua;
     } */
-    span {
-      /* display: inline-block;
+      span {
+        /* display: inline-block;
       outline: 1px solid red; */
-      /* color: red; */
-    }
+        /* color: red; */
+      }
 
-    div {
-      /* direction: rtl; */
-    }
+      div {
+        /* direction: rtl; */
+      }
 
-
-
-    .mixed {
-      /* writing-mode: vertical-lr;
+      .mixed {
+        /* writing-mode: vertical-lr;
       text-orientation: sideways-right; */
-    
-    }
+      }
 
-    img {
-      width: 100px;
-      height: 100px;
-      outline: 1px solid red;
-    }
-    ui-pagination * {
-      color: red !important;
-    }
-  </style>
-  <!-- <link rel="stylesheet" href="./css/reset.css" /> -->
-</head>
+      img {
+        width: 100px;
+        height: 100px;
+        outline: 1px solid red;
+      }
+      ui-pagination * {
+        color: red !important;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="./css/reset.css" /> -->
+  </head>
 
-<body>
-  <div>
-    <span>确定</span><span>取消</span>
-  </div>
-  <i class='mixed'>中国人不骗中国人🇨🇳</i>
-  <input type="search" />
-  <hr />
-  <small>你好</small>
-  <img alt="" />
-  <button>你啊后</button>
-  <span class="red">蓝色</span>
-  <br />
-  <table class="ui-table">
-    <thead>
-      <tr>
-        <th>标题1</th>
-        <th>标题2</th>
-        <th>标题3</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>第1行项目1</td>
-        <td>第1行项目2</td>
-        <td>第1行项目3</td>
-      </tr>
-      <tr>
-        <td>第2行项目1</td>
-        <td>第3行项目2</td>
-        <td>第4行项目3</td>
-      </tr>
-    </tbody>
-  </table>
-  <button class="ui-button">默认按钮</button><button type="normal" class="ui-button">正常按钮</button><button type="primary" class="ui-button">主按钮</button>
-  <hr />
-  <button class="ui-button loading" type="primary">button 标签</button>
+  <body>
+    <div><span>确定</span><span>取消</span></div>
+    <i class="mixed">中国人不骗中国人🇨🇳</i>
+    <input type="search" />
+    <hr />
+    <small>你好</small>
+    <img alt="" />
+    <button>你啊后</button>
+    <span class="red">蓝色</span>
+    <br />
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>标题1</th>
+          <th>标题2</th>
+          <th>标题3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第1行项目1</td>
+          <td>第1行项目2</td>
+          <td>第1行项目3</td>
+        </tr>
+        <tr>
+          <td>第2行项目1</td>
+          <td>第3行项目2</td>
+          <td>第4行项目3</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="ui-button">默认按钮</button
+    ><button type="normal" class="ui-button">正常按钮</button
+    ><button type="primary" class="ui-button">主按钮</button>
+    <hr />
+    <button class="ui-button loading" type="primary">button 标签</button>
 
-  <input class="ui-button loading" value="input标签">
-  <a type="warning" class="ui-button" href="http://www.baidu.com" target="_blank" rel="noopener noreferrer">橙色</a>
-  <a href="http://www.baidu.com" target="_blank" rel="noopener noreferrer">百度</a>
-  <br /><br />
-  <input class="ui-input">
-  <br /><br />
-  <div class="ui-input"><input></div>
+    <input class="ui-button loading" value="input标签" />
+    <a
+      type="warning"
+      class="ui-button"
+      href="http://www.baidu.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      >橙色</a
+    >
+    <a href="http://www.baidu.com" target="_blank" rel="noopener noreferrer"
+      >百度</a
+    >
+    <br /><br />
+    <input class="ui-input" />
+    <br /><br />
+    <div class="ui-input"><input /></div>
 
-  <br />
-  <div class="ui-input-x">
-    <input class="ui-input" maxlength="200" placeholder="占位符">
-    <label class="ui-input-count">
-      <output>0</output>/<span>200</span>
-    </label>
-  </div>
-  <span class="ui-input ui-input-search" align="end">
-    <input type="search" is-error>
-    <input type="submit" class="ui-icon-search" value="搜索">
-  </span>
-  asd: <input type="text" />
+    <br />
+    <div class="ui-input-x">
+      <input class="ui-input" maxlength="200" placeholder="占位符" />
+      <label class="ui-input-count">
+        <output>0</output>/<span>200</span>
+      </label>
+    </div>
+    <span class="ui-input ui-input-search" align="end">
+      <input type="search" is-error />
+      <input type="submit" class="ui-icon-search" value="搜索" />
+    </span>
+    asd: <input type="text" />
 
-  <input type="checkbox" is="ui-switch">
-  <input type="checkbox" id="switch" is="ui-switch">
-  <br />
+    <input type="checkbox" is="ui-switch" />
+    <input type="checkbox" id="switch" is="ui-switch" />
+    <br />
 
-  <select is="ui-select">
-    <optgroup>
-      <option>选项 1.1</option>
-    </optgroup>
-    <optgroup>
-      <option>选项 2.1</option>
-      <option disabled>选项 2.2</option>
-    </optgroup>
-    <optgroup>
-      <option>选项 3.1</option>
-      <option>选项 3.2</option>
-      <option>选项 3.3</option>
-    </optgroup>
-  </select>
+    <select is="ui-select">
+      <optgroup>
+        <option>选项 1.1</option>
+      </optgroup>
+      <optgroup>
+        <option>选项 2.1</option>
+        <option disabled>选项 2.2</option>
+      </optgroup>
+      <optgroup>
+        <option>选项 3.1</option>
+        <option>选项 3.2</option>
+        <option>选项 3.3</option>
+      </optgroup>
+    </select>
 
-  <input type="range" data-tips="${value}℃" is="ui-range" multiple>
+    <input type="range" data-tips="${value}℃" is="ui-range" multiple />
 
-  <input type="range" is="ui-rate" max="5" step="0.5" value="0">
-  <link rel="stylesheet" href="https://qidian.gtimg.com/lulu/edge/css/common/ui/Input.css">
-  <link rel="stylesheet" href="https://qidian.gtimg.com/lulu/edge/css/common/ui/Date.css">
-  <script type="module" src="https://qidian.gtimg.com/lulu/edge/js/common/ui/DateTime.js"></script>
-  <input type="date-range" min="2020-11-10" max="2025-04-01" is="ui-datetime">
+    <input type="range" is="ui-rate" max="5" step="0.5" value="0" />
+    <link
+      rel="stylesheet"
+      href="https://qidian.gtimg.com/lulu/edge/css/common/ui/Input.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://qidian.gtimg.com/lulu/edge/css/common/ui/Date.css"
+    />
+    <script
+      type="module"
+      src="https://qidian.gtimg.com/lulu/edge/js/common/ui/DateTime.js"
+    ></script>
+    <input
+      type="date-range"
+      min="2020-11-10"
+      max="2025-04-01"
+      is="ui-datetime"
+    />
 
-  <ui-loading rows="5" size="3" style="--color: #ff0000"></ui-loading>
-  <ui-lighttip id="lt1">我是提示内容</ui-lighttip>
-  <ui-pagination total="100" per="8"></ui-pagination>
-  <script>
-    //   new Dialog().alert('操作成功！', {
-    //     type: 'success'
-    // }); 
-    // setTimeout(() => {
-    //   lt1.show();
+    <ui-loading rows="5" size="3" style="--color: #ff0000"></ui-loading>
+    <ui-lighttip id="lt1">我是提示内容</ui-lighttip>
+    <ui-pagination total="100" per="8"></ui-pagination>
+    <script>
+      //   new Dialog().alert('操作成功！', {
+      //     type: 'success'
+      // });
+      // setTimeout(() => {
+      //   lt1.show();
 
-    // }, 100);
-    var elePagination = document.querySelector('ui-pagination')
-    elePagination.onchange = function(ev){
-      // 可通过以下几种方式获取current，查看控制台
-      console.log(this.current);
-      console.log(ev.target.current);
-      console.log(ev.detail.current);
-    }
-    
-    // 也可以通过addEventListener进行绑定
-    elePagination.addEventListener('change', function (ev) {
-      console.log(this.current);
-      console.log(ev.target.current);
-      console.log(ev.detail.current);
-    })
-  </script>
-</body>
+      // }, 100);
+      var elePagination = document.querySelector("ui-pagination");
+      elePagination.onchange = function (ev) {
+        // 可通过以下几种方式获取current，查看控制台
+        console.log(this.current);
+        console.log(ev.target.current);
+        console.log(ev.detail.current);
+      };
 
+      // 也可以通过addEventListener进行绑定
+      elePagination.addEventListener("change", function (ev) {
+        console.log(this.current);
+        console.log(ev.target.current);
+        console.log(ev.detail.current);
+      });
+    </script>
+  </body>
 </html>

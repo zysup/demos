@@ -1,68 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promiseall</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>promiseall</title>
-</head>
-
-<body>
-
-</body>
-<script>
-  let getUserInfo = function (user) {
-    return new Promise((resolve, reject) => {
-      let time = Math.floor(400 * Math.random()) + 1000
-      setTimeout(() => resolve('姓名：张鑫旭'), time);
-    });
-  }
-
-  let showUserInfo = function (user) {
-    return getUserInfo().catch(() => { }).then((res) => {
-      return res
-      console.log(res)
-    })
-      // .then(info => {
-      //   return info;
-      // }).then((info) => {
-      //   console.log('showUserInfo 获取到了用户信息', info);
-      //   return 'qwe'
-      // })
-      .finally(() => {
-        console.log('showUserInfo finally',)
+  <body></body>
+  <script>
+    let getUserInfo = function (user) {
+      return new Promise((resolve, reject) => {
+        let time = Math.floor(400 * Math.random()) + 1000;
+        setTimeout(() => resolve("姓名：张鑫旭"), time);
       });
-  }
+    };
 
-  let timeout = function (delay, result) {
-    return new Promise(resolve => {
-      setTimeout(() => resolve(result), delay);
+    let showUserInfo = function (user) {
+      return (
+        getUserInfo()
+          .catch(() => {})
+          .then((res) => {
+            return res;
+            console.log(res);
+          })
+          // .then(info => {
+          //   return info;
+          // }).then((info) => {
+          //   console.log('showUserInfo 获取到了用户信息', info);
+          //   return 'qwe'
+          // })
+          .finally(() => {
+            console.log("showUserInfo finally");
+          })
+      );
+    };
+
+    let timeout = function (delay, result) {
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(result), delay);
+      });
+    };
+    // loading时间显示需要
+    const time = +new Date();
+    let showToast = function () {
+      console.log("show loading...");
+    };
+    let hideToast = function () {
+      console.log("hide loading" + (+new Date() - time));
+    };
+    // 执行代码示意
+    showToast();
+    // console.log('qwe', showUserInfo())
+    Promise.all([showUserInfo(), timeout(2000, 999)]).then(([a, b]) => {
+      console.log("qwe ", a, b);
+      hideToast();
     });
-  }
-  // loading时间显示需要
-  const time = +new Date();
-  let showToast = function () {
-    console.log('show loading...');
-  }
-  let hideToast = function () {
-    ; console.log('hide loading' + (+new Date() - time));
-  }
-  // 执行代码示意
-  showToast();
-  // console.log('qwe', showUserInfo())
-  Promise.all([showUserInfo(), timeout(2000, 999)]).then(([a, b]) => {
-    console.log('qwe ', a, b);
-    hideToast();
-  });
 
-
-
-
-  // Promise.all([Promise.resolve(123), Promise.resolve(456)]).then(vue => {
-  //   console.log('qwe', vue);
-  // }).catch(() => {
-  //   console.log('qwe 111',);
-  // });
-</script>
-
+    // Promise.all([Promise.resolve(123), Promise.resolve(456)]).then(vue => {
+    //   console.log('qwe', vue);
+    // }).catch(() => {
+    //   console.log('qwe 111',);
+    // });
+  </script>
 </html>

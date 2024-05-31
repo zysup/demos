@@ -1,6 +1,7 @@
 # 单IMG元素的图像拉伸效果
 
 ### 介绍
+
 无需任何其他元素辅助，直接一个孤零零的 <code>&lt;img&gt;</code> 标签就可以实现图像的拉伸效果。
 
 优点是不受布局限制，适用场景更广泛，在富文本编辑器中由于只有一个 IMG 元素，因此，无需额外的开发成本，就能保留默认的图片编辑能力。
@@ -9,18 +10,20 @@
 
 ### 使用说明
 
-####  示意
+#### 示意
+
 ```html
 <script type="module">
-    import onlyImgResize from './src/onlyImgResize.js';
+  import onlyImgResize from "./src/onlyImgResize.js";
 
-    onlyImgResize({
-        // 参数在这里
-    });
+  onlyImgResize({
+    // 参数在这里
+  });
 </script>
 ```
 
 #### 语法和参数
+
 语法如下：
 
 ```js
@@ -43,8 +46,6 @@ options 为可选参数，包括：
     <dt>onFinish</dt>
     <dd>函数值，默认是空函数，拖拽结束的时候触发。</dd>
 </dl>
-
-
 
 ### 其他
 

@@ -488,7 +488,7 @@
 
 /* #region 自定义动画 */
 .g-rotate360 {
-  animation: rotate360 1s ;
+  animation: rotate360 1s;
 }
 @keyframes rotate360 {
   0% {

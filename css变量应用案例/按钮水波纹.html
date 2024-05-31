@@ -1,80 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>按钮水波纹</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        height: 100%;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>按钮水波纹</title>
-  <style>
-    body,
-    html {
-      margin: 0;
-      height: 100%;
-    }
+      body {
+        padding: 2em;
+      }
 
-    body {
-      padding: 2em;
-    }
+      .btn {
+        padding: 1em 2em;
+        position: relative;
+        overflow: hidden;
+      }
 
-    .btn {
-      padding: 1em 2em;
-      position: relative;
-      overflow: hidden;
-    }
+      .btn:not([disabled]):active::after {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.3;
+        transition: 0s;
+      }
 
-    .btn:not([disabled]):active::after {
-      transform: translate(-50%, -50%) scale(0);
-      opacity: .3;
-      transition: 0s;
-    }
+      .btn::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: calc(var(--offsetx, 0) * 1px);
+        top: calc(var(--offsety, 0) * 1px);
+        pointer-events: none;
+        background: radial-gradient(
+            circle,
+            currentColor 10%,
+            transparent 10.01%
+          )
+          no-repeat 10%;
+        transform: translate(-50%, -50%) scale(10);
+        opacity: 0;
+        transition:
+          transform 0.3s,
+          opacity 0.8s;
+      }
+    </style>
+  </head>
 
-    .btn::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: calc(var(--offsetx, 0) * 1px);
-      top: calc(var(--offsety, 0) * 1px);
-      pointer-events: none;
-      background: radial-gradient(circle, currentColor 10%, transparent 10.01%) no-repeat 10%;
-      transform: translate(-50%, -50%) scale(10);
-      opacity: 0;
-      transition: transform .3s, opacity .8s;
-    }
-  </style>
-</head>
+  <body>
+    <span style="overflow: hidden"><button class="btn">确定</button></span>
 
-<body>
-  <span style="overflow: hidden;"><button class="btn">确定</button></span>
+    <button class="btn">取消</button>
+  </body>
+  <script>
+    /**
+     * @author zhangxinxu(.com)
+     * @description 点击页面任意位置，标记坐标位置
+     */
+    document.addEventListener("mousedown", function (event) {
+      var target = event.target;
+      var body = document.body;
+      var html = document.documentElement;
 
-  <button class="btn">取消</button>
-</body>
-<script>
-  /**
- * @author zhangxinxu(.com)
- * @description 点击页面任意位置，标记坐标位置
- */
-  document.addEventListener('mousedown', function (event) {
-    var target = event.target;
-    var body = document.body;
-    var html = document.documentElement;
+      // 设置自定义属性值
+      body.style.setProperty("--pagex", event.pageX);
+      body.style.setProperty("--pagey", event.pageY);
 
-    // 设置自定义属性值
-    body.style.setProperty('--pagex', event.pageX);
-    body.style.setProperty('--pagey', event.pageY);
+      html.style.setProperty("--clientx", event.clientX);
+      html.style.setProperty("--clienty", event.clientY);
+      html.style.setProperty("--scrolly", window.pageYOffset);
 
-    html.style.setProperty('--clientx', event.clientX);
-    html.style.setProperty('--clienty', event.clientY);
-    html.style.setProperty('--scrolly', window.pageYOffset);
-
-    target.style.setProperty('--offsetx', event.offsetX);
-    target.style.setProperty('--offsety', event.offsetY);
-    target.parentElement.style.setProperty('--target-width', target.clientWidth);
-    target.parentElement.style.setProperty('--target-height', target.clientHeight);
-    target.parentElement.style.setProperty('--target-left', target.offsetLeft);
-    target.parentElement.style.setProperty('--target-top', target.offsetTop);
-  });
-</script>
-
+      target.style.setProperty("--offsetx", event.offsetX);
+      target.style.setProperty("--offsety", event.offsetY);
+      target.parentElement.style.setProperty(
+        "--target-width",
+        target.clientWidth,
+      );
+      target.parentElement.style.setProperty(
+        "--target-height",
+        target.clientHeight,
+      );
+      target.parentElement.style.setProperty(
+        "--target-left",
+        target.offsetLeft,
+      );
+      target.parentElement.style.setProperty("--target-top", target.offsetTop);
+    });
+  </script>
 </html>

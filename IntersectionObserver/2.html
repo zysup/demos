@@ -1,43 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <style>
-    
-    h3 {
-      border: 1px solid currentColor;
-      margin-bottom: 200px;
-      margin: 0;
-      height: 300px;
-    }
-    h3 span {
-      display: none;
-    }
-
-    h3.active {
-      border-color: red;
-      span {
-        display: initial;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h3 {
+        border: 1px solid currentColor;
+        margin-bottom: 200px;
+        margin: 0;
+        height: 300px;
       }
-    }
+      h3 span {
+        display: none;
+      }
 
-    .box {
-      height: 700px;
-      outline: 1px solid olive;
-      overflow-y: auto;
-    }
-    .h3box {
-      padding: 80px 0 100px;
-      outline: 1px solid olive;
-    }
-  </style>
-</head>
+      h3.active {
+        border-color: red;
+        span {
+          display: initial;
+        }
+      }
 
-<body>
-  <!-- <div class="box"> -->
+      .box {
+        height: 700px;
+        outline: 1px solid olive;
+        overflow-y: auto;
+      }
+      .h3box {
+        padding: 80px 0 100px;
+        outline: 1px solid olive;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <div class="box"> -->
     <h3>01</h3>
     <h3>02</h3>
     <h3>03</h3>
@@ -60,23 +58,25 @@
     <h3>18</h3>
     <h3>19</h3>
     <h3>20</h3>
-</body>
-<script>
-  var zxxObserver = new IntersectionObserver(function (entries) {
-    console.log('qwe ', entries.length, entries[0].target.innerText)
-    entries.forEach(function (entry) {
-      console.log('qwe', entry)
-      entry.target.classList.toggle('active', entry.isIntersecting)
+  </body>
+  <script>
+    var zxxObserver = new IntersectionObserver(
+      function (entries) {
+        console.log("qwe ", entries.length, entries[0].target.innerText);
+        entries.forEach(function (entry) {
+          console.log("qwe", entry);
+          entry.target.classList.toggle("active", entry.isIntersecting);
+        });
+      },
+      {
+        // root: document.querySelector('.box'),
+        rootMargin: "300px",
+        // threshold: 1.0,
+      },
+    );
+    // 观察标题元素
+    document.querySelectorAll("h3").forEach(function (ele) {
+      zxxObserver.observe(ele);
     });
-  }, {
-    // root: document.querySelector('.box'),
-    rootMargin: "300px",
-    // threshold: 1.0,
-  });
-  // 观察标题元素
-  document.querySelectorAll('h3').forEach(function (ele) {
-    zxxObserver.observe(ele);
-  });
-</script>
-
+  </script>
 </html>

@@ -1,94 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防抖和截流</title>
+    <style>
+      body {
+        height: 5000px;
+        outline: 1px solid red;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>防抖和截流</title>
-  <style>
-    body {
-      height: 5000px;
-      outline: 1px solid red;
+  <body>
+    <input type="text" id="ipt" />
+  </body>
+  <!-- <script src="../js/utils.js"></script> -->
+  <script type="module123">
+    import utils, {throttle,formatDate} from '../js/utils.js'
+    console.log(formatDate(Date.now(), 'yyyy/M/d h:m:s'))
+    function fn() {
+      console.log('onkeydown触发... \n value => %s \n arguments => %s', this.value, Array.from(arguments));
     }
-  </style>
-</head>
-
-<body>
-  <input type="text" id="ipt">
-</body>
-<!-- <script src="../js/utils.js"></script> -->
-<script type="module123">
-  import utils, {throttle,formatDate} from '../js/utils.js'
-  console.log(formatDate(Date.now(), 'yyyy/M/d h:m:s'))
-  function fn() {
-    console.log('onkeydown触发... \n value => %s \n arguments => %s', this.value, Array.from(arguments));
-  }
-  ipt.onkeydown = throttle(fn, 2000, { leading: true, trailing: false });
-</script>
-<script>
-  // 防抖
-  function fn() {
-    console.log('onkeydown触发... \n value => %s \n arguments => %s', this.value, Array.from(arguments));
-  }
-  // ipt.onkeydown = debounce(fn, 2000, 1);
-  ipt.onkeydown = debounce2(fn, 2000);
-  // ipt.onkeydown = fn;
-  function debounce(fn, delay = 1000) {
-    var timer = null;
-    var args = arguments;
-    console.log(args)
-    return function () {
-      clearTimeout(timer)
-      timer = setTimeout(() => {
-        fn.apply(this, args)
-      }, delay);
+    ipt.onkeydown = throttle(fn, 2000, { leading: true, trailing: false });
+  </script>
+  <script>
+    // 防抖
+    function fn() {
+      console.log(
+        "onkeydown触发... \n value => %s \n arguments => %s",
+        this.value,
+        Array.from(arguments),
+      );
     }
-  }
-  // 防抖2，对比参数
-  function debounce2(fn, delay = 1000) {
-    let timer;
-    return function (...args) {
-      console.log('qwe ', args)
-      clearTimeout(timer)
-      timer = setTimeout(fn.bind(this), delay, ...args);
+    // ipt.onkeydown = debounce(fn, 2000, 1);
+    ipt.onkeydown = debounce2(fn, 2000);
+    // ipt.onkeydown = fn;
+    function debounce(fn, delay = 1000) {
+      var timer = null;
+      var args = arguments;
+      console.log(args);
+      return function () {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          fn.apply(this, args);
+        }, delay);
+      };
     }
-  }
-</script>
-
-<script type="abc">
-  // 截流
-  // window.addEventListener('scroll', scrollThrottler, false);
-  window.addEventListener('scroll', scrollThrottler2(actualScrollHandler));
-
-  var scrollTimeout;
-  function scrollThrottler(fn) {
-    console.log('滚动触发中...');
-    if (!scrollTimeout) {
-      scrollTimeout = setTimeout(function () {
-        scrollTimeout = null;
-        fn();
-      }, 2000);
+    // 防抖2，对比参数
+    function debounce2(fn, delay = 1000) {
+      let timer;
+      return function (...args) {
+        console.log("qwe ", args);
+        clearTimeout(timer);
+        timer = setTimeout(fn.bind(this), delay, ...args);
+      };
     }
-  }
+  </script>
 
-  function scrollThrottler2(fn) {
+  <script type="abc">
+    // 截流
+    // window.addEventListener('scroll', scrollThrottler, false);
+    window.addEventListener('scroll', scrollThrottler2(actualScrollHandler));
+
     var scrollTimeout;
-    // console.log('截流函数调用', arguments);
-    return function (...args) {
-      console.log('qwe ',)
+    function scrollThrottler(fn) {
+      console.log('滚动触发中...');
       if (!scrollTimeout) {
         scrollTimeout = setTimeout(function () {
           scrollTimeout = null;
-          fn(...args);
+          fn();
         }, 2000);
       }
-
     }
-  }
 
-  function actualScrollHandler() {
-    console.log('逻辑处理...', arguments);
-  }
-</script>
+    function scrollThrottler2(fn) {
+      var scrollTimeout;
+      // console.log('截流函数调用', arguments);
+      return function (...args) {
+        console.log('qwe ',)
+        if (!scrollTimeout) {
+          scrollTimeout = setTimeout(function () {
+            scrollTimeout = null;
+            fn(...args);
+          }, 2000);
+        }
 
+      }
+    }
+
+    function actualScrollHandler() {
+      console.log('逻辑处理...', arguments);
+    }
+  </script>
 </html>

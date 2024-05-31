@@ -1,23 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window.open下载</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>window.open下载</title>
-</head>
+  <body>
+    <button
+      onclick="downloadEvt('http://127.0.0.1:5500/download/test-pptx.pptx')"
+    >
+      window.open下载
+    </button>
+    <button
+      onclick="downloadEvt('http://localhost:3001/download/test-pdf.pdf')"
+    >
+      window.open下载
+    </button>
 
-<body>
-  <button onclick="downloadEvt('http://127.0.0.1:5500/download/test-pptx.pptx')"> window.open下载</button>
-  <button onclick="downloadEvt('http://localhost:3001/download/test-pdf.pdf')">window.open下载</button>
-
-  <script>
-    function downloadEvt(url) {
-      window.open(url, '_self');
-    }
-  </script>
-
-</body>
-​
-
+    <script>
+      function downloadEvt(url) {
+        window.open(url, "_self");
+      }
+    </script>
+  </body>
+  ​
 </html>

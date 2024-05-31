@@ -1,37 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>visibilitychange</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>visibilitychange</title>
-</head>
-
-<body>
-  <a href="http://www.baidu.com">百度</a>
-  <a href="https://www.ruanyifeng.com/blog/2019/04/user-tracking.html" target="_black" rel="opener noreferrer">阮一峰</a>
-  <script>
-    /**
-     * visibilitychange 触发条件
-     * 1. 页面内链接跳出
-     * 2. 切换浏览器标签页
-     * 3. 最小化浏览器窗口
-     * 4. 别的app窗口最大化后占满整个客户端屏幕
-     * 5. 页面刷新
-     * 6. 前进/后退导航按钮点击
-     * 
-     * 
-     */
-    document.addEventListener('visibilitychange', function logData() {
-      if (document.visibilityState === 'hidden') {
-        localStorage.count = (+localStorage.count || 0) + 1
-      }
-    });
-    window.addEventListener('unload', function (event) {
-      localStorage.count2 = (+localStorage.count2 || 0) + 1
-    });
-  </script>
-</body>
-
+  <body>
+    <a href="http://www.baidu.com">百度</a>
+    <a
+      href="https://www.ruanyifeng.com/blog/2019/04/user-tracking.html"
+      target="_black"
+      rel="opener noreferrer"
+      >阮一峰</a
+    >
+    <script>
+      /**
+       * visibilitychange 触发条件
+       * 1. 页面内链接跳出
+       * 2. 切换浏览器标签页
+       * 3. 最小化浏览器窗口
+       * 4. 别的app窗口最大化后占满整个客户端屏幕
+       * 5. 页面刷新
+       * 6. 前进/后退导航按钮点击
+       *
+       *
+       */
+      document.addEventListener("visibilitychange", function logData() {
+        if (document.visibilityState === "hidden") {
+          localStorage.count = (+localStorage.count || 0) + 1;
+        }
+      });
+      window.addEventListener("unload", function (event) {
+        localStorage.count2 = (+localStorage.count2 || 0) + 1;
+      });
+    </script>
+  </body>
 </html>

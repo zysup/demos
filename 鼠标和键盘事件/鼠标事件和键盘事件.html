@@ -1,101 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>鼠标事件</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 10px;
-      overflow: hidden;
-    }
-
-    #content {
-      width: 400px;
-      height: 400px;
-      border: 1px solid red;
-      margin: 10px;
-      color: blue;
-      float: left;
-      clear: both;
-    }
-
-    #child {
-      width: 200px;
-      height: 200px;
-      border: 8px solid green;
-      margin: 50px;
-    }
-
-    pre {
-      width: 300px;
-      float: right;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="content" draggable="true">
-    <div id="child"></div>
-  </div>
-
-  <textarea name="log" id="log" cols="30" rows="30"></textarea>
-  <pre id="pre">
-
-  </pre>
-
-</body>
-<script>
-  var outDiv = document.getElementById("content");
-
-  function outputEvtDate(evt) {
-    // console.log(evt)
-    let obj = {}
-    for (const key in evt) {
-      // if (Object.hasOwnProperty.call(evt, key)) {}
-      let val = evt[key]
-      if (typeof val != 'object' && typeof val != 'function') {
-        obj[key] = evt[key]
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>鼠标事件</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 10px;
+        overflow: hidden;
       }
+
+      #content {
+        width: 400px;
+        height: 400px;
+        border: 1px solid red;
+        margin: 10px;
+        color: blue;
+        float: left;
+        clear: both;
+      }
+
+      #child {
+        width: 200px;
+        height: 200px;
+        border: 8px solid green;
+        margin: 50px;
+      }
+
+      pre {
+        width: 300px;
+        float: right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="content" draggable="true">
+      <div id="child"></div>
+    </div>
+
+    <textarea name="log" id="log" cols="30" rows="30"></textarea>
+    <pre id="pre"></pre>
+  </body>
+  <script>
+    var outDiv = document.getElementById("content");
+
+    function outputEvtDate(evt) {
+      // console.log(evt)
+      let obj = {};
+      for (const key in evt) {
+        // if (Object.hasOwnProperty.call(evt, key)) {}
+        let val = evt[key];
+        if (typeof val != "object" && typeof val != "function") {
+          obj[key] = evt[key];
+        }
+      }
+      pre.innerHTML = JSON.stringify(obj, null, 2);
     }
-    pre.innerHTML = JSON.stringify(obj, null, 2)
-  }
 
-  outDiv.onmousedown = function (evt) {
-    log.textContent += 'onmousedown\n'
-    outputEvtDate(evt)
-  }
-  outDiv.onmouseup = function (evt) {
-    log.textContent += 'onmouseup\n'
-    outputEvtDate(evt)
-  }
-  outDiv.onmousemove = function (evt) {
-    outputEvtDate(evt)
-  }
-  outDiv.onmouseover = function () {
-    log.textContent += 'onmouseover进入\n'
-  }
-  outDiv.onmouseout = function () {
-    log.textContent += 'onmouseout移出\n'
-  }
-  outDiv.onmouseenter = function () {
-    log.textContent += 'onmouseenter进入\n'
-  }
-  outDiv.onmouseleave = function () {
-    log.textContent += 'onmouseleave离开\n'
-  }
-  outDiv.onclick = function (evt) {
-    log.textContent += '点击触发\n'
-    console.log(evt)
-  }
-  outDiv.ondblclick = function (evt) {
-    log.textContent += '双击触发\n'
-    console.log(evt)
-  }
-
-</script>
-
+    outDiv.onmousedown = function (evt) {
+      log.textContent += "onmousedown\n";
+      outputEvtDate(evt);
+    };
+    outDiv.onmouseup = function (evt) {
+      log.textContent += "onmouseup\n";
+      outputEvtDate(evt);
+    };
+    outDiv.onmousemove = function (evt) {
+      outputEvtDate(evt);
+    };
+    outDiv.onmouseover = function () {
+      log.textContent += "onmouseover进入\n";
+    };
+    outDiv.onmouseout = function () {
+      log.textContent += "onmouseout移出\n";
+    };
+    outDiv.onmouseenter = function () {
+      log.textContent += "onmouseenter进入\n";
+    };
+    outDiv.onmouseleave = function () {
+      log.textContent += "onmouseleave离开\n";
+    };
+    outDiv.onclick = function (evt) {
+      log.textContent += "点击触发\n";
+      console.log(evt);
+    };
+    outDiv.ondblclick = function (evt) {
+      log.textContent += "双击触发\n";
+      console.log(evt);
+    };
+  </script>
 </html>

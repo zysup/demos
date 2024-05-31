@@ -68,7 +68,6 @@ h6 {
   overflow-wrap: break-word;
 }
 
-
 /*
 9. 叠层处理(react 开发时会用到)
 */
@@ -76,7 +75,6 @@ h6 {
 #__next {
   isolation: isolate;
 } */
-
 
 ul,
 ol {
@@ -86,7 +84,6 @@ ol {
 html:focus-within {
   scroll-behavior: smooth;
 }
-
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 /* @media (prefers-reduced-motion: reduce) {
@@ -104,8 +101,8 @@ html:focus-within {
   }
 } */
 
-
-em, i {
+em,
+i {
   font-style: normal;
 }
 /*表格元素相邻的单元格共用同一条边框*/

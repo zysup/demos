@@ -1,46 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>密码强度的计算</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>密码强度的计算</title>
-</head>
+  <body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+    <script>
+      setTimeout(() => {
+        var objResult = zxcvbn("your password");
+      }, 1000);
+    </script>
+    密码强度直接相关的是：guesses、guesses_log10 和 score。
+    <script>
+      (function () {
+        console.log("qwe ", this);
+        var ZXCVBN_SRC =
+          "https://cdn.bootcdn.net/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 
-<body>
-  <script src="https://cdn.bootcdn.net/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
-  <script>
-    setTimeout(() => {
-      var objResult = zxcvbn('your password');
+        var async_load = function () {
+          var first, s;
+          s = document.createElement("script");
+          s.src = ZXCVBN_SRC;
+          s.type = "text/javascript";
+          s.async = true;
+          first = document.getElementsByTagName("script")[0];
+          return first.parentNode.insertBefore(s, first);
+          // document.body.appendChild(s)
+        };
 
-    }, 1000)
-  </script>
-  密码强度直接相关的是：guesses、guesses_log10 和 score。
-  <script>
-    (function () {
-      console.log('qwe ', this);
-      var ZXCVBN_SRC = 'https://cdn.bootcdn.net/ajax/libs/zxcvbn/4.4.2/zxcvbn.js';
-
-      var async_load = function () {
-        var first, s;
-        s = document.createElement('script');
-        s.src = ZXCVBN_SRC;
-        s.type = 'text/javascript';
-        s.async = true;
-        first = document.getElementsByTagName('script')[0];
-        return first.parentNode.insertBefore(s, first);
-        // document.body.appendChild(s)
-      };
-
-      if (window.attachEvent != null) {
-        window.attachEvent('onload', async_load);
-      } else {
-        window.addEventListener('load', async_load, false);
-      }
-
-    }).call(this);
-  </script>
-</body>
-
+        if (window.attachEvent != null) {
+          window.attachEvent("onload", async_load);
+        } else {
+          window.addEventListener("load", async_load, false);
+        }
+      }).call(this);
+    </script>
+  </body>
 </html>

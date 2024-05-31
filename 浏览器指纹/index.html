@@ -1,31 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>index.html</title>
-  <script src="./fingerprint2.min.1.5.1.js"></script>
-  <style>
-    html {
-      font-size: 18px;
-    }
-    body {
-      font-family: 'Courier New', Courier, monospace;
-    }
-  </style>
-</head>
-<body>
-  index.html
-  <script type="text/javascript">
-    setTimeout(() => {
-      var fp=new Fingerprint2();
-      fp.get(function(result){
-       //result即为获取到的浏览器指纹值
-       console.log(result)
-      });
-      
-    }, 3000);
-    </script> 
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index.html</title>
+    <script src="./fingerprint2.min.1.5.1.js"></script>
+    <style>
+      html {
+        font-size: 18px;
+      }
+      body {
+        font-family: "Courier New", Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    index.html
+    <script type="text/javascript">
+      setTimeout(() => {
+        var fp = new Fingerprint2();
+        fp.get(function (result) {
+          //result即为获取到的浏览器指纹值
+          console.log(result);
+        });
+      }, 3000);
+    </script>
+  </body>
 </html>

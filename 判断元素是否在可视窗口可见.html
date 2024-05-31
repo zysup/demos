@@ -1,20 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>判断元素是否在可视窗口可见</title>
     <style>
-        div {
-            border: inset;
-            height: 400px;
-        }
+      div {
+        border: inset;
+        height: 400px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>内容01</div>
     <div>内容02</div>
     <div>内容03</div>
@@ -26,43 +25,43 @@
     <div>内容09</div>
     <div>内容10</div>
     <div>内容11</div>
-</body>
-<script>
+  </body>
+  <script>
     const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
-        const { top, left, bottom, right } = el.getBoundingClientRect();
-        return partiallyVisible
-            ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
-            ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
-            : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+      const { top, left, bottom, right } = el.getBoundingClientRect();
+      return partiallyVisible
+        ? ((top > 0 && top < innerHeight) ||
+            (bottom > 0 && bottom < innerHeight)) &&
+            ((left > 0 && left < innerWidth) ||
+              (right > 0 && right < innerWidth))
+        : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
     };
-    let divs = document.getElementsByTagName('div')
+    let divs = document.getElementsByTagName("div");
     document.body.onscroll = function (params) {
-        // console.log('qwe ', );
-        [].forEach.call(divs, (item) => {
-            let flag = elementIsVisibleInViewport(item)
-            if (flag) {
-                item.style.borderColor = 'red'
-                // console.log('qwe item', item.textContent);
-            } else {
-                item.style.cssText = ''
-            }
-        });
-
-    }
-    function throttle(fn, wait) {
-        var time = Date.now();
-        console.log('qwe 123', time);
-        return function () {
-            if ((time + wait - Date.now()) < 0) {
-                fn();
-                time = Date.now();
-            }
+      // console.log('qwe ', );
+      [].forEach.call(divs, (item) => {
+        let flag = elementIsVisibleInViewport(item);
+        if (flag) {
+          item.style.borderColor = "red";
+          // console.log('qwe item', item.textContent);
+        } else {
+          item.style.cssText = "";
         }
+      });
+    };
+    function throttle(fn, wait) {
+      var time = Date.now();
+      console.log("qwe 123", time);
+      return function () {
+        if (time + wait - Date.now() < 0) {
+          fn();
+          time = Date.now();
+        }
+      };
     }
     function callback() {
-        console.log('qwe ',);
+      console.log("qwe ");
     }
-    window.addEventListener('scroll', throttle(callback, 1000));
-</script>
-
+    window.addEventListener("scroll", throttle(callback, 1000));
+  </script>
 </html>

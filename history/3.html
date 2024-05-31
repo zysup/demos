@@ -1,53 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3</title>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+      .content {
+        height: 300px;
+        outline: 5px solid #ff6520;
+        margin-bottom: 50px;
+        padding-top: 10px;
+        border: 5px solid goldenrod;
+      }
+    </style>
+  </head>
 
-    .content {
-      height: 300px;
-      outline: 5px solid #ff6520;
-      margin-bottom: 50px;
-      padding-top: 10px;
-      border: 5px solid goldenrod;
-    }
-  </style>
-</head>
-
-<body>
-  <a href="1.html">去到页面1</a><br><br>
-  <a href="3.html#abc">在本页添加hash参数 #abc</a><br><br>
-  <a href="#d1">第一章</a>&nbsp;
-  <a href="#d2">第二章</a>&nbsp;
-  <a href="#d3">第三章</a>&nbsp;
-  <a href="#d4">第四章</a>&nbsp;
-  <a href="#d5">第五章</a>&nbsp;
-  <a href="#d6">第六章</a>&nbsp;
-  <br><br>
-  <div id='d1' class="content">第一章···balabalabala</div>
-  <div id='d2' class="content">第二章···balabalabala</div>
-  <div id='d3' class="content">第三章···balabalabala</div>
-  <a href="#d6">第六章</a><br /><br />
-  <div id='d4' class="content">第四章···balabalabala</div>
-  <div id='d5' class="content">第五章···balabalabala</div>
-  <div id='d6' class="content">第六章···balabalabala</div>
-</body>
-<script>
-  console.log('history.length: ', history.length);
-  window.onpopstate = function (evt) {
-    console.log('location: ' + document.location);
-    console.log('state: ' + JSON.stringify(evt.state));
-  };
-  window.addEventListener('hashchange', function (evt) {
-    console.log('The hash has changed!', evt)
-  });
-
-</script>
-
+  <body>
+    <a href="1.html">去到页面1</a><br /><br />
+    <a href="3.html#abc">在本页添加hash参数 #abc</a><br /><br />
+    <a href="#d1">第一章</a>&nbsp; <a href="#d2">第二章</a>&nbsp;
+    <a href="#d3">第三章</a>&nbsp; <a href="#d4">第四章</a>&nbsp;
+    <a href="#d5">第五章</a>&nbsp; <a href="#d6">第六章</a>&nbsp; <br /><br />
+    <div id="d1" class="content">第一章···balabalabala</div>
+    <div id="d2" class="content">第二章···balabalabala</div>
+    <div id="d3" class="content">第三章···balabalabala</div>
+    <a href="#d6">第六章</a><br /><br />
+    <div id="d4" class="content">第四章···balabalabala</div>
+    <div id="d5" class="content">第五章···balabalabala</div>
+    <div id="d6" class="content">第六章···balabalabala</div>
+  </body>
+  <script>
+    console.log("history.length: ", history.length);
+    window.onpopstate = function (evt) {
+      console.log("location: " + document.location);
+      console.log("state: " + JSON.stringify(evt.state));
+    };
+    window.addEventListener("hashchange", function (evt) {
+      console.log("The hash has changed!", evt);
+    });
+  </script>
 </html>

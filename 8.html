@@ -1,52 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <style>
-    html {
-      height: 100%;
-    }
-
-    @keyframes rotate360 {
-      from {
-        transform: rotate(0) scale(0);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        height: 100%;
       }
 
-      to {
-        transform: rotate(1turn) scale(2);
+      @keyframes rotate360 {
+        from {
+          transform: rotate(0) scale(0);
+        }
+
+        to {
+          transform: rotate(1turn) scale(2);
+        }
       }
-    }
 
-    body {
-      height: 100%;
-      overflow: hidden;
-
-
-
-
-
-
-
-      .target {
-        /* position: fixed; */
-        /* inset: 10em; */
-        width: 100px;
-        height: 100px;
-        outline: 1px solid blue;
-        margin: 40vh auto;
+      body {
+        height: 100%;
         overflow: hidden;
-        animation: rotate360 2s linear infinite alternate;
-        color: oklch(40% 0.234 0.39 / 0.5);
+
+        .target {
+          /* position: fixed; */
+          /* inset: 10em; */
+          width: 100px;
+          height: 100px;
+          outline: 1px solid blue;
+          margin: 40vh auto;
+          overflow: hidden;
+          animation: rotate360 2s linear infinite alternate;
+          color: oklch(40% 0.234 0.39 / 0.5);
+        }
       }
-    }
-  </style>
-</head>
+    </style>
+  </head>
 
-<body>
-  <div class="target">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil autem temporibus quasi distinctio. Expedita laborum eligendi excepturi id sunt qui maiores beatae maxime! Ipsam sed facerperiores.</div>
-</body>
-
+  <body>
+    <div class="target">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil autem
+      temporibus quasi distinctio. Expedita laborum eligendi excepturi id sunt
+      qui maiores beatae maxime! Ipsam sed facerperiores.
+    </div>
+  </body>
 </html>

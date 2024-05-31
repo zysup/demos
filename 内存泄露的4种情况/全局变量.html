@@ -1,41 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>全局变量</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <button onclick="grow()">Global Var</button>
     <button onclick="growString()">growString</button>
     <button onclick="ConsoleLogString()">Console String</button>
     <button onclick="clearVar()">Clear Global Var</button>
     <script>
-        function LargeObj() {
-            this.largeArr = new Array(1000_0000)
-        }
-        var x = []
-        function grow() {
-            console.log('qwe ',);
-            var o = new LargeObj()
+      function LargeObj() {
+        this.largeArr = new Array(1000_0000);
+      }
+      var x = [];
+      function grow() {
+        console.log("qwe ");
+        var o = new LargeObj();
 
-            x.push(o)
-        }
+        x.push(o);
+      }
 
-        function clearVar(params) {
-            x = null
-        }
-        var y;
-        function growString() {
-            y = ('hello word').repeat(100_0000)
-        }
-        function ConsoleLogString(params) {
-            console.log(y[0]);
-        }
+      function clearVar(params) {
+        x = null;
+      }
+      var y;
+      function growString() {
+        y = "hello word".repeat(100_0000);
+      }
+      function ConsoleLogString(params) {
+        console.log(y[0]);
+      }
     </script>
-</body>
-
+  </body>
 </html>

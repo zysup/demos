@@ -1,159 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>侧边栏导航</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      height: 300px;
-      background-color: #ff0;
-    }
-
-    nav {
-      height: 100px;
-      background-color: #00f;
-    }
-
-    .navul {
-      position: fixed;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #ccc;
-      border-radius: 5px;
-      list-style: none;
-    }
-
-    .navul li {
-      margin: 5px;
-      padding: 5px 10px;
-      background: #fff;
-    }
-
-    .navul li.active {
-      background: #f00;
-    }
-
-    .boss div {
-      line-height: 420px;
-      text-align: center;
-      font-size: 50px;
-      border: 1px solid;
-    }
-
-    footer {
-      height: 420px;
-      background: #333;
-    }
-  </style>
-</head>
-
-<body>
-  <header>头部</header>
-  <nav>导航</nav>
-  <ul class="navul">
-    <li class="active">01</li>
-    <li>02</li>
-    <li>03</li>
-    <li>04</li>
-    <li>05</li>
-    <li>06</li>
-    <li>07</li>
-    <li>08</li>
-    <li>09</li>
-    <li>10</li>
-  </ul>
-  <div class="boss">
-    <div>01</div>
-    <div>02</div>
-    <div>03</div>
-    <div>04</div>
-    <div>05</div>
-    <div>06</div>
-    <div>07</div>
-    <div>08</div>
-    <div>09</div>
-    <div>10</div>
-  </div>
-  <footer></footer>
-</body>
-<script>
-  var navul = document.getElementsByClassName("navul")[0];
-  var liList = navul.children;
-  var boss = document.getElementsByClassName("boss")[0];
-  var divList = boss.children;
-  var footer = document.getElementsByTagName("footer")[0];
-  console.log(navul, liList, boss, divList, footer);
-  var scrollTimeout;
-  function scrollThrottler() {
-    console.log('滚动触发中...');
-    if (!scrollTimeout) {
-      scrollTimeout = setTimeout(function () {
-        scrollTimeout = null;
-        scrollHander();
-      }, 100);
-    }
-  }
-  function scrollHander() {
-    console.log('事件处理')
-    var scrollTop = document.documentElement.scrollTop;
-    for (var i = 0; i < divList.length; i++) {
-      var start = divList[i].offsetTop
-      var end
-      if (i == divList.length - 1) {
-        end = footer.offsetTop;
-      } else {
-        end = divList[i + 1].offsetTop;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>侧边栏导航</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
       }
-      if (scrollTop > start - 150 && scrollTop < end - 150) {
-        for (var j = 0; j < liList.length; j++) {
-          liList[j].className = "";
+
+      header {
+        height: 300px;
+        background-color: #ff0;
+      }
+
+      nav {
+        height: 100px;
+        background-color: #00f;
+      }
+
+      .navul {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #ccc;
+        border-radius: 5px;
+        list-style: none;
+      }
+
+      .navul li {
+        margin: 5px;
+        padding: 5px 10px;
+        background: #fff;
+      }
+
+      .navul li.active {
+        background: #f00;
+      }
+
+      .boss div {
+        line-height: 420px;
+        text-align: center;
+        font-size: 50px;
+        border: 1px solid;
+      }
+
+      footer {
+        height: 420px;
+        background: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>头部</header>
+    <nav>导航</nav>
+    <ul class="navul">
+      <li class="active">01</li>
+      <li>02</li>
+      <li>03</li>
+      <li>04</li>
+      <li>05</li>
+      <li>06</li>
+      <li>07</li>
+      <li>08</li>
+      <li>09</li>
+      <li>10</li>
+    </ul>
+    <div class="boss">
+      <div>01</div>
+      <div>02</div>
+      <div>03</div>
+      <div>04</div>
+      <div>05</div>
+      <div>06</div>
+      <div>07</div>
+      <div>08</div>
+      <div>09</div>
+      <div>10</div>
+    </div>
+    <footer></footer>
+  </body>
+  <script>
+    var navul = document.getElementsByClassName("navul")[0];
+    var liList = navul.children;
+    var boss = document.getElementsByClassName("boss")[0];
+    var divList = boss.children;
+    var footer = document.getElementsByTagName("footer")[0];
+    console.log(navul, liList, boss, divList, footer);
+    var scrollTimeout;
+    function scrollThrottler() {
+      console.log("滚动触发中...");
+      if (!scrollTimeout) {
+        scrollTimeout = setTimeout(function () {
+          scrollTimeout = null;
+          scrollHander();
+        }, 100);
+      }
+    }
+    function scrollHander() {
+      console.log("事件处理");
+      var scrollTop = document.documentElement.scrollTop;
+      for (var i = 0; i < divList.length; i++) {
+        var start = divList[i].offsetTop;
+        var end;
+        if (i == divList.length - 1) {
+          end = footer.offsetTop;
+        } else {
+          end = divList[i + 1].offsetTop;
         }
-        liList[i].className = "active";
+        if (scrollTop > start - 150 && scrollTop < end - 150) {
+          for (var j = 0; j < liList.length; j++) {
+            liList[j].className = "";
+          }
+          liList[i].className = "active";
+        }
       }
     }
-  }
-  window.onscroll = scrollThrottler
-  function scrollSmoothTo(position) {
-    if (!window.requestAnimationFrame) {
-      window.requestAnimationFrame = function (callback, element) {
-        return setTimeout(callback, 17);
+    window.onscroll = scrollThrottler;
+    function scrollSmoothTo(position) {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function (callback, element) {
+          return setTimeout(callback, 17);
+        };
+      }
+      // 当前滚动高度
+      var scrollTop = document.documentElement.scrollTop || window.pageYOffset;
+      // 滚动step方法
+      var step = function () {
+        // 距离目标滚动距离
+        var distance = position - scrollTop;
+        // 目标滚动位置
+        scrollTop = scrollTop + distance / 5;
+        if (Math.abs(distance) < 1) {
+          window.scrollTo(0, position);
+        } else {
+          window.scrollTo(0, scrollTop);
+          requestAnimationFrame(step);
+        }
       };
+      step();
     }
-    // 当前滚动高度
-    var scrollTop = document.documentElement.scrollTop || window.pageYOffset;
-    // 滚动step方法
-    var step = function () {
-      // 距离目标滚动距离
-      var distance = position - scrollTop;
-      // 目标滚动位置
-      scrollTop = scrollTop + distance / 5;
-      if (Math.abs(distance) < 1) {
-        window.scrollTo(0, position);
-      } else {
-        window.scrollTo(0, scrollTop);
-        requestAnimationFrame(step);
-      }
-    };
-    step();
-  };
-  document.querySelectorAll('li').forEach((item, index) => {
-    item.onclick = function () {
-      let end = divList[index].offsetTop;
-      scrollSmoothTo(end)
-    }
-  })
-
-
-
-</script>
-
+    document.querySelectorAll("li").forEach((item, index) => {
+      item.onclick = function () {
+        let end = divList[index].offsetTop;
+        scrollSmoothTo(end);
+      };
+    });
+  </script>
 </html>

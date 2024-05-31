@@ -1,20 +1,22 @@
-
 /**
  * 是否为空对象
- * @param {object} obj  
+ * @param {object} obj
  * @return {boolean}
-*/
+ */
 export function isEmptyObject(obj) {
-  return obj && Object.keys(obj).length === 0 && obj.constructor === Object || false;
+  return (
+    (obj && Object.keys(obj).length === 0 && obj.constructor === Object) ||
+    false
+  );
 }
 
 /**
  * 是否为空对象，这个方法不严谨,JSON.stringify 会过滤掉 undefined
- * 
+ *
  * eg: let bb = {cc: undefined} 会被返回true
  * @param {object}
  * @returns {boolean}
-*/
+ */
 // export function isObjectEmpty(obj) {
 //   return (
 //     Object.prototype.toString.call(obj) === '[object Object]' &&
@@ -24,8 +26,8 @@ export function isEmptyObject(obj) {
 
 /**
  * 加法，用于解决浮点数误差
- * @param {number} arg1 
- * @param {number} arg2 
+ * @param {number} arg1
+ * @param {number} arg2
  * @returns {number}
  */
 export function floatAdd(arg1, arg2) {
@@ -80,8 +82,8 @@ export function floatSub(arg1, arg2) {
     r2 = 0;
   }
   m = Math.pow(10, Math.max(r1, r2)); //last modify by deeka //动态控制精度长度
-  n = (r1 >= r2) ? r1 : r2;
-  x = ((arg1 * m - arg2 * m) / m).toFixed(n)
+  n = r1 >= r2 ? r1 : r2;
+  x = ((arg1 * m - arg2 * m) / m).toFixed(n);
   return Number(x);
 }
 Number.prototype.floatSub = function (arg) {
@@ -90,8 +92,8 @@ Number.prototype.floatSub = function (arg) {
 
 /**
  * 乘法，用于解决浮点数误差
- * @param {number} arg1 
- * @param {number} arg2 
+ * @param {number} arg1
+ * @param {number} arg2
  * @returns {number}
  */
 export function floatMul(arg1, arg2) {
@@ -100,11 +102,14 @@ export function floatMul(arg1, arg2) {
     s2 = arg2.toString();
   try {
     m += s1.split(".")[1].length;
-  } catch (e) { }
+  } catch (e) {}
   try {
     m += s2.split(".")[1].length;
-  } catch (e) { }
-  return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+  } catch (e) {}
+  return (
+    (Number(s1.replace(".", "")) * Number(s2.replace(".", ""))) /
+    Math.pow(10, m)
+  );
 }
 Number.prototype.floatMul = function (arg) {
   return floatMul(this, arg);
@@ -116,13 +121,16 @@ Number.prototype.floatMul = function (arg) {
  * @returns {number}
  */
 export function floatDiv(arg1, arg2) {
-  let t1 = 0, t2 = 0, r1, r2;
+  let t1 = 0,
+    t2 = 0,
+    r1,
+    r2;
   try {
     t1 = arg1.toString().split(".")[1].length;
-  } catch (e) { }
+  } catch (e) {}
   try {
     t2 = arg2.toString().split(".")[1].length;
-  } catch (e) { }
+  } catch (e) {}
   r1 = Number(arg1.toString().replace(".", ""));
   r2 = Number(arg2.toString().replace(".", ""));
   return (r1 / r2) * Math.pow(10, t2 - t1);
@@ -136,12 +144,12 @@ Number.prototype.floatDiv = function (arg) {
  * @returns {string}
  */
 export function randomString() {
-  return Math.random().toString(36).slice(2)
+  return Math.random().toString(36).slice(2);
 }
 
 /**
  * 页面垂直平滑滚动到指定滚动高度
- * @param {number} position 
+ * @param {number} position
  */
 export function scrollSmoothTo(position) {
   if (!window.requestAnimationFrame) {
@@ -165,7 +173,7 @@ export function scrollSmoothTo(position) {
     }
   };
   step();
-};
+}
 
 /**
  * 防抖函数
@@ -174,25 +182,25 @@ export function scrollSmoothTo(position) {
  * @param {boolean} immediate 是否立即执行
  */
 export function debounce(func, wait = 500, immediate = false) {
-  let timeout
+  let timeout;
   return function () {
-    let context = this
-    let args = arguments
+    let context = this;
+    let args = arguments;
 
-    if (timeout) clearTimeout(timeout)
+    if (timeout) clearTimeout(timeout);
     if (immediate) {
       // 如果已经执行过就不再执行
-      let callNow = !timeout
+      let callNow = !timeout;
       timeout = setTimeout(function () {
-        timeout = null
-      }, wait)
-      if (callNow) func.apply(context, args)
+        timeout = null;
+      }, wait);
+      if (callNow) func.apply(context, args);
     } else {
       timeout = setTimeout(function () {
-        func.apply(context, args)
-      }, wait)
+        func.apply(context, args);
+      }, wait);
     }
-  }
+  };
 }
 
 /**
@@ -206,36 +214,36 @@ export function debounce(func, wait = 500, immediate = false) {
   leading-true, trailing-false：只在延时开始时调用
  */
 export function throttle(func, wait = 500, options = null) {
-  let timeout, context, args
-  let previous = 0
-  if (!options) options = { leading: false, trailing: true }
+  let timeout, context, args;
+  let previous = 0;
+  if (!options) options = { leading: false, trailing: true };
 
   let later = function () {
-    previous = options.leading === false ? 0 : new Date().getTime()
-    timeout = null
-    func.apply(context, args)
-    if (!timeout) context = args = null
-  }
+    previous = options.leading === false ? 0 : new Date().getTime();
+    timeout = null;
+    func.apply(context, args);
+    if (!timeout) context = args = null;
+  };
 
   let throttled = function () {
-    let now = new Date().getTime()
-    if (!previous && options.leading === false) previous = now
-    let remaining = wait - (now - previous)
-    context = this
-    args = arguments
+    let now = new Date().getTime();
+    if (!previous && options.leading === false) previous = now;
+    let remaining = wait - (now - previous);
+    context = this;
+    args = arguments;
     if (remaining <= 0 || remaining > wait) {
       if (timeout) {
-        clearTimeout(timeout)
-        timeout = null
+        clearTimeout(timeout);
+        timeout = null;
       }
-      previous = now
-      func.apply(context, args)
-      if (!timeout) context = args = null
+      previous = now;
+      func.apply(context, args);
+      if (!timeout) context = args = null;
     } else if (!timeout && options.trailing !== false) {
-      timeout = setTimeout(later, remaining)
+      timeout = setTimeout(later, remaining);
     }
-  }
-  return throttled
+  };
+  return throttled;
 }
 
 /**
@@ -243,7 +251,7 @@ export function throttle(func, wait = 500, options = null) {
  * @param {number} 等待时间
  */
 export function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 /**
@@ -251,15 +259,14 @@ export function sleep(ms) {
  * @param {object | array} obj 源数据
  */
 export function deepCopy(obj) {
-  if (typeof obj !== 'object') {
-    return obj
+  if (typeof obj !== "object") {
+    return obj;
   }
   if (obj === null) {
-    return null
+    return null;
   }
-  return JSON.parse(JSON.stringify(obj))
+  return JSON.parse(JSON.stringify(obj));
 }
-
 
 /**
  * 
@@ -274,8 +281,8 @@ export function deepCopy(obj) {
   yyyy-M-d h:m:s.S" ==> 2006-7-2 8:9:4.18
  */
 export function formatDate(timeStamp, fmt) {
-  const date = new Date(+timeStamp)
-  if (!timeStamp || !date || !fmt) return ''
+  const date = new Date(+timeStamp);
+  if (!timeStamp || !date || !fmt) return "";
   const o = {
     "M+": date.getMonth() + 1, // 月
     "d+": date.getDate(), // 日
@@ -283,17 +290,25 @@ export function formatDate(timeStamp, fmt) {
     "m+": date.getMinutes(), // 分
     "s+": date.getSeconds(), // 秒
     "q+": Math.floor((date.getMonth() + 3) / 3), // 季度
-    "S": date.getMilliseconds() // 毫秒
+    S: date.getMilliseconds(), // 毫秒
   };
-  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+  if (/(y+)/.test(fmt))
+    fmt = fmt.replace(
+      RegExp.$1,
+      (date.getFullYear() + "").substr(4 - RegExp.$1.length),
+    );
   for (let k in o) {
-    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    if (new RegExp("(" + k + ")").test(fmt))
+      fmt = fmt.replace(
+        RegExp.$1,
+        RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length),
+      );
   }
   return fmt;
 }
 Date.prototype.formatDate = function (fmt) {
   return formatDate(this.getTime(), fmt);
-}
+};
 
 /**
  * url查询字符串转对象
@@ -301,31 +316,30 @@ Date.prototype.formatDate = function (fmt) {
  * @returns {object}
  */
 export function getUrlSearchParams(search) {
-  let obj = {}
+  let obj = {};
   try {
-    search = search.match(/\?([^#]+)/)[1]
-    const arr = search.split('&')
+    search = search.match(/\?([^#]+)/)[1];
+    const arr = search.split("&");
     for (const item of arr) {
-      const subArr = item.split('=')
-      const key = decodeURIComponent(subArr[0])
-      const value = decodeURIComponent(subArr[1])
-      obj[key] = value
+      const subArr = item.split("=");
+      const key = decodeURIComponent(subArr[0]);
+      const value = decodeURIComponent(subArr[1]);
+      obj[key] = value;
     }
-    return obj
+    return obj;
   } catch (e) {
-    return obj
+    return obj;
   }
 }
 
 /**
  * 休眠xxxms
- * @param {time} number 延迟多少毫秒 
+ * @param {time} number 延迟多少毫秒
  */
 export function dely(time) {
-  const start = Date.now()
-  while (Date.now() - start < time) { }
+  const start = Date.now();
+  while (Date.now() - start < time) {}
 }
-
 
 export default {
   isEmptyObject,
@@ -341,25 +355,4 @@ export default {
   deepCopy,
   formatDate,
   getUrlSearchParams,
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};

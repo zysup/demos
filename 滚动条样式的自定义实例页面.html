@@ -1,68 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>滚动条样式的自定义实例页面</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      .scroll {
+        margin: 0 auto;
+        border: 1px solid #665;
+        height: 150px;
+        width: 80px;
+        overflow: auto;
+        --thumb-color: rgb(233, 159, 159);
+        --track-color: rgb(54, 53, 58);
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>滚动条样式的自定义实例页面</title>
-  <style>
-    body{
-      text-align: center;
-    }
-    .scroll {
-      margin: 0 auto;
-      border: 1px solid #665;
-      height: 150px;
-      width: 80px;
-      overflow: auto;
-      --thumb-color: rgb(233, 159, 159);
-      --track-color: rgb(54, 53, 58);
-    }
+      .scroll-thin {
+        scrollbar-width: thin;
+        scrollbar-color: var(--thumb-color) var(--track-color);
+      }
 
-    .scroll-thin {
-      scrollbar-width: thin;
-      scrollbar-color: var(--thumb-color) var(--track-color);
-    }
+      .scroll-none {
+        scrollbar-width: none;
+      }
 
-    .scroll-none {
-      scrollbar-width: none;
-    }
+      .scroll-thin::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
 
-    .scroll-thin::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
+      .scroll-thin::-webkit-scrollbar-thumb {
+        background-color: var(--thumb-color);
+      }
 
-    .scroll-thin::-webkit-scrollbar-thumb {
-      background-color: var(--thumb-color);
-    }
+      .scroll-thin::-webkit-scrollbar-track {
+        background-color: var(--track-color);
+      }
 
-    .scroll-thin::-webkit-scrollbar-track {
-      background-color: var(--track-color);
-    }
+      .scroll-none::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+    </style>
+  </head>
 
-    .scroll-none::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-    }
-  </style>
-</head>
+  <body>
+    <h4 class="fill">窄滚动条</h4>
+    <div class="scroll scroll-thin">
+      <p>根据测试，窄滚动条在Windows操作系统中占据的宽度是8px。</p>
+      <p>测试方法很简单，滚动容器的宽度减去子元素的宽度即可。</p>
+      <p>
+        打开控制台，审查对应的元素，就可以看到容器的宽度和子元素的宽度，两者相互减，就是滚动条的宽度了。
+      </p>
+    </div>
 
-<body>
-  <h4 class="fill">窄滚动条</h4>
-  <div class="scroll scroll-thin">
-    <p>根据测试，窄滚动条在Windows操作系统中占据的宽度是8px。</p>
-    <p>测试方法很简单，滚动容器的宽度减去子元素的宽度即可。</p>
-    <p>打开控制台，审查对应的元素，就可以看到容器的宽度和子元素的宽度，两者相互减，就是滚动条的宽度了。</p>
-  </div>
-
-  <h4 class="fill">无滚动条-可滚动</h4>
-  <div class="scroll scroll-none">
-    <p>根据测试，窄滚动条在Windows操作系统中占据的宽度是8px。</p>
-    <p>测试方法很简单，滚动容器的宽度减去子元素的宽度即可。</p>
-    <p>打开控制台，审查对应的元素，就可以看到容器的宽度和子元素的宽度，两者相互减，就是滚动条的宽度了。</p>
-  </div>
-</body>
-
+    <h4 class="fill">无滚动条-可滚动</h4>
+    <div class="scroll scroll-none">
+      <p>根据测试，窄滚动条在Windows操作系统中占据的宽度是8px。</p>
+      <p>测试方法很简单，滚动容器的宽度减去子元素的宽度即可。</p>
+      <p>
+        打开控制台，审查对应的元素，就可以看到容器的宽度和子元素的宽度，两者相互减，就是滚动条的宽度了。
+      </p>
+    </div>
+  </body>
 </html>

@@ -1,35 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frame2</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>frame2</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-</head>
+  <body>
+    <h4 id="title">iframe2 page</h4>
+    <textarea name="showlog" id="showlog" cols="30" rows="10" readonly>
+qwe</textarea
+    >
 
-<body>
-  <h4 id="title">iframe2 page</h4>
-  <textarea name="showlog" id="showlog" cols="30" rows="10" readonly>qwe</textarea>
+    <a href="#title" rel="noopener noreferrer">锚点定位</a>
+    <script>
+      window.onhashchange = function () {
+        var message = window.location.hash;
+        console.log("frame2 onhashchange", message);
+        console.log(
+          "frame2 onhashchange decodeURIComponent",
+          decodeURIComponent(message),
+        );
+      };
 
-  <a href="#title" rel="noopener noreferrer">锚点定位</a>
-  <script>
-    window.onhashchange = function () {
-      var message = window.location.hash;
-      console.log('frame2 onhashchange', message);
-      console.log('frame2 onhashchange decodeURIComponent', decodeURIComponent(message));
-    }
+      window.addEventListener(
+        "message",
+        function (e) {
+          var payload = JSON.stringify(e.data, null, 2);
+          showlog.textContent += `resmessage => ${payload}\n`;
+        },
+        false,
+      );
 
-    window.addEventListener('message', function (e) {
-      var payload = JSON.stringify(e.data, null, 2)
-      showlog.textContent += `resmessage => ${payload}\n`
-    }, false)
-
-    // storage事件用来监听同源的其他窗口的变动
-    window.addEventListener('storage', function (e) {
-      console.log('frame2 storage', e);
-    })
-  </script>
-</body>
-
+      // storage事件用来监听同源的其他窗口的变动
+      window.addEventListener("storage", function (e) {
+        console.log("frame2 storage", e);
+      });
+    </script>
+  </body>
 </html>
