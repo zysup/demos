@@ -57,7 +57,7 @@
       }
       .preview:empty::before {
         display: grid;
-        content: "虚位以待";
+        content: '虚位以待';
         color: gray;
         place-items: center;
       }
@@ -102,29 +102,29 @@
     </article>
 
     <script type="module">
-      import onlyImgResize from "./src/onlyImgResize.js";
+      import onlyImgResize from './src/onlyImgResize.js'
 
-      onlyImgResize({ minWidth: 300 });
+      onlyImgResize({ minWidth: 300 })
 
       // 图片上传处理
-      file.addEventListener("change", function (event) {
-        const files = event.target && event.target.files;
+      file.addEventListener('change', function (event) {
+        const files = event.target && event.target.files
 
         for (var i = 0; i < files.length; i++) {
-          var file = files[i];
+          var file = files[i]
           // 插入空白占位图
-          const img = document.createElement("img");
-          img.className = "resizable";
+          const img = document.createElement('img')
+          img.className = 'resizable'
           // 显示图
-          var reader = new FileReader();
+          var reader = new FileReader()
           reader.onload = function (event) {
-            img.src = event.target.result;
+            img.src = event.target.result
             // 图片插入
-            preview.append(img);
-          };
-          reader.readAsDataURL(file);
+            preview.append(img)
+          }
+          reader.readAsDataURL(file)
         }
-      });
+      })
     </script>
   </body>
 </html>

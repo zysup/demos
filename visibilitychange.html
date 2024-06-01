@@ -27,14 +27,14 @@
        *
        *
        */
-      document.addEventListener("visibilitychange", function logData() {
-        if (document.visibilityState === "hidden") {
-          localStorage.count = (+localStorage.count || 0) + 1;
+      document.addEventListener('visibilitychange', function logData() {
+        if (document.visibilityState === 'hidden') {
+          localStorage.count = (+localStorage.count || 0) + 1
         }
-      });
-      window.addEventListener("unload", function (event) {
-        localStorage.count2 = (+localStorage.count2 || 0) + 1;
-      });
+      })
+      window.addEventListener('unload', function (event) {
+        localStorage.count2 = (+localStorage.count2 || 0) + 1
+      })
     </script>
   </body>
 </html>

@@ -27,7 +27,7 @@
 
       .vertical {
         color: white;
-        font: 32px "Arial";
+        font: 32px 'Arial';
       }
 
       .extra {
@@ -47,54 +47,54 @@
     </div>
   </body>
   <script>
-    const numSteps = 20.0;
+    const numSteps = 20.0
 
-    let boxElement;
-    let prevRatio = 0.0;
-    let increasingColor = "rgba(40, 40, 190, ratio)";
-    let decreasingColor = "rgba(190, 40, 40, ratio)";
+    let boxElement
+    let prevRatio = 0.0
+    let increasingColor = 'rgba(40, 40, 190, ratio)'
+    let decreasingColor = 'rgba(190, 40, 40, ratio)'
 
     // 设定好一切
     window.addEventListener(
-      "load",
-      (event) => {
-        boxElement = document.querySelector("#box");
+      'load',
+      event => {
+        boxElement = document.querySelector('#box')
 
-        createObserver();
+        createObserver()
       },
-      false,
-    );
+      false
+    )
 
     function createObserver() {
-      let observer;
+      let observer
 
       let options = {
         root: null,
-        rootMargin: "0px",
+        rootMargin: '0px',
         threshold: buildThresholdList(),
-      };
+      }
 
-      observer = new IntersectionObserver(handleIntersect, options);
-      observer.observe(boxElement);
+      observer = new IntersectionObserver(handleIntersect, options)
+      observer.observe(boxElement)
     }
 
     function buildThresholdList() {
-      let arr = Array.from({ length: 21 }).map((_, i) => (i * 5) / 100);
-      console.log("qwe arr", arr);
-      return arr;
+      let arr = Array.from({ length: 21 }).map((_, i) => (i * 5) / 100)
+      console.log('qwe arr', arr)
+      return arr
     }
 
     function handleIntersect(entries, observer) {
-      entries.forEach((entry) => {
-        console.log("qwe ", entry.intersectionRatio);
+      entries.forEach(entry => {
+        console.log('qwe ', entry.intersectionRatio)
         entry.target.style.backgroundColor = (
           entry.intersectionRatio > prevRatio
             ? increasingColor
             : decreasingColor
-        ).replace("ratio", entry.intersectionRatio);
+        ).replace('ratio', entry.intersectionRatio)
 
-        prevRatio = entry.intersectionRatio;
-      });
+        prevRatio = entry.intersectionRatio
+      })
     }
   </script>
 </html>

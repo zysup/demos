@@ -14,11 +14,11 @@
 
 ```html
 <script type="module">
-  import onlyImgResize from "./src/onlyImgResize.js";
+  import onlyImgResize from './src/onlyImgResize.js'
 
   onlyImgResize({
     // 参数在这里
-  });
+  })
 </script>
 ```
 
@@ -27,7 +27,7 @@
 语法如下：
 
 ```js
-onlyImgResize(options);
+onlyImgResize(options)
 ```
 
 options 为可选参数，包括：

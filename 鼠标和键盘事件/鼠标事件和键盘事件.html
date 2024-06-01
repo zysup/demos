@@ -45,51 +45,51 @@
     <pre id="pre"></pre>
   </body>
   <script>
-    var outDiv = document.getElementById("content");
+    var outDiv = document.getElementById('content')
 
     function outputEvtDate(evt) {
       // console.log(evt)
-      let obj = {};
+      let obj = {}
       for (const key in evt) {
         // if (Object.hasOwnProperty.call(evt, key)) {}
-        let val = evt[key];
-        if (typeof val != "object" && typeof val != "function") {
-          obj[key] = evt[key];
+        let val = evt[key]
+        if (typeof val != 'object' && typeof val != 'function') {
+          obj[key] = evt[key]
         }
       }
-      pre.innerHTML = JSON.stringify(obj, null, 2);
+      pre.innerHTML = JSON.stringify(obj, null, 2)
     }
 
     outDiv.onmousedown = function (evt) {
-      log.textContent += "onmousedown\n";
-      outputEvtDate(evt);
-    };
+      log.textContent += 'onmousedown\n'
+      outputEvtDate(evt)
+    }
     outDiv.onmouseup = function (evt) {
-      log.textContent += "onmouseup\n";
-      outputEvtDate(evt);
-    };
+      log.textContent += 'onmouseup\n'
+      outputEvtDate(evt)
+    }
     outDiv.onmousemove = function (evt) {
-      outputEvtDate(evt);
-    };
+      outputEvtDate(evt)
+    }
     outDiv.onmouseover = function () {
-      log.textContent += "onmouseover进入\n";
-    };
+      log.textContent += 'onmouseover进入\n'
+    }
     outDiv.onmouseout = function () {
-      log.textContent += "onmouseout移出\n";
-    };
+      log.textContent += 'onmouseout移出\n'
+    }
     outDiv.onmouseenter = function () {
-      log.textContent += "onmouseenter进入\n";
-    };
+      log.textContent += 'onmouseenter进入\n'
+    }
     outDiv.onmouseleave = function () {
-      log.textContent += "onmouseleave离开\n";
-    };
+      log.textContent += 'onmouseleave离开\n'
+    }
     outDiv.onclick = function (evt) {
-      log.textContent += "点击触发\n";
-      console.log(evt);
-    };
+      log.textContent += '点击触发\n'
+      console.log(evt)
+    }
     outDiv.ondblclick = function (evt) {
-      log.textContent += "双击触发\n";
-      console.log(evt);
-    };
+      log.textContent += '双击触发\n'
+      console.log(evt)
+    }
   </script>
 </html>

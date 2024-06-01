@@ -10,14 +10,14 @@
   <body></body>
   <script>
     var person = {
-      username: "leson",
-    };
-
-    function fn(hobby) {
-      alert(this.username + "喜欢" + hobby);
+      username: 'leson',
     }
 
-    fn.apply(person, ["篮球"]);
+    function fn(hobby) {
+      alert(this.username + '喜欢' + hobby)
+    }
+
+    fn.apply(person, ['篮球'])
     // fn.call(person, "篮球");
   </script>
 </html>

@@ -167,20 +167,20 @@
       //   lt1.show();
 
       // }, 100);
-      var elePagination = document.querySelector("ui-pagination");
+      var elePagination = document.querySelector('ui-pagination')
       elePagination.onchange = function (ev) {
         // 可通过以下几种方式获取current，查看控制台
-        console.log(this.current);
-        console.log(ev.target.current);
-        console.log(ev.detail.current);
-      };
+        console.log(this.current)
+        console.log(ev.target.current)
+        console.log(ev.detail.current)
+      }
 
       // 也可以通过addEventListener进行绑定
-      elePagination.addEventListener("change", function (ev) {
-        console.log(this.current);
-        console.log(ev.target.current);
-        console.log(ev.detail.current);
-      });
+      elePagination.addEventListener('change', function (ev) {
+        console.log(this.current)
+        console.log(ev.target.current)
+        console.log(ev.detail.current)
+      })
     </script>
   </body>
 </html>

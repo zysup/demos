@@ -11,15 +11,15 @@
     <button onclick="closure()">Closure</button>
 
     <script>
-      var funcs = [];
+      var funcs = []
       function outer() {
-        var someText = new Array(1000_000);
+        var someText = new Array(1000_000)
         return function inner() {
-          return someText;
-        };
+          return someText
+        }
       }
       function closure() {
-        funcs.push(outer());
+        funcs.push(outer())
       }
       // setInterval(function timer() {
       //     return 'hello';

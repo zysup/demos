@@ -19,22 +19,22 @@
          * @return {string} 
          */
       // var data = ['a', 'b', 'c', 'd'];
-      var data = ["0", "1", "2", "3"];
+      var data = ['0', '1', '2', '3']
       function getGroup(data, index = 0, group = []) {
         // debugger
         // var need_apply = new Array();
         // need_apply.push(data[index]);
-        var need_apply = [data[index]];
+        var need_apply = [data[index]]
         for (var i = 0; i < group.length; i++) {
-          need_apply.push(group[i] + data[index]);
+          need_apply.push(group[i] + data[index])
         }
-        console.log("qwe need_apply", need_apply);
+        console.log('qwe need_apply', need_apply)
         // group.push.apply(group, need_apply);
-        group.push(...need_apply);
-        if (index + 1 >= data.length) return group;
-        else return getGroup(data, index + 1, group);
+        group.push(...need_apply)
+        if (index + 1 >= data.length) return group
+        else return getGroup(data, index + 1, group)
       }
-      console.log(getGroup(data));
+      console.log(getGroup(data))
     </script>
   </body>
 </html>

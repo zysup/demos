@@ -22,40 +22,40 @@
     <button onclick="location_()">location</button><br /><br />
   </body>
   <script>
-    console.log("history.length: ", history.length);
+    console.log('history.length: ', history.length)
     window.onpopstate = function (event) {
-      console.log("location: " + document.location);
-      console.log("state: " + JSON.stringify(event.state));
-    };
-    window.name = "好好学习";
+      console.log('location: ' + document.location)
+      console.log('state: ' + JSON.stringify(event.state))
+    }
+    window.name = '好好学习'
 
     function l_assign() {
       location.assign(
-        "http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby",
-      );
+        'http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby'
+      )
     }
     function l_replace() {
       location.replace(
-        "http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby",
-      );
+        'http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby'
+      )
     }
     function l_href() {
       location.href =
-        "http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby";
+        'http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby'
     }
     function location_() {
       location =
-        "http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#aaa";
+        'http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#aaa'
     }
 
     // 页面的销毁和加载
     function on_load() {
-      localStorage.setItem("1.html加载", Math.random());
-      console.log("页面加载完成");
+      localStorage.setItem('1.html加载', Math.random())
+      console.log('页面加载完成')
     }
     function on_unload() {
-      localStorage.setItem("1.html卸载", Math.random());
-      console.log("页面销毁");
+      localStorage.setItem('1.html卸载', Math.random())
+      console.log('页面销毁')
     }
   </script>
 </html>

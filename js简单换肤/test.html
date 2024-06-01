@@ -120,114 +120,114 @@
   </body>
 
   <script>
-    var csslink = document.getElementById("changelink");
-    let titleLink = document.querySelectorAll("link[title]");
-    let styleEle = document.querySelector("style");
+    var csslink = document.getElementById('changelink')
+    let titleLink = document.querySelectorAll('link[title]')
+    let styleEle = document.querySelector('style')
     //初始化主题
-    loadtheme();
+    loadtheme()
     function loadtheme() {
       //从cookies读取主题
-      var themevalue = document.cookie.split(";")[0].split("=")[1];
+      var themevalue = document.cookie.split(';')[0].split('=')[1]
       if (themevalue == null) {
-        csslink.href = "css/default.css";
+        csslink.href = 'css/default.css'
       } else {
-        csslink.href = "css/" + themevalue + ".css";
+        csslink.href = 'css/' + themevalue + '.css'
       }
     }
-    document.addEventListener("DOMContentLoaded", function () {
-      changetheme3(sessionStorage.theme);
-    });
+    document.addEventListener('DOMContentLoaded', function () {
+      changetheme3(sessionStorage.theme)
+    })
 
     function clear(type) {
       if (type == 1) {
-        titleLink.forEach((link) => {
-          link.disabled = true;
-        });
-        styleEle.setAttribute("type", "abc");
+        titleLink.forEach(link => {
+          link.disabled = true
+        })
+        styleEle.setAttribute('type', 'abc')
       }
       if (type == 2 || type == 3) {
-        titleLink.forEach((link) => {
-          link.disabled = true;
-        });
-        csslink.disabled = true;
-        document.body.removeAttribute("class");
-        styleEle.removeAttribute("type");
+        titleLink.forEach(link => {
+          link.disabled = true
+        })
+        csslink.disabled = true
+        document.body.removeAttribute('class')
+        styleEle.removeAttribute('type')
       }
       if (type == 4) {
-        styleEle.setAttribute("type", "abc");
+        styleEle.setAttribute('type', 'abc')
       }
     }
   </script>
 
   <script title="切换外部样式表">
     function changetheme(color) {
-      clear(1);
-      csslink.disabled = false;
-      csslink.href = "css/" + color + ".css";
+      clear(1)
+      csslink.disabled = false
+      csslink.href = 'css/' + color + '.css'
       //保存主题到cookies
-      document.cookie = "theme=" + color;
+      document.cookie = 'theme=' + color
     }
   </script>
 
   <script title="变量换肤">
     // function changetheme2(bgcolor = '#ffffcc', textcolor = '#000000') {
     function changetheme2(flag) {
-      clear(2);
+      clear(2)
       // document.documentElement.style.setProperty("--theme-bg-color", bgcolor);
       // document.documentElement.style.setProperty("--theme-text-color", textcolor);
 
       let theme,
-        strcontant = "";
+        strcontant = ''
       const theme1 = {
-        "bg-color": "#ff8888",
-        "text-color": " #ffffff",
-      };
+        'bg-color': '#ff8888',
+        'text-color': ' #ffffff',
+      }
       const theme2 = {
-        "bg-color": "#008800",
-        "text-color": "#ffff88",
-      };
-      theme = flag === 1 ? theme1 : theme2;
+        'bg-color': '#008800',
+        'text-color': '#ffff88',
+      }
+      theme = flag === 1 ? theme1 : theme2
       for (const key in theme) {
         if (Object.hasOwnProperty.call(theme, key)) {
-          const element = theme[key];
-          console.log("qwe ", key, element);
-          strcontant += `\n  --theme-${key}: ${element};`;
+          const element = theme[key]
+          console.log('qwe ', key, element)
+          strcontant += `\n  --theme-${key}: ${element};`
         }
       }
-      strcontant = `:root {${strcontant}}\n`;
+      strcontant = `:root {${strcontant}}\n`
 
-      let themeEle = document.getElementById("theme");
+      let themeEle = document.getElementById('theme')
       if (!themeEle) {
-        let style = document.createElement("style");
-        style.id = "theme";
-        style.type = "text/css";
-        document.head.appendChild(style);
+        let style = document.createElement('style')
+        style.id = 'theme'
+        style.type = 'text/css'
+        document.head.appendChild(style)
       } else {
-        themeEle.innerHTML = strcontant;
+        themeEle.innerHTML = strcontant
       }
     }
   </script>
 
   <script title="命名空间，权重覆盖">
-    function changetheme3(color = "default") {
-      clear(3);
-      sessionStorage.theme = color;
-      document.body.className = color;
+    function changetheme3(color = 'default') {
+      clear(3)
+      sessionStorage.theme = color
+      document.body.className = color
     }
   </script>
 
   <script title="link rel=alternate方法实现">
     document.querySelectorAll('input[type="radio"]').forEach(function (radio) {
-      radio.addEventListener("click", function () {
-        clear(4);
-        var value = this.value;
+      radio.addEventListener('click', function () {
+        clear(4)
+        var value = this.value
         titleLink.forEach(function (link) {
-          link.disabled = true;
-          if (link.getAttribute("href") == value) {
-            link.disabled = false;
+          link.disabled = true
+          if (link.getAttribute('href') == value) {
+            link.disabled = false
           }
-        });
-      });
-    });
+        })
+      })
+    })
   </script>
 </html>

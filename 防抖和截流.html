@@ -28,33 +28,33 @@
     // 防抖
     function fn() {
       console.log(
-        "onkeydown触发... \n value => %s \n arguments => %s",
+        'onkeydown触发... \n value => %s \n arguments => %s',
         this.value,
-        Array.from(arguments),
-      );
+        Array.from(arguments)
+      )
     }
     // ipt.onkeydown = debounce(fn, 2000, 1);
-    ipt.onkeydown = debounce2(fn, 2000);
+    ipt.onkeydown = debounce2(fn, 2000)
     // ipt.onkeydown = fn;
     function debounce(fn, delay = 1000) {
-      var timer = null;
-      var args = arguments;
-      console.log(args);
+      var timer = null
+      var args = arguments
+      console.log(args)
       return function () {
-        clearTimeout(timer);
+        clearTimeout(timer)
         timer = setTimeout(() => {
-          fn.apply(this, args);
-        }, delay);
-      };
+          fn.apply(this, args)
+        }, delay)
+      }
     }
     // 防抖2，对比参数
     function debounce2(fn, delay = 1000) {
-      let timer;
+      let timer
       return function (...args) {
-        console.log("qwe ", args);
-        clearTimeout(timer);
-        timer = setTimeout(fn.bind(this), delay, ...args);
-      };
+        console.log('qwe ', args)
+        clearTimeout(timer)
+        timer = setTimeout(fn.bind(this), delay, ...args)
+      }
     }
   </script>
 

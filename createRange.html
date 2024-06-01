@@ -46,54 +46,54 @@
     >
   </body>
   <script>
-    var eleSearch = document.querySelector('input[type="search"]');
-    var eleTraget = document.querySelector("#target");
+    var eleSearch = document.querySelector('input[type="search"]')
+    var eleTraget = document.querySelector('#target')
 
-    eleSearch.addEventListener("input", function () {
-      var text = eleTraget.textContent;
+    eleSearch.addEventListener('input', function () {
+      var text = eleTraget.textContent
 
-      [].slice
-        .call(document.querySelectorAll("ui-overlay"))
+      ;[].slice
+        .call(document.querySelectorAll('ui-overlay'))
         .forEach(function (overlay) {
-          overlay.remove();
-        });
+          overlay.remove()
+        })
 
       // 匹配处理
-      var value = this.value.trim();
-      var length = value.length;
+      var value = this.value.trim()
+      var length = value.length
 
       if (!length) {
-        return;
+        return
       }
 
-      var arrMatchs = text.split(value);
-      console.log("qwe ", arrMatchs.length);
+      var arrMatchs = text.split(value)
+      console.log('qwe ', arrMatchs.length)
       if (arrMatchs.length > 1) {
-        var start = 0;
+        var start = 0
         arrMatchs.forEach(function (parts, index) {
-          console.log("qwe 1");
+          console.log('qwe 1')
           if (index == arrMatchs.length - 1) {
-            return;
+            return
           }
-          console.log("qwe 2");
-          var range = document.createRange();
-          start += parts.length;
-          range.setStart(eleTraget.firstChild, start);
-          range.setEnd(eleTraget.firstChild, start + length);
+          console.log('qwe 2')
+          var range = document.createRange()
+          start += parts.length
+          range.setStart(eleTraget.firstChild, start)
+          range.setEnd(eleTraget.firstChild, start + length)
 
-          var bound = range.getBoundingClientRect();
+          var bound = range.getBoundingClientRect()
 
-          var eleOverlay = document.createElement("ui-overlay");
-          document.body.appendChild(eleOverlay);
+          var eleOverlay = document.createElement('ui-overlay')
+          document.body.appendChild(eleOverlay)
 
-          eleOverlay.style.left = bound.left + "px";
-          eleOverlay.style.top = bound.top + window.pageYOffset + "px";
-          eleOverlay.style.width = bound.width + "px";
-          eleOverlay.style.height = bound.height + "px";
+          eleOverlay.style.left = bound.left + 'px'
+          eleOverlay.style.top = bound.top + window.pageYOffset + 'px'
+          eleOverlay.style.width = bound.width + 'px'
+          eleOverlay.style.height = bound.height + 'px'
 
-          start += length;
-        });
+          start += length
+        })
       }
-    });
+    })
   </script>
 </html>

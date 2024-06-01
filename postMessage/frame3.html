@@ -22,12 +22,12 @@
       readonly
     ></textarea>
     <script>
-      window.name = "iframe3";
-      window.onhashchange = checkMessage;
+      window.name = 'iframe3'
+      window.onhashchange = checkMessage
       function checkMessage(e) {
-        console.log("iframe3 checkMessage", e);
-        var message = window.location.hash;
-        showlog.textContent += `onhashchange => ${message}\n`;
+        console.log('iframe3 checkMessage', e)
+        var message = window.location.hash
+        showlog.textContent += `onhashchange => ${message}\n`
       }
 
       /**
@@ -35,18 +35,18 @@
        */
       function changeHash(params) {
         parent.location.replace(
-          "http://192.168.0.21:5501/postMessage/home.html#我是frame3里传递出来的数据",
-        );
+          'http://192.168.0.21:5501/postMessage/home.html#我是frame3里传递出来的数据'
+        )
       }
 
       window.addEventListener(
-        "message",
+        'message',
         function (e) {
-          var payload = JSON.stringify(e.data, null, 2);
-          showlog.textContent += `resmessage => ${payload}\n`;
+          var payload = JSON.stringify(e.data, null, 2)
+          showlog.textContent += `resmessage => ${payload}\n`
         },
-        false,
-      );
+        false
+      )
     </script>
   </body>
 </html>

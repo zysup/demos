@@ -41,38 +41,38 @@
   </body>
   <script>
     function focus() {
-      event.target.style.background = "blue";
+      event.target.style.background = 'blue'
     }
-    ipt1.addEventListener("focusin", function (event) {
-      log.textContent += "focusin触发\n";
-    });
-    ipt1.addEventListener("focusout", function (event) {
-      log.textContent += "focusout触发\n";
-    });
-    ipt1.addEventListener("focus", function (event) {
-      log.textContent += "focus触发\n";
-      console.log(event);
-      event.target.style.background = "pink";
-    });
+    ipt1.addEventListener('focusin', function (event) {
+      log.textContent += 'focusin触发\n'
+    })
+    ipt1.addEventListener('focusout', function (event) {
+      log.textContent += 'focusout触发\n'
+    })
+    ipt1.addEventListener('focus', function (event) {
+      log.textContent += 'focus触发\n'
+      console.log(event)
+      event.target.style.background = 'pink'
+    })
 
-    ipt1.addEventListener("blur", function (event) {
-      log.textContent += "blur触发\n";
-      event.target.removeAttribute("style");
+    ipt1.addEventListener('blur', function (event) {
+      log.textContent += 'blur触发\n'
+      event.target.removeAttribute('style')
       // event.target.style.background = '';
-    });
+    })
 
     focusMethod = function getFocus() {
-      ipt2.focus();
-    };
+      ipt2.focus()
+    }
 
     focusMethod2 = function getFocus() {
-      myButton.focus();
-    };
+      myButton.focus()
+    }
     focusScrollMethod = function getFocus() {
-      myButton.focus({ preventScroll: false });
-    };
+      myButton.focus({ preventScroll: false })
+    }
     focusNoScrollMethod = function getFocusWithoutScrolling() {
-      myButton.focus({ preventScroll: true });
-    };
+      myButton.focus({ preventScroll: true })
+    }
   </script>
 </html>

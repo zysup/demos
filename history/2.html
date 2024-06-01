@@ -13,7 +13,7 @@
     </style>
     <script>
       if (history.scrollRestoration) {
-        history.scrollRestoration = "manual";
+        history.scrollRestoration = 'manual'
       }
     </script>
   </head>
@@ -39,7 +39,7 @@
     <button onclick="clear_all2()">清除url的hash和search参数</button>
   </body>
   <script>
-    console.log("history.length: ", history.length);
+    console.log('history.length: ', history.length)
     if (location.search) {
       // 方法1
       // let { groups: { age } } = /age=(?<age>\d+)/.exec(location.search)
@@ -48,48 +48,48 @@
       // let age = new URL(location).searchParams.get('age')
 
       // 方法3
-      var age = new URLSearchParams(location.search).get("age");
+      var age = new URLSearchParams(location.search).get('age')
 
-      log.textContent = age;
+      log.textContent = age
     }
     window.onpopstate = function (event) {
-      console.log("location: " + document.location);
-      console.log("state: " + JSON.stringify(event.state));
-    };
+      console.log('location: ' + document.location)
+      console.log('state: ' + JSON.stringify(event.state))
+    }
 
     function clear_search() {
       window.history.replaceState(
         { page: 1 },
-        "",
-        `${location.pathname}${location.hash}`,
-      );
+        '',
+        `${location.pathname}${location.hash}`
+      )
     }
     function clear_hash() {
       window.history.replaceState(
         { page: 2 },
-        "",
-        `${location.pathname}${location.search}`,
-      );
+        '',
+        `${location.pathname}${location.search}`
+      )
     }
     function clear_all() {
-      window.history.replaceState({ page: 3 }, "", `${location.pathname}`);
+      window.history.replaceState({ page: 3 }, '', `${location.pathname}`)
     }
     function clear_search2() {
       window.history.pushState(
         { page: 1 },
-        "",
-        `${location.pathname}${location.hash}`,
-      );
+        '',
+        `${location.pathname}${location.hash}`
+      )
     }
     function clear_hash2() {
       window.history.pushState(
         { page: 2 },
-        "",
-        `${location.pathname}${location.search}`,
-      );
+        '',
+        `${location.pathname}${location.search}`
+      )
     }
     function clear_all2() {
-      window.history.pushState({ page: 3 }, "", `${location.pathname}`);
+      window.history.pushState({ page: 3 }, '', `${location.pathname}`)
     }
   </script>
 </html>

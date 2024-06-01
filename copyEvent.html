@@ -19,14 +19,14 @@
     <textarea name="copytext" id="copytext" cols="40" rows="10"></textarea>
   </body>
   <script>
-    document.addEventListener("copy", function (event) {
-      let clipboardData = event.clipboardData || window.clipboardData;
-      if (!clipboardData) return;
-      let text = window.getSelection().toString();
+    document.addEventListener('copy', function (event) {
+      let clipboardData = event.clipboardData || window.clipboardData
+      if (!clipboardData) return
+      let text = window.getSelection().toString()
       if (text) {
-        event.preventDefault();
-        clipboardData.setData("text/plain", text + "\n\n版权所有");
+        event.preventDefault()
+        clipboardData.setData('text/plain', text + '\n\n版权所有')
       }
-    });
+    })
   </script>
 </html>

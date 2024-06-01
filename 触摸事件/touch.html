@@ -22,22 +22,22 @@
     <p></p>
   </body>
   <script>
-    var div = document.querySelector("div");
-    var src = document.querySelector("p");
-    div.addEventListener("touchstart", rotate);
-    div.addEventListener("touchmove", rotate);
-    div.addEventListener("touchend", rotate);
+    var div = document.querySelector('div')
+    var src = document.querySelector('p')
+    div.addEventListener('touchstart', rotate)
+    div.addEventListener('touchmove', rotate)
+    div.addEventListener('touchend', rotate)
 
     function rotate(e) {
-      console.log(e);
-      var touch = e.changedTouches.item(0);
+      console.log(e)
+      var touch = e.changedTouches.item(0)
 
-      src.textContent = touch.force;
-      e.preventDefault();
+      src.textContent = touch.force
+      e.preventDefault()
 
-      src.style.width = touch.radiusX * 2 + "px";
-      src.style.height = touch.radiusY * 2 + "px";
-      src.style.transform = "rotate(" + touch.rotationAngle + "deg)";
+      src.style.width = touch.radiusX * 2 + 'px'
+      src.style.height = touch.radiusY * 2 + 'px'
+      src.style.transform = 'rotate(' + touch.rotationAngle + 'deg)'
     }
   </script>
 </html>

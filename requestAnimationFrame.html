@@ -28,43 +28,43 @@
     <button onclick="addHeight2()">div元素加高</button>
   </body>
   <script>
-    let divs = document.querySelectorAll("div");
+    let divs = document.querySelectorAll('div')
     // 重绘代价高
     function doubleHeight(element) {
-      var currentHeight = element.clientHeight;
-      console.log("qwe ", Date.now());
-      element.style.height = currentHeight * 2 + "px";
+      var currentHeight = element.clientHeight
+      console.log('qwe ', Date.now())
+      element.style.height = currentHeight * 2 + 'px'
     }
 
     // 重绘代价低
     function doubleHeight2(element) {
-      var currentHeight = element.clientHeight;
+      var currentHeight = element.clientHeight
 
       window.requestAnimationFrame(function () {
-        console.log("qwe ", performance.now());
-        element.style.height = currentHeight * 2 + "px";
-      });
+        console.log('qwe ', performance.now())
+        element.style.height = currentHeight * 2 + 'px'
+      })
     }
     function addHeight(params) {
-      divs.forEach(doubleHeight2);
+      divs.forEach(doubleHeight2)
     }
   </script>
   <script type="module">
-    console.log(window);
+    console.log(window)
     const timeout = function name() {
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
         setTimeout(() => {
-          resolve(true);
-        }, 1000);
-      });
-    };
+          resolve(true)
+        }, 1000)
+      })
+    }
     // console.log('qwe ', window);
     window.addHeight2 = async function addHeight2() {
       for (let index = 0; index < divs.length; index++) {
-        await timeout();
-        doubleHeight(divs[index]);
+        await timeout()
+        doubleHeight(divs[index])
         // console.log('qwe ', doubleHeight(divs[index]));
       }
-    };
+    }
   </script>
 </html>

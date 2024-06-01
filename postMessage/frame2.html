@@ -19,27 +19,27 @@ qwe</textarea
     <a href="#title" rel="noopener noreferrer">锚点定位</a>
     <script>
       window.onhashchange = function () {
-        var message = window.location.hash;
-        console.log("frame2 onhashchange", message);
+        var message = window.location.hash
+        console.log('frame2 onhashchange', message)
         console.log(
-          "frame2 onhashchange decodeURIComponent",
-          decodeURIComponent(message),
-        );
-      };
+          'frame2 onhashchange decodeURIComponent',
+          decodeURIComponent(message)
+        )
+      }
 
       window.addEventListener(
-        "message",
+        'message',
         function (e) {
-          var payload = JSON.stringify(e.data, null, 2);
-          showlog.textContent += `resmessage => ${payload}\n`;
+          var payload = JSON.stringify(e.data, null, 2)
+          showlog.textContent += `resmessage => ${payload}\n`
         },
-        false,
-      );
+        false
+      )
 
       // storage事件用来监听同源的其他窗口的变动
-      window.addEventListener("storage", function (e) {
-        console.log("frame2 storage", e);
-      });
+      window.addEventListener('storage', function (e) {
+        console.log('frame2 storage', e)
+      })
     </script>
   </body>
 </html>

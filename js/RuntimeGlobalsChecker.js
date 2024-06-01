@@ -15,11 +15,11 @@ window.__runtimeGlobalsChecker__ = (function createGlobalsChecker() {
   // we don't care about them).
   // They're populated by "collectBrowserGlobals()" and will contain globals such
   // as "location" and "localStorage".
-  let browserGlobals = [];
+  let browserGlobals = []
 
   // Known globals on the window object that we can safely ignored.
   // This list should be populated manually after trial and errors.
-  const ignoredGlobals = ["__runtimeGlobalsChecker__"];
+  const ignoredGlobals = ['__runtimeGlobalsChecker__']
 
   /**
    * Collect the global variables added to the window object by the browser by
@@ -28,12 +28,12 @@ window.__runtimeGlobalsChecker__ = (function createGlobalsChecker() {
    * @returns {string[]} - List of globals added added by the browser
    */
   function collectBrowserGlobals() {
-    const iframe = window.document.createElement("iframe");
-    iframe.src = "about:blank";
-    window.document.body.appendChild(iframe);
-    browserGlobals = Object.keys(iframe.contentWindow);
-    window.document.body.removeChild(iframe);
-    return browserGlobals;
+    const iframe = window.document.createElement('iframe')
+    iframe.src = 'about:blank'
+    window.document.body.appendChild(iframe)
+    browserGlobals = Object.keys(iframe.contentWindow)
+    window.document.body.removeChild(iframe)
+    return browserGlobals
   }
 
   /**
@@ -43,18 +43,18 @@ window.__runtimeGlobalsChecker__ = (function createGlobalsChecker() {
   function getRuntimeGlobals() {
     // If we haven't collected the browser globals yet, do it now.
     if (browserGlobals.length === 0) {
-      collectBrowserGlobals();
+      collectBrowserGlobals()
     }
     // Grab all the globals filtering out variables we don't care about (noise).
-    const runtimeGlobals = Object.keys(window).filter((key) => {
-      const isFromBrowser = browserGlobals.includes(key);
-      const isIgnored = ignoredGlobals.includes(key);
-      return !isFromBrowser && !isIgnored;
-    });
-    return runtimeGlobals;
+    const runtimeGlobals = Object.keys(window).filter(key => {
+      const isFromBrowser = browserGlobals.includes(key)
+      const isIgnored = ignoredGlobals.includes(key)
+      return !isFromBrowser && !isIgnored
+    })
+    return runtimeGlobals
   }
 
   return {
     getRuntimeGlobals,
-  };
-})();
+  }
+})()

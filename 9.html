@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
       :root {
-        --mode: "unknown";
+        --mode: 'unknown';
       }
 
       .border-stripe {
@@ -25,7 +25,7 @@
         /* 黑暗模式 */
         :root {
           --abc: 123;
-          --mode: "dark";
+          --mode: 'dark';
           --colorLink: #bfdbff;
           --colorMark: #cc0000;
           --colorText: #ffffff;
@@ -177,20 +177,24 @@
 
     <button id="button">选择图片</button>
     <button id="btn">加载</button>
+    <iframe
+      src="https://v.bootstrapmb.com/2023/2/m4x7s13480/"
+      frameborder="0"
+    ></iframe>
   </body>
   <script>
     var aa = {
       a: 1,
-    };
-    Object.assign(aa, { b: 2 });
-    console.log("qwe", aa);
+    }
+    Object.assign(aa, { b: 2 })
+    console.log('qwe', aa)
   </script>
   <script type="module">
     btn.onclick = function name(params) {
-      console.log("qwe ");
-      import("/10.js").then((val) => {
-        console.log("qwe", val.default);
-      });
-    };
+      console.log('qwe ')
+      import('/10.js').then(val => {
+        console.log('qwe', val.default)
+      })
+    }
   </script>
 </html>

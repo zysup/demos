@@ -18,20 +18,20 @@
 
     //手写一个promise
     function click2(e) {
-      console.log("qwe click");
-      click_handle(123);
+      console.log('qwe click')
+      click_handle(123)
     }
-    var click_handle;
+    var click_handle
     function fn() {
       var p = new Promise(function (resolve, reject) {
         // setTimeout(() => {
 
-        click_handle = resolve;
+        click_handle = resolve
         // resolve("666")
         // reject("888")
         // }, 2000);
-      });
-      return p;
+      })
+      return p
     }
     // fn().then(function (result) {
     //   alert(result);
@@ -82,41 +82,41 @@
       let p = new Promise((resolve, reject) => {
         setTimeout(() => {
           // console.log('qwe ', qwe);
-          console.log("qwe 000");
-          resolve(99);
+          console.log('qwe 000')
+          resolve(99)
           // reject('123')
-        }, 5000);
-      });
+        }, 5000)
+      })
       // .catch(err => {
       //   console.log('错误！！！')
       // })
-      return p;
-    };
+      return p
+    }
     async function fn4() {
       try {
-        console.log("qwe 11111111");
-        let aa = await fn3();
-        console.log("qwe ", 222);
+        console.log('qwe 11111111')
+        let aa = await fn3()
+        console.log('qwe ', 222)
       } catch (error) {
-        console.error(error);
-        console.log("qwe!!!!! ");
+        console.error(error)
+        console.log('qwe!!!!! ')
       }
-      console.log("qwe 666");
+      console.log('qwe 666')
     }
     // fn4()
-    console.log("qwe ", 999);
+    console.log('qwe ', 999)
 
     async function run() {
       try {
-        console.log("qwe jjj");
+        console.log('qwe jjj')
         // await Promise.reject(new Error('qwe'))
         // await fn3()
-        console.log("qwe jjj 222", await fn3());
+        console.log('qwe jjj 222', await fn3())
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
     }
-    run();
-    console.log("qwe lll");
+    run()
+    console.log('qwe lll')
   </script>
 </html>

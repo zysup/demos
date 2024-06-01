@@ -11,32 +11,32 @@
   </body>
   <script>
     // 添加标记位 lock ,当用户未输入完时，lock 为 true
-    var lock = false;
-    var inputEle = document.getElementById("inputEle");
+    var lock = false
+    var inputEle = document.getElementById('inputEle')
     // input 事件中的处理逻辑, 这里仅仅打印文本
     var todo = function (text) {
-      console.log(text);
-    };
-    inputEle.addEventListener("compositionstart", function () {
-      console.log("qwe compositionstart");
-      lock = true;
-    });
-    inputEle.addEventListener("compositionend", function (event) {
-      console.log("qwe compositionend");
-      lock = false;
+      console.log(text)
+    }
+    inputEle.addEventListener('compositionstart', function () {
+      console.log('qwe compositionstart')
+      lock = true
+    })
+    inputEle.addEventListener('compositionend', function (event) {
+      console.log('qwe compositionend')
+      lock = false
       // compositionend 事件发生在 input 之后，故此需要此处调用 input 中逻辑
-      todo(event.target.value);
-    });
-    inputEle.addEventListener("input", function (event) {
-      console.log("qwe input");
+      todo(event.target.value)
+    })
+    inputEle.addEventListener('input', function (event) {
+      console.log('qwe input')
       // 忽略一切非直接输入，不做逻辑处理
-      if (!lock) todo(event.target.value);
-    });
-    inputEle.addEventListener("change", function (event) {
-      console.log("qwe change");
-      console.log("qwe event.target.value", event.target.value);
+      if (!lock) todo(event.target.value)
+    })
+    inputEle.addEventListener('change', function (event) {
+      console.log('qwe change')
+      console.log('qwe event.target.value', event.target.value)
       // 忽略一切非直接输入，不做逻辑处理
       // if (!lock) todo(event.target.value);
-    });
+    })
   </script>
 </html>

@@ -13,13 +13,13 @@
     // let bb = 'hello world'.replace(/(\w+) (\w+)/, '$2 $1')
     // console.log('qwe cc', bb);
 
-    const punctuation = /[^0-9A-Za-z!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/gim;
+    const punctuation = /[^0-9A-Za-z!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/gim
     // console.log('qwe', punctuation.source)
 
     // 示例：使用正则表达式匹配字符串中的符号
-    let str = "Hello, 123World{.你好";
-    str = str.replace(/[^0-9A-Za-z!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/gim, "");
-    console.log(str);
+    let str = 'Hello, 123World{.你好'
+    str = str.replace(/[^0-9A-Za-z!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/gim, '')
+    console.log(str)
     // const matchedSymbols = str.match(punctuation);
     // console.log(matchedSymbols); // 输出：[,!]
     // console.log(str.replace(punctuation, ''))

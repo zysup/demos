@@ -95,83 +95,83 @@
     </div>
   </body>
   <script>
-    var addBtn = document.getElementsByClassName("add")[0];
-    var yonghu = document.getElementsByClassName("yonghu")[0];
-    var sendBtn = document.getElementById("send");
-    var cancleBtn = document.getElementById("cancle");
-    var userInp = document.getElementById("user");
-    var ageInp = document.getElementById("age");
-    var shadow = document.getElementsByClassName("shadow")[0];
-    var userList = ["a12345", "b12345"];
-    console.log(addBtn, sendBtn, cancleBtn, userInp, ageInp, shadow);
+    var addBtn = document.getElementsByClassName('add')[0]
+    var yonghu = document.getElementsByClassName('yonghu')[0]
+    var sendBtn = document.getElementById('send')
+    var cancleBtn = document.getElementById('cancle')
+    var userInp = document.getElementById('user')
+    var ageInp = document.getElementById('age')
+    var shadow = document.getElementsByClassName('shadow')[0]
+    var userList = ['a12345', 'b12345']
+    console.log(addBtn, sendBtn, cancleBtn, userInp, ageInp, shadow)
 
     addBtn.onclick = function () {
-      shadow.style.display = "block";
-      sendBtn.onclick = fasong;
-    };
+      shadow.style.display = 'block'
+      sendBtn.onclick = fasong
+    }
     cancleBtn.onclick = function () {
-      shadow.style.display = "none";
-      userInp.value = "";
-      ageInp.value = "";
-    };
+      shadow.style.display = 'none'
+      userInp.value = ''
+      ageInp.value = ''
+    }
     function fasong() {
-      var user = userInp.value;
-      var age = ageInp.value;
+      var user = userInp.value
+      var age = ageInp.value
       if (user && age) {
         if (userList.indexOf(user) == -1) {
-          userList.push(user);
-          var div = document.createElement("div");
-          div.className = "sub";
-          yonghu.appendChild(div);
-          shadow.style.display = "none";
-          userInp.value = "";
-          ageInp.value = "";
+          userList.push(user)
+          var div = document.createElement('div')
+          div.className = 'sub'
+          yonghu.appendChild(div)
+          shadow.style.display = 'none'
+          userInp.value = ''
+          ageInp.value = ''
 
-          var userSpan = document.createElement("span");
-          userSpan.innerHTML = user;
-          div.appendChild(userSpan);
+          var userSpan = document.createElement('span')
+          userSpan.innerHTML = user
+          div.appendChild(userSpan)
 
-          var ageSpan = document.createElement("span");
-          ageSpan.innerHTML = age;
-          div.appendChild(ageSpan);
+          var ageSpan = document.createElement('span')
+          ageSpan.innerHTML = age
+          div.appendChild(ageSpan)
 
-          var editSpan = document.createElement("span");
-          editSpan.innerHTML = "编辑";
-          div.appendChild(editSpan);
+          var editSpan = document.createElement('span')
+          editSpan.innerHTML = '编辑'
+          div.appendChild(editSpan)
           editSpan.onclick = function () {
-            shadow.style.display = "block";
-            userInp.value = userSpan.innerHTML;
-            ageInp.value = ageSpan.innerHTML;
+            shadow.style.display = 'block'
+            userInp.value = userSpan.innerHTML
+            ageInp.value = ageSpan.innerHTML
             sendBtn.onclick = function () {
-              var newUser = userInp.value;
-              var newAge = ageInp.value;
+              var newUser = userInp.value
+              var newAge = ageInp.value
               if (userList.indexOf(newUser) == -1) {
-                userSpan.innerHTML = newUser;
-                ageSpan.innerHTML = newAge;
-                shadow.style.display = "none";
-                userInp.value = "";
-                ageInp.value = "";
+                userSpan.innerHTML = newUser
+                ageSpan.innerHTML = newAge
+                shadow.style.display = 'none'
+                userInp.value = ''
+                ageInp.value = ''
               } else {
-                alert("该用户名已经存在！");
+                alert('该用户名已经存在！')
               }
-            };
-          };
-
-          var deleSpan = document.createElement("span");
-          deleSpan.innerHTML = "删除";
-          div.appendChild(deleSpan);
-          deleSpan.onclick = function () {
-            if (confirm("确定删除嘛？")) {
-              var index = userList.indexOf(user);
-              userList.splice(index, 1);
-              this.parentNode.remove();
             }
-          };
+          }
+
+          var deleSpan = document.createElement('span')
+          deleSpan.innerHTML = '删除'
+          div.appendChild(deleSpan)
+          deleSpan.onclick = function () {
+            if (confirm('确定删除嘛？')) {
+              var index = userList.indexOf(user)
+              userList.splice(index, 1)
+              this.parentNode.remove()
+            }
+          }
         } else {
-          alert("该用户名已经存在！");
+          alert('该用户名已经存在！')
         }
       } else {
-        alert("姓名和年龄不能为空！");
+        alert('姓名和年龄不能为空！')
       }
     }
   </script>

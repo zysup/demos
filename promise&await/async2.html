@@ -60,7 +60,7 @@
     //----------------------------------------
     function 摇色子(猜测) {
       return new Promise((resolve, reject) => {
-        let sino = parseInt(Math.random() * 6 + 1);
+        let sino = parseInt(Math.random() * 6 + 1)
         // console.log('aa',sino);
         // if (sino > 3) {
         //     if (猜测 === '大') {
@@ -79,30 +79,30 @@
         // }
         setTimeout(() => {
           if (sino > 3) {
-            if (猜测 === "大") {
-              resolve(sino);
+            if (猜测 === '大') {
+              resolve(sino)
             } else {
-              console.log("error");
-              reject(sino);
+              console.log('error')
+              reject(sino)
             }
           } else {
-            if (猜测 === "大") {
-              console.log("error");
-              reject(sino);
+            if (猜测 === '大') {
+              console.log('error')
+              reject(sino)
             } else {
-              resolve(sino);
+              resolve(sino)
             }
           }
-        }, 1000);
-      });
+        }, 1000)
+      })
     }
-    Promise.all([摇色子("大"), 摇色子("大")]).then(
+    Promise.all([摇色子('大'), 摇色子('大')]).then(
       function name(params) {
-        console.log("bb", params);
+        console.log('bb', params)
       },
       function name(params) {
-        console.log("cc", params);
-      },
-    );
+        console.log('cc', params)
+      }
+    )
   </script>
 </html>

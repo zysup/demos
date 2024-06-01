@@ -87,24 +87,24 @@
   </body>
   <script>
     show_box.onclick = function () {
-      be_select.classList.toggle("active");
-      show_box.classList.toggle("active");
+      be_select.classList.toggle('active')
+      show_box.classList.toggle('active')
       setTimeout(() => {
-        document.querySelectorAll("li").forEach((el) => {
-          el.classList.remove("active");
+        document.querySelectorAll('li').forEach(el => {
+          el.classList.remove('active')
           if (el.innerText === text_box.innerText) {
-            el.classList.add("active");
+            el.classList.add('active')
           }
-        });
-      });
-    };
+        })
+      })
+    }
     be_select.onclick = function (evt) {
-      console.log(evt.target.nodeName);
-      if (evt.target.nodeName === "LI") {
-        text_box.innerText = evt.target.innerText;
-        be_select.classList.toggle("active");
-        show_box.classList.toggle("active");
+      console.log(evt.target.nodeName)
+      if (evt.target.nodeName === 'LI') {
+        text_box.innerText = evt.target.innerText
+        be_select.classList.toggle('active')
+        show_box.classList.toggle('active')
       }
-    };
+    }
   </script>
 </html>

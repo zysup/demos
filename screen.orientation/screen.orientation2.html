@@ -16,39 +16,39 @@
     </div>
   </body>
   <script>
-    const log = document.getElementById("log");
+    const log = document.getElementById('log')
 
     // Lock button: Lock the screen to the other orientation (rotated by 90 degrees)
-    const rotate_btn = document.querySelector("#lock_button");
-    rotate_btn.addEventListener("click", () => {
-      log.textContent += `Lock pressed \n`;
+    const rotate_btn = document.querySelector('#lock_button')
+    rotate_btn.addEventListener('click', () => {
+      log.textContent += `Lock pressed \n`
 
-      const oppositeOrientation = screen.orientation.type.startsWith("portrait")
-        ? "landscape"
-        : "portrait";
+      const oppositeOrientation = screen.orientation.type.startsWith('portrait')
+        ? 'landscape'
+        : 'portrait'
       screen.orientation
         .lock(oppositeOrientation)
         .then(() => {
-          log.textContent = `Locked to ${oppositeOrientation}\n`;
+          log.textContent = `Locked to ${oppositeOrientation}\n`
         })
-        .catch((error) => {
-          console.log("qwe ", error);
-          log.textContent += `${error}\n`;
-        });
-    });
+        .catch(error => {
+          console.log('qwe ', error)
+          log.textContent += `${error}\n`
+        })
+    })
 
     // Unlock button: Unlock the screen orientation (if locked)
-    const unlock_btn = document.querySelector("#unlock_button");
-    unlock_btn.addEventListener("click", () => {
-      log.textContent += "Unlock pressed \n";
-      screen.orientation.unlock();
-    });
+    const unlock_btn = document.querySelector('#unlock_button')
+    unlock_btn.addEventListener('click', () => {
+      log.textContent += 'Unlock pressed \n'
+      screen.orientation.unlock()
+    })
 
     // Full screen button: Set the example to full-screen.
-    const fullscreen_btn = document.querySelector("#fullscreen_button");
-    fullscreen_btn.addEventListener("click", () => {
-      log.textContent += "Fullscreen pressed \n";
-      document.querySelector("#example_container").requestFullscreen();
-    });
+    const fullscreen_btn = document.querySelector('#fullscreen_button')
+    fullscreen_btn.addEventListener('click', () => {
+      log.textContent += 'Fullscreen pressed \n'
+      document.querySelector('#example_container').requestFullscreen()
+    })
   </script>
 </html>

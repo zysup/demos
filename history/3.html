@@ -34,13 +34,13 @@
     <div id="d6" class="content">第六章···balabalabala</div>
   </body>
   <script>
-    console.log("history.length: ", history.length);
+    console.log('history.length: ', history.length)
     window.onpopstate = function (evt) {
-      console.log("location: " + document.location);
-      console.log("state: " + JSON.stringify(evt.state));
-    };
-    window.addEventListener("hashchange", function (evt) {
-      console.log("The hash has changed!", evt);
-    });
+      console.log('location: ' + document.location)
+      console.log('state: ' + JSON.stringify(evt.state))
+    }
+    window.addEventListener('hashchange', function (evt) {
+      console.log('The hash has changed!', evt)
+    })
   </script>
 </html>

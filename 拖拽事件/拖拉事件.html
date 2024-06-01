@@ -36,92 +36,92 @@
     <div class="dropzone"></div>
   </body>
   <script>
-    var div = document.getElementsByClassName("boss")[0];
+    var div = document.getElementsByClassName('boss')[0]
     div.addEventListener(
-      "dragstart",
+      'dragstart',
       function (e) {
-        this.style.backgroundColor = "red";
+        this.style.backgroundColor = 'red'
       },
-      false,
-    );
+      false
+    )
 
     div.addEventListener(
-      "dragend",
+      'dragend',
       function (e) {
-        this.style.backgroundColor = "green";
+        this.style.backgroundColor = 'green'
       },
-      false,
-    );
+      false
+    )
 
     // 被拖拉节点
-    var dragged;
+    var dragged
 
     document.addEventListener(
-      "dragstart",
+      'dragstart',
       function (event) {
         // 保存被拖拉节点
-        dragged = event.target;
+        dragged = event.target
         // 被拖拉节点的背景色变透明
-        event.target.style.opacity = 0.2;
+        event.target.style.opacity = 0.2
       },
-      false,
-    );
+      false
+    )
 
     document.addEventListener(
-      "dragend",
+      'dragend',
       function (event) {
         // 被拖拉节点的背景色恢复正常
-        event.target.style.opacity = "";
+        event.target.style.opacity = ''
       },
-      false,
-    );
+      false
+    )
 
     document.addEventListener(
-      "dragover",
+      'dragover',
       function (event) {
         // 防止拖拉效果被重置，允许被拖拉的节点放入目标节点
-        event.preventDefault();
+        event.preventDefault()
       },
-      false,
-    );
+      false
+    )
 
     document.addEventListener(
-      "dragenter",
+      'dragenter',
       function (event) {
         // 目标节点的背景色变紫色
         // 由于该事件会冒泡，所以要过滤节点
-        if (event.target.className === "dropzone") {
-          event.target.style.background = "purple";
+        if (event.target.className === 'dropzone') {
+          event.target.style.background = 'purple'
         }
       },
-      false,
-    );
+      false
+    )
 
     document.addEventListener(
-      "dragleave",
+      'dragleave',
       function (event) {
         // 目标节点的背景色恢复原样
-        if (event.target.className === "dropzone") {
-          event.target.style.background = "";
+        if (event.target.className === 'dropzone') {
+          event.target.style.background = ''
         }
       },
-      false,
-    );
+      false
+    )
 
     document.addEventListener(
-      "drop",
+      'drop',
       function (event) {
         // 防止事件默认行为（比如某些元素节点上可以打开链接），
-        event.preventDefault();
-        if (event.target.className === "dropzone") {
+        event.preventDefault()
+        if (event.target.className === 'dropzone') {
           // 恢复目标节点背景色
-          event.target.style.background = "";
+          event.target.style.background = ''
           // 将被拖拉节点插入目标节点
-          dragged.parentNode.removeChild(dragged);
-          event.target.appendChild(dragged);
+          dragged.parentNode.removeChild(dragged)
+          event.target.appendChild(dragged)
         }
       },
-      false,
-    );
+      false
+    )
   </script>
 </html>

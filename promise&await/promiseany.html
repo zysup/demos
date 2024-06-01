@@ -28,45 +28,45 @@
 
     const getJSON = function (url) {
       const promise = new Promise(function (resolve, reject) {
-        throw "123";
+        throw '123'
         const handler = function () {
           if (this.readyState !== 4) {
-            return;
+            return
           }
           if (this.status === 200) {
-            console.log("qwe", this.response, this);
-            resolve(this.response);
+            console.log('qwe', this.response, this)
+            resolve(this.response)
             // resolve(this.responseText);
           } else {
-            reject(new Error(this.statusText));
+            reject(new Error(this.statusText))
           }
-        };
-        const client = new XMLHttpRequest();
-        client.open("GET", url);
-        client.onreadystatechange = handler;
+        }
+        const client = new XMLHttpRequest()
+        client.open('GET', url)
+        client.onreadystatechange = handler
         // client.responseType = "json";
         // client.setRequestHeader("Accept", "application/json");
-        client.send();
-      });
+        client.send()
+      })
 
-      return promise;
-    };
+      return promise
+    }
 
-    getJSON("https://httpbin.org/get");
+    getJSON('https://httpbin.org/get')
     // .then(function (json) {
     //   console.log('Contents: ', json);
     // }, function (error) {
     //   console.error('出错了', error);
     // });
-    console.log("qwe ", 123);
+    console.log('qwe ', 123)
     const promise = new Promise(function (resolve, reject) {
-      resolve("ok");
+      resolve('ok')
       setTimeout(function () {
-        throw new Error("test");
-      }, 0);
-    });
+        throw new Error('test')
+      }, 0)
+    })
     promise.then(function (value) {
-      console.log(value);
-    });
+      console.log(value)
+    })
   </script>
 </html>

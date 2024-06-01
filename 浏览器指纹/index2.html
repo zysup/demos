@@ -11,19 +11,19 @@
     <script type="module">
       // Initialize the agent at application startup.
       // const fpPromise = import('https://openfpcdn.io/fingerprintjs/v3')
-      const fpPromise = import("./fingerprint3.3.6.js").then((FingerprintJS) =>
-        FingerprintJS.load(),
-      );
+      const fpPromise = import('./fingerprint3.3.6.js').then(FingerprintJS =>
+        FingerprintJS.load()
+      )
 
       // Get the visitor identifier when you need it.
       fpPromise
-        .then((fp) => fp.get())
-        .then((result) => {
+        .then(fp => fp.get())
+        .then(result => {
           // This is the visitor identifier:
-          const visitorId = result.visitorId;
-          console.log(visitorId);
+          const visitorId = result.visitorId
+          console.log(visitorId)
         })
-        .catch((error) => console.error(error));
+        .catch(error => console.error(error))
     </script>
   </body>
 </html>

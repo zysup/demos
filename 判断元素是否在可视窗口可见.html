@@ -28,40 +28,40 @@
   </body>
   <script>
     const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
-      const { top, left, bottom, right } = el.getBoundingClientRect();
+      const { top, left, bottom, right } = el.getBoundingClientRect()
       return partiallyVisible
         ? ((top > 0 && top < innerHeight) ||
             (bottom > 0 && bottom < innerHeight)) &&
             ((left > 0 && left < innerWidth) ||
               (right > 0 && right < innerWidth))
-        : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
-    };
-    let divs = document.getElementsByTagName("div");
+        : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth
+    }
+    let divs = document.getElementsByTagName('div')
     document.body.onscroll = function (params) {
       // console.log('qwe ', );
-      [].forEach.call(divs, (item) => {
-        let flag = elementIsVisibleInViewport(item);
+      ;[].forEach.call(divs, item => {
+        let flag = elementIsVisibleInViewport(item)
         if (flag) {
-          item.style.borderColor = "red";
+          item.style.borderColor = 'red'
           // console.log('qwe item', item.textContent);
         } else {
-          item.style.cssText = "";
+          item.style.cssText = ''
         }
-      });
-    };
+      })
+    }
     function throttle(fn, wait) {
-      var time = Date.now();
-      console.log("qwe 123", time);
+      var time = Date.now()
+      console.log('qwe 123', time)
       return function () {
         if (time + wait - Date.now() < 0) {
-          fn();
-          time = Date.now();
+          fn()
+          time = Date.now()
         }
-      };
+      }
     }
     function callback() {
-      console.log("qwe ");
+      console.log('qwe ')
     }
-    window.addEventListener("scroll", throttle(callback, 1000));
+    window.addEventListener('scroll', throttle(callback, 1000))
   </script>
 </html>

@@ -30,7 +30,7 @@
       }
 
       .background[foo]::after {
-        content: attr(foo) " asd " attr(foo) attr(data-abc);
+        content: attr(foo) ' asd ' attr(foo) attr(data-abc);
         background-color: attr(data-background, yellow);
       }
     </style>
@@ -52,8 +52,8 @@
       颜色应该是红色而不是绿色因为浏览器并不支持 attr() 的高级用法
     </div>
     <script type="module">
-      import { getUrlSearchParams } from "./js/utils.js";
-      console.log("qwe", getUrlSearchParams(location.search));
+      import { getUrlSearchParams } from './js/utils.js'
+      console.log('qwe', getUrlSearchParams(location.search))
     </script>
   </body>
 </html>

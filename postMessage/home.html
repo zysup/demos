@@ -53,53 +53,53 @@
 
     <script>
       var frame1 = window.frames[0],
-        frame1El = document.getElementById("iframe1");
-      var frame2 = frames.iframe2;
+        frame1El = document.getElementById('iframe1')
+      var frame2 = frames.iframe2
       var frame3 = frames.iframe3,
-        frame3El = document.getElementById("iframe3");
-      window.name = "parentwindowname";
+        frame3El = document.getElementById('iframe3')
+      window.name = 'parentwindowname'
 
       function changeHash() {
-        document.querySelectorAll("iframe").forEach((frame) => {
+        document.querySelectorAll('iframe').forEach(frame => {
           // console.log('qwe src', frame.src)
-          frame.src += "#hello";
+          frame.src += '#hello'
           // frame.src += '#hello你'
-        });
+        })
       }
 
       function sendMsg(params) {
         const obj = {
-          msg: "我是来自父窗口的消息..." + Date.now(),
-        };
-        document.querySelectorAll("iframe").forEach((frame) => {
-          frame.contentWindow.postMessage({ key: "storage", data: obj }, "*");
+          msg: '我是来自父窗口的消息...' + Date.now(),
+        }
+        document.querySelectorAll('iframe').forEach(frame => {
+          frame.contentWindow.postMessage({ key: 'storage', data: obj }, '*')
           // frame.contentWindow.postMessage({ key: 'user', data: obj }, '*');
           // frame.postMessage({ key: 'product', data: obj }, 'http://192.168.0.21:3000/frame3');
-        });
+        })
       }
 
       // 父窗口和子窗口都可以用下面的代码，
       // 监听 message 消息
       window.addEventListener(
-        "message",
+        'message',
         function (e) {
-          var payload = JSON.stringify(e.data, null, 2);
-          console.log(payload);
+          var payload = JSON.stringify(e.data, null, 2)
+          console.log(payload)
         },
-        false,
-      );
+        false
+      )
 
       // 接收子窗口片段标识符的改变消息
-      window.onhashchange = checkMessage;
+      window.onhashchange = checkMessage
       function checkMessage() {
-        var message = window.location.hash;
-        console.log(decodeURIComponent(message));
+        var message = window.location.hash
+        console.log(decodeURIComponent(message))
       }
 
       // storage事件用来监听同源的其他窗口的变动
-      window.addEventListener("storage", function (e) {
-        console.log("home storage", e);
-      });
+      window.addEventListener('storage', function (e) {
+        console.log('home storage', e)
+      })
     </script>
   </body>
 </html>

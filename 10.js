@@ -1,1 +1,1 @@
-export default "qwe";
+export default 'qwe'

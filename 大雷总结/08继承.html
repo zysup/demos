@@ -11,31 +11,31 @@
   <script>
     //面向对象；封装 继承  多态  $("div").html()  $("div").html("6666")
     //继承五种
-    Object.prototype.username = "人类";
+    Object.prototype.username = '人类'
     var person = {
-      username: "人类***",
-    };
+      username: '人类***',
+    }
 
     function YellowPerson() {
-      this.age = 18;
+      this.age = 18
     }
-    YellowPerson.prototype = person;
+    YellowPerson.prototype = person
     YellowPerson.prototype.say = function () {
-      alert("6666");
-      return this;
-    };
+      alert('6666')
+      return this
+    }
     YellowPerson.prototype.eat = function () {
-      alert("8888");
-    };
+      alert('8888')
+    }
 
-    var yp = new YellowPerson();
-    yp.myname = "zhangsan";
-    yp.say().eat(); //链式结构
+    var yp = new YellowPerson()
+    yp.myname = 'zhangsan'
+    yp.say().eat() //链式结构
 
     //  alert(yp.username);
     //原型链 构造函数  -- 原型对象  -- 大写的Object  -- null
 
-    var list = [];
-    alert(list.username);
+    var list = []
+    alert(list.username)
   </script>
 </html>

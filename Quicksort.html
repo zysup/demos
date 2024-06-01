@@ -11,29 +11,29 @@
     <script>
       var quickSort = function (arr) {
         if (arr.length < 2) {
-          return arr;
+          return arr
         }
 
-        var pivotIndex = Math.floor(arr.length / 2);
+        var pivotIndex = Math.floor(arr.length / 2)
 
-        var pivot = arr.splice(pivotIndex, 1)[0];
+        var pivot = arr.splice(pivotIndex, 1)[0]
         // var pivot = arr[pivotIndex];
         // arr.splice(pivotIndex, 1)
 
-        var left = [];
+        var left = []
 
-        var right = [];
+        var right = []
 
         for (var i = 0; i < arr.length; i++) {
           if (arr[i] < pivot) {
-            left.push(arr[i]);
+            left.push(arr[i])
           } else {
-            right.push(arr[i]);
+            right.push(arr[i])
           }
         }
 
-        return quickSort(left).concat(pivot, quickSort(right));
-      };
+        return quickSort(left).concat(pivot, quickSort(right))
+      }
     </script>
   </body>
 </html>

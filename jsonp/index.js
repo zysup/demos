@@ -1,26 +1,26 @@
 function stringify(data) {
-  const pairs = Object.entries(data);
+  const pairs = Object.entries(data)
   const qs = pairs
     .map(([k, v]) => {
-      let noValue = false;
-      if (v === null || v === undefined || typeof v === "object") {
-        noValue = true;
+      let noValue = false
+      if (v === null || v === undefined || typeof v === 'object') {
+        noValue = true
       }
-      return `${encodeURIComponent(k)}=${noValue ? "" : encodeURIComponent(v)}`;
+      return `${encodeURIComponent(k)}=${noValue ? '' : encodeURIComponent(v)}`
     })
-    .join("&");
-  return qs;
+    .join('&')
+  return qs
 }
 
 function jsonp({ url, onData, params }) {
-  const script = document.createElement("script");
+  const script = document.createElement('script')
 
   // 一、为了避免全局污染，使用一个随机函数名
-  const cbFnName = `JSONP_PADDING_${Math.random().toString().slice(2)}`;
+  const cbFnName = `JSONP_PADDING_${Math.random().toString().slice(2)}`
   // 二、默认 callback 函数为 cbFnName
-  script.src = `${url}?${stringify({ callback: cbFnName, ...params })}`;
+  script.src = `${url}?${stringify({ callback: cbFnName, ...params })}`
   // 三、使用 onData 作为 cbFnName 回调函数，接收数据
-  window[cbFnName] = onData;
+  window[cbFnName] = onData
 
-  document.body.appendChild(script);
+  document.body.appendChild(script)
 }

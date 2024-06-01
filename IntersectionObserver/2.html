@@ -62,21 +62,21 @@
   <script>
     var zxxObserver = new IntersectionObserver(
       function (entries) {
-        console.log("qwe ", entries.length, entries[0].target.innerText);
+        console.log('qwe ', entries.length, entries[0].target.innerText)
         entries.forEach(function (entry) {
-          console.log("qwe", entry);
-          entry.target.classList.toggle("active", entry.isIntersecting);
-        });
+          console.log('qwe', entry)
+          entry.target.classList.toggle('active', entry.isIntersecting)
+        })
       },
       {
         // root: document.querySelector('.box'),
-        rootMargin: "300px",
+        rootMargin: '300px',
         // threshold: 1.0,
-      },
-    );
+      }
+    )
     // 观察标题元素
-    document.querySelectorAll("h3").forEach(function (ele) {
-      zxxObserver.observe(ele);
-    });
+    document.querySelectorAll('h3').forEach(function (ele) {
+      zxxObserver.observe(ele)
+    })
   </script>
 </html>

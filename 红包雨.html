@@ -32,7 +32,7 @@
         animation-direction: alternate;
         animation-timing-function: linear;
         backface-visibility: hidden;
-        background: url("./images/hb.png") no-repeat center/100% 100%;
+        background: url('./images/hb.png') no-repeat center/100% 100%;
         cursor: pointer;
       }
 
@@ -85,51 +85,48 @@
 
   <script>
     function clickQhb(params) {
-      alert("红包点击");
+      alert('红包点击')
     }
     function randomFloat(low, high) {
-      return low + Math.random() * (high - low);
+      return low + Math.random() * (high - low)
     }
     function randomInteger(low, high) {
-      return low + Math.floor(Math.random() * (high - low));
+      return low + Math.floor(Math.random() * (high - low))
     }
     // 生成红包
     function createBeat() {
-      let leafDiv = document.createElement("div");
-      let image = document.createElement("i");
-      let fadeAndDropDuration = randomInteger(2000, 5000) + "ms";
-      let leafDelay = randomInteger(0, 2000) + "ms";
+      let leafDiv = document.createElement('div')
+      let image = document.createElement('i')
+      let fadeAndDropDuration = randomInteger(2000, 5000) + 'ms'
+      let leafDelay = randomInteger(0, 2000) + 'ms'
 
-      leafDiv.style.top = randomInteger(-200, -100) + "px";
-      leafDiv.style.left = randomInteger(0, 3000) + "px";
-      leafDiv.style.animationName = "fade, drop";
+      leafDiv.style.top = randomInteger(-200, -100) + 'px'
+      leafDiv.style.left = randomInteger(0, 3000) + 'px'
+      leafDiv.style.animationName = 'fade, drop'
       leafDiv.style.animationDuration =
-        fadeAndDropDuration + ", " + fadeAndDropDuration;
-      leafDiv.style.animationDelay = leafDelay + ", " + leafDelay;
+        fadeAndDropDuration + ', ' + fadeAndDropDuration
+      leafDiv.style.animationDelay = leafDelay + ', ' + leafDelay
 
-      image.className = "hb-container";
+      image.className = 'hb-container'
       image.style.animationName =
-        Math.random() < 0.5 ? "clockwiseSpin" : "counterclockwiseSpinAndFlip";
-      image.style.setProperty(
-        "--scale",
-        "scale(" + randomFloat(0.8, 1.2) + ")",
-      );
-      image.style.animationDuration = fadeAndDropDuration;
-      image.addEventListener("click", clickQhb);
+        Math.random() < 0.5 ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip'
+      image.style.setProperty('--scale', 'scale(' + randomFloat(0.8, 1.2) + ')')
+      image.style.animationDuration = fadeAndDropDuration
+      image.addEventListener('click', clickQhb)
 
-      leafDiv.appendChild(image);
-      return leafDiv;
+      leafDiv.appendChild(image)
+      return leafDiv
     }
 
     function createEle() {
-      let container = document.getElementById("beatbox");
+      let container = document.getElementById('beatbox')
       if (container) {
-        let NUMBER_OF_LEAVES = 40;
+        let NUMBER_OF_LEAVES = 40
         for (let i = 0; i < NUMBER_OF_LEAVES; i++) {
-          container.appendChild(createBeat());
+          container.appendChild(createBeat())
         }
       }
     }
-    createEle();
+    createEle()
   </script>
 </html>

@@ -57,15 +57,15 @@
     <button id="btn2">打开新窗口2</button>
   </body>
   <script>
-    console.log("qwe window.name", window.name);
+    console.log('qwe window.name', window.name)
 
     btn.onclick = function () {
-      window.name = "ab";
+      window.name = 'ab'
       let aa = window.open(
-        "http://www.baidu.com",
-        "",
-        "height=500,width=500,location=no,status=yes,resizable=yes,scrollbars=yes",
-      );
+        'http://www.baidu.com',
+        '',
+        'height=500,width=500,location=no,status=yes,resizable=yes,scrollbars=yes'
+      )
       // console.log('qwe aaa', localStorage.aaa)
       // console.log('qwe  window.name',  window.name)
       // localStorage.aaa = 123
@@ -75,33 +75,33 @@
       // console.log('qwe aa', aa)
       setTimeout(() => {
         // aa.location =  'http://www.baidu.com'
-      }, 2000);
-    };
+      }, 2000)
+    }
     btn2.onclick = function () {
       // window.name = 'ab'
       let aa = window.open(
-        "http://www.baidu.com",
-        "qwe333",
-        "height=500,width=500,location=no,status=yes,resizable=yes,scrollbars=yes",
-      );
+        'http://www.baidu.com',
+        'qwe333',
+        'height=500,width=500,location=no,status=yes,resizable=yes,scrollbars=yes'
+      )
       // let aa = window.open('http://www.baidu.com', 'b','qew')
-      location.href = "http://127.0.0.1:5501/2.html";
+      location.href = 'http://127.0.0.1:5501/2.html'
       // console.log('qwe aa', aa)
       // setTimeout(() => {
       //   aa.location =  'http://www.baidu.com'
 
       // }, 2000);
-    };
-    let aa = "你好吗";
+    }
+    let aa = '你好吗'
     let cc = {
-      你: "我",
-      好: "来",
-      吗: "了",
-    };
+      你: '我',
+      好: '来',
+      吗: '了',
+    }
     let bb = aa.replace(/[\u4e00-\u9fa5]{1}/g, function (match) {
-      console.log("qwe ", match);
-      return cc[match];
-    });
-    console.log("qwe bb", bb);
+      console.log('qwe ', match)
+      return cc[match]
+    })
+    console.log('qwe bb', bb)
   </script>
 </html>

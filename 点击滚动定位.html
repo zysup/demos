@@ -63,29 +63,29 @@
   <script>
     function clickfn(evt) {
       // console.log(evt.target.offsetLeft)
-      let startPoint = ul.scrollLeft;
-      let osw = evt.target.offsetWidth;
-      let osl = evt.target.offsetLeft;
-      let endPoint = osl + osw / 2 - ul.offsetWidth / 2;
+      let startPoint = ul.scrollLeft
+      let osw = evt.target.offsetWidth
+      let osl = evt.target.offsetLeft
+      let endPoint = osl + osw / 2 - ul.offsetWidth / 2
 
-      line.style.width = osw + "px";
-      line.style.left = osl + "px";
+      line.style.width = osw + 'px'
+      line.style.left = osl + 'px'
 
       // console.log('qwe ', startPoint, endPoint)
       let timer = setInterval(() => {
         if (Math.abs(endPoint - startPoint) < 7) {
-          clearInterval(timer);
+          clearInterval(timer)
         }
         if (startPoint < endPoint) {
-          startPoint += 7;
+          startPoint += 7
         } else {
-          startPoint -= 7;
+          startPoint -= 7
         }
         // console.log(startPoint)
-        ul.scrollLeft = startPoint;
-      }, 16);
+        ul.scrollLeft = startPoint
+      }, 16)
     }
-    ul.onclick = clickfn;
-    line.style.width = (ul.firstElementChild?.offsetWidth ?? 60) + "px";
+    ul.onclick = clickfn
+    line.style.width = (ul.firstElementChild?.offsetWidth ?? 60) + 'px'
   </script>
 </html>

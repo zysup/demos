@@ -85,70 +85,70 @@
     <footer></footer>
   </body>
   <script>
-    var navul = document.getElementsByClassName("navul")[0];
-    var liList = navul.children;
-    var boss = document.getElementsByClassName("boss")[0];
-    var divList = boss.children;
-    var footer = document.getElementsByTagName("footer")[0];
-    console.log(navul, liList, boss, divList, footer);
-    var scrollTimeout;
+    var navul = document.getElementsByClassName('navul')[0]
+    var liList = navul.children
+    var boss = document.getElementsByClassName('boss')[0]
+    var divList = boss.children
+    var footer = document.getElementsByTagName('footer')[0]
+    console.log(navul, liList, boss, divList, footer)
+    var scrollTimeout
     function scrollThrottler() {
-      console.log("滚动触发中...");
+      console.log('滚动触发中...')
       if (!scrollTimeout) {
         scrollTimeout = setTimeout(function () {
-          scrollTimeout = null;
-          scrollHander();
-        }, 100);
+          scrollTimeout = null
+          scrollHander()
+        }, 100)
       }
     }
     function scrollHander() {
-      console.log("事件处理");
-      var scrollTop = document.documentElement.scrollTop;
+      console.log('事件处理')
+      var scrollTop = document.documentElement.scrollTop
       for (var i = 0; i < divList.length; i++) {
-        var start = divList[i].offsetTop;
-        var end;
+        var start = divList[i].offsetTop
+        var end
         if (i == divList.length - 1) {
-          end = footer.offsetTop;
+          end = footer.offsetTop
         } else {
-          end = divList[i + 1].offsetTop;
+          end = divList[i + 1].offsetTop
         }
         if (scrollTop > start - 150 && scrollTop < end - 150) {
           for (var j = 0; j < liList.length; j++) {
-            liList[j].className = "";
+            liList[j].className = ''
           }
-          liList[i].className = "active";
+          liList[i].className = 'active'
         }
       }
     }
-    window.onscroll = scrollThrottler;
+    window.onscroll = scrollThrottler
     function scrollSmoothTo(position) {
       if (!window.requestAnimationFrame) {
         window.requestAnimationFrame = function (callback, element) {
-          return setTimeout(callback, 17);
-        };
+          return setTimeout(callback, 17)
+        }
       }
       // 当前滚动高度
-      var scrollTop = document.documentElement.scrollTop || window.pageYOffset;
+      var scrollTop = document.documentElement.scrollTop || window.pageYOffset
       // 滚动step方法
       var step = function () {
         // 距离目标滚动距离
-        var distance = position - scrollTop;
+        var distance = position - scrollTop
         // 目标滚动位置
-        scrollTop = scrollTop + distance / 5;
+        scrollTop = scrollTop + distance / 5
         if (Math.abs(distance) < 1) {
-          window.scrollTo(0, position);
+          window.scrollTo(0, position)
         } else {
-          window.scrollTo(0, scrollTop);
-          requestAnimationFrame(step);
+          window.scrollTo(0, scrollTop)
+          requestAnimationFrame(step)
         }
-      };
-      step();
+      }
+      step()
     }
-    document.querySelectorAll("li").forEach((item, index) => {
+    document.querySelectorAll('li').forEach((item, index) => {
       item.onclick = function () {
-        let end = divList[index].offsetTop;
-        scrollSmoothTo(end);
-      };
-    });
+        let end = divList[index].offsetTop
+        scrollSmoothTo(end)
+      }
+    })
   </script>
 </html>

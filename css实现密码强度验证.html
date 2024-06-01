@@ -7,11 +7,11 @@
     <title>meter元素测试</title>
     <style>
       meter:in-range ~ output::before {
-        content: "一般";
+        content: '一般';
       }
 
       meter:out-of-range ~ output::before {
-        content: "弱";
+        content: '弱';
       }
 
       /* 
@@ -37,7 +37,7 @@
       }
 
       meter::after {
-        content: "弱 中 强sdafsdfafsfsdfsf";
+        content: '弱 中 强sdafsdfafsfsdfsf';
         position: absolute;
         font-size: 14px;
         line-height: 20px;
@@ -104,10 +104,10 @@
 
     <script src="https://cdn.bootcdn.net/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
     <script>
-      pwd.addEventListener("input", function () {
-        var value = this.value;
-        meter.value = zxcvbn(value).guesses_log10;
-      });
+      pwd.addEventListener('input', function () {
+        var value = this.value
+        meter.value = zxcvbn(value).guesses_log10
+      })
     </script>
   </body>
 </html>

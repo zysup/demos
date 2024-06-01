@@ -14,25 +14,25 @@
     <button onclick="clearVar()">Clear Global Var</button>
     <script>
       function LargeObj() {
-        this.largeArr = new Array(1000_0000);
+        this.largeArr = new Array(1000_0000)
       }
-      var x = [];
+      var x = []
       function grow() {
-        console.log("qwe ");
-        var o = new LargeObj();
+        console.log('qwe ')
+        var o = new LargeObj()
 
-        x.push(o);
+        x.push(o)
       }
 
       function clearVar(params) {
-        x = null;
+        x = null
       }
-      var y;
+      var y
       function growString() {
-        y = "hello word".repeat(100_0000);
+        y = 'hello word'.repeat(100_0000)
       }
       function ConsoleLogString(params) {
-        console.log(y[0]);
+        console.log(y[0])
       }
     </script>
   </body>

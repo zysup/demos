@@ -42,43 +42,43 @@
     </div>
   </body>
   <script>
-    var timer = null;
-    var timer2 = null;
-    var boss = document.getElementById("boss");
+    var timer = null
+    var timer2 = null
+    var boss = document.getElementById('boss')
     // console.log(boss);
-    boss.onscroll = myscroll;
+    boss.onscroll = myscroll
     // boss.onclick=test11;
     // console.log(myscroll);
     function test11() {
-      clearTimeout(timer2);
+      clearTimeout(timer2)
       timer2 = setTimeout(() => {
-        console.log("qwe");
-      }, 1000);
+        console.log('qwe')
+      }, 1000)
     }
 
     function myscroll() {
-      var scrollTop = boss.scrollTop; //滚动条滚动的距离
-      var scrollHeight = boss.scrollHeight; //2000
-      var clientHeight = boss.clientHeight; //屏幕的内容高度
-      var maxTop = scrollHeight - clientHeight;
-      console.log(scrollTop, scrollHeight, clientHeight);
+      var scrollTop = boss.scrollTop //滚动条滚动的距离
+      var scrollHeight = boss.scrollHeight //2000
+      var clientHeight = boss.clientHeight //屏幕的内容高度
+      var maxTop = scrollHeight - clientHeight
+      console.log(scrollTop, scrollHeight, clientHeight)
 
       if (scrollTop >= maxTop - 10) {
         //到底了底部
-        console.log("到底底部");
-        clearTimeout(timer);
+        console.log('到底底部')
+        clearTimeout(timer)
 
         timer = setTimeout(function () {
-          console.log("执行");
+          console.log('执行')
 
           for (i of [7, 8, 9]) {
-            var item = document.createElement("div");
-            item.className = "item";
-            item.innerHTML = "我是新产生的";
-            boss.appendChild(item);
-            console.log(i);
+            var item = document.createElement('div')
+            item.className = 'item'
+            item.innerHTML = '我是新产生的'
+            boss.appendChild(item)
+            console.log(i)
           }
-        }, 2000);
+        }, 2000)
       }
     }
   </script>

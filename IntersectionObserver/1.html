@@ -29,7 +29,7 @@
     <img src="../images/eye.png" alt="" data-src="./images/元素福.png" />
   </body>
   <script>
-    let target = document.querySelector("div");
+    let target = document.querySelector('div')
     let options = {
       // root: document.querySelector('#scrollArea'),
       root: null,
@@ -39,36 +39,36 @@
       // rootMargin: '-33% 0% -33% 0%'
       // threshold: [0.1,0.5,0.7],
       // rootMargin: '50px',
-    };
+    }
 
     let observer = new IntersectionObserver((entries, observer) => {
-      console.log("qwe entires", entries[0], observer);
-    }, options);
-    observer.observe(target);
+      console.log('qwe entires', entries[0], observer)
+    }, options)
+    observer.observe(target)
 
     // 图片懒加载
 
     //实例化 默认基于当前视窗
-    const io = new IntersectionObserver(callback, options);
+    const io = new IntersectionObserver(callback, options)
 
-    let imgs = document.querySelectorAll("[data-src]"); // 将图片的真实url设置为data-src src属性为占位图 元素可见时候替换src
+    let imgs = document.querySelectorAll('[data-src]') // 将图片的真实url设置为data-src src属性为占位图 元素可见时候替换src
 
     function callback(entries) {
-      console.log("qwe imgcallback");
-      entries.forEach((item) => {
+      console.log('qwe imgcallback')
+      entries.forEach(item => {
         // 遍历entries数组
         if (item.isIntersecting) {
           // 当前元素可见
-          console.log("qwe imgcallback", item);
-          item.target.src = item.target.dataset.src; // 替换src
-          io.unobserve(item.target); // 停止观察当前元素 避免不可见时候再次调用callback函数
+          console.log('qwe imgcallback', item)
+          item.target.src = item.target.dataset.src // 替换src
+          io.unobserve(item.target) // 停止观察当前元素 避免不可见时候再次调用callback函数
         }
-      });
+      })
     }
 
-    imgs.forEach((item) => {
+    imgs.forEach(item => {
       // io.observe接受一个DOM元素，添加多个监听 使用forEach
-      io.observe(item);
-    });
+      io.observe(item)
+    })
   </script>
 </html>

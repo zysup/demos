@@ -51,11 +51,11 @@
     //   //   'Content-type': 'application/json; charset=UTF-8',
     //   // },
     // }).then((response) => response.json()).then((json) => console.log(json));
-    let el = document.createElement("div");
-    el.innerText = new Date("2023/01/01 00:00:00");
-    document.body.appendChild(el);
+    let el = document.createElement('div')
+    el.innerText = new Date('2023/01/01 00:00:00')
+    document.body.appendChild(el)
 
-    var o = { a: 1, b: { c: 2, d: { e: 3, f: "qwe" } } };
+    var o = { a: 1, b: { c: 2, d: { e: 3, f: 'qwe' } } }
 
     function f(key, value) {
       // if (typeof value === 'object') {
@@ -63,11 +63,11 @@
       //   return value;
       // }
       if (!isNaN(value)) {
-        return value * 2;
+        return value * 2
       }
-      return value;
+      return value
     }
 
-    console.log("qwe", JSON.stringify(o, f, "--"));
+    console.log('qwe', JSON.stringify(o, f, '--'))
   </script>
 </html>

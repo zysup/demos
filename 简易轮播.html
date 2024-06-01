@@ -83,48 +83,48 @@
     </div>
   </body>
   <script>
-    var nav = document.getElementsByClassName("nav")[0];
-    var liList = nav.children;
-    var imgBox = document.querySelector(".imgBox");
-    var imgList = imgBox.children;
-    console.log(nav, liList, imgBox, imgList);
+    var nav = document.getElementsByClassName('nav')[0]
+    var liList = nav.children
+    var imgBox = document.querySelector('.imgBox')
+    var imgList = imgBox.children
+    console.log(nav, liList, imgBox, imgList)
     var timer,
-      index = 0;
+      index = 0
     function show(index) {
       for (var i = 0; i < imgList.length; i++) {
-        liList[i].className = "";
-        imgList[i].className = "";
+        liList[i].className = ''
+        imgList[i].className = ''
       }
-      liList[index].className = "active";
-      imgList[index].className = "active";
+      liList[index].className = 'active'
+      imgList[index].className = 'active'
     }
     function move() {
-      index++;
+      index++
       if (index == 4) {
-        index = 0;
+        index = 0
       }
-      show(index);
+      show(index)
     }
-    timer = setInterval(move, 1000);
+    timer = setInterval(move, 1000)
     for (let j = 0; j < liList.length; j++) {
-      let li = liList[j];
-      li.setAttribute("index", j);
-      console.log(j);
+      let li = liList[j]
+      li.setAttribute('index', j)
+      console.log(j)
       li.onmouseover = function () {
-        index = j - 1;
+        index = j - 1
         // console.log('qwe index', index)
-        move();
-        clearInterval(timer);
-      };
+        move()
+        clearInterval(timer)
+      }
       li.onmouseout = function () {
-        timer = setInterval(move, 1000);
-      };
+        timer = setInterval(move, 1000)
+      }
     }
     imgBox.onmouseover = function () {
-      clearInterval(timer);
-    };
+      clearInterval(timer)
+    }
     imgBox.onmouseout = function () {
-      timer = setInterval(move, 1000);
-    };
+      timer = setInterval(move, 1000)
+    }
   </script>
 </html>

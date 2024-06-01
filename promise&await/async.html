@@ -12,21 +12,21 @@
   <script>
     async function timeout() {
       if (!true) {
-        return "成功";
+        return '成功'
       } else {
-        throw new Error("失败");
+        throw new Error('失败')
       }
     }
 
     timeout().then(
-      (result) => {
-        console.log(result);
+      result => {
+        console.log(result)
       },
-      (reject) => {
-        console.log(reject);
-      },
-    );
-    console.log("虽然在后面，但是我先执行");
+      reject => {
+        console.log(reject)
+      }
+    )
+    console.log('虽然在后面，但是我先执行')
 
     //----------------------------------------
     // async function timeout(flag) {

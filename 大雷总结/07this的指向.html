@@ -11,7 +11,7 @@
   </body>
   <script>
     function say() {
-      alert(this);
+      alert(this)
     }
     // say();
     // new say();
@@ -19,46 +19,46 @@
     // say.call("666");
 
     function fn() {
-      this.username = "leson";
+      this.username = 'leson'
       this.say = function () {
         return function () {
-          alert(this.username);
-        };
-      };
+          alert(this.username)
+        }
+      }
     }
-    var f = new fn();
-    var f1 = f.say();
+    var f = new fn()
+    var f1 = f.say()
     // f1()
     // f1.bind({
     //   username: "lili"
     // })();
 
     function Timer() {
-      this.time1 = 0;
-      this.time2 = 0;
+      this.time1 = 0
+      this.time2 = 0
       setTimeout(function () {
-        this.time2 += 1;
-        console.log("qwe 我是普通函数里面的this", this);
-      }, 1000);
+        this.time2 += 1
+        console.log('qwe 我是普通函数里面的this', this)
+      }, 1000)
       setTimeout(() => {
-        this.time1 += 1;
-        console.log("qwe 我是箭头函数里面的this", this);
-      }, 1000);
+        this.time1 += 1
+        console.log('qwe 我是箭头函数里面的this', this)
+      }, 1000)
     }
     // new Timer;
 
     var Something = function (element) {
-      this.name = "Something Good";
+      this.name = 'Something Good'
       this.onclick1 = function (event) {
-        console.log(this);
-      };
+        console.log(this)
+      }
       this.onclick2 = function (event) {
-        console.log(this.name);
-      };
-      element.addEventListener("click", this.onclick1, false);
-      element.addEventListener("click", this.onclick2.bind(this), false);
-      console.log("qwe ", this);
-    };
+        console.log(this.name)
+      }
+      element.addEventListener('click', this.onclick1, false)
+      element.addEventListener('click', this.onclick2.bind(this), false)
+      console.log('qwe ', this)
+    }
     // new Something(document.body);
   </script>
 </html>

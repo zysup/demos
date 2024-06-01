@@ -11,7 +11,7 @@
         font-size: 18px;
       }
       body {
-        font-family: "Courier New", Courier, monospace;
+        font-family: 'Courier New', Courier, monospace;
       }
     </style>
   </head>
@@ -19,12 +19,12 @@
     index.html
     <script type="text/javascript">
       setTimeout(() => {
-        var fp = new Fingerprint2();
+        var fp = new Fingerprint2()
         fp.get(function (result) {
           //result即为获取到的浏览器指纹值
-          console.log(result);
-        });
-      }, 3000);
+          console.log(result)
+        })
+      }, 3000)
     </script>
   </body>
 </html>
