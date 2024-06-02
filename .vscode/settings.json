@@ -4,6 +4,9 @@
   "prettier.printWidth": 120,
   "prettier.semi": false,
   "prettier.singleQuote": true,
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.stylelint": "explicit"
+  // },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

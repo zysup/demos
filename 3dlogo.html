@@ -1,0 +1,85 @@
+<!-- https://runjs.work/ -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ececec;
+        position: relative;
+        perspective: 1000px;
+      }
+
+      @keyframes view {
+        to {
+          transform: rotateX(325deg) rotateY(395deg);
+        }
+      }
+
+      .cube-box {
+        width: 100px;
+        height: 100px;
+        transform-style: preserve-3d;
+        position: relative;
+        transition: all 0.3s;
+        transform: rotateX(-35deg) rotateY(35deg);
+        animation: view 4s linear infinite;
+      }
+
+      .surface {
+        width: 95%;
+        height: 95%;
+        opacity: 0.9;
+        border-radius: 8%;
+        backface-visibility: visible;
+        position: absolute;
+      }
+      .surface.front {
+        transform: translateZ(50px);
+        background-color: #de0031;
+      }
+      .surface.back {
+        transform: translateZ(-50px);
+        background-color: #de0031;
+      }
+      .surface.left {
+        transform: rotateY(90deg) translateZ(-50px);
+        background-color: #41b882;
+      }
+      .surface.right {
+        transform: rotateY(90deg) translateZ(50px);
+        background-color: #41b882;
+      }
+      .surface.up {
+        transform: rotateX(90deg) translateZ(50px);
+        background-color: #60dafa;
+      }
+      .surface.down {
+        transform: rotateX(90deg) translateZ(-50px);
+        background-color: #60dafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cube-box">
+      <div class="surface front"></div>
+      <div class="surface back"></div>
+      <div class="surface left"></div>
+      <div class="surface right"></div>
+      <div class="surface up"></div>
+      <div class="surface down"></div>
+    </div>
+  </body>
+</html>
