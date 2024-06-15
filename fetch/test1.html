@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -6,14 +6,41 @@
     <title>Document</title>
   </head>
 
-  <body></body>
+  <body>
+    <textarea name="mytxt" id="mytxt"></textarea>
+    <textarea name="myjson" id="myjson"></textarea>
+    <img src="" alt="" id="myimage" />
+  </body>
   <script>
     async function fetchText() {
-      let response = await fetch('./1.json')
+      let response = await fetch('./1.txt')
       console.log('qwe response', response)
-      let aa = await response.json()
+      let aa = await response.text()
+      mytxt.textContent = aa
       console.log('qwe aa', aa)
     }
     fetchText()
+    async function fetchJson() {
+      let response = await fetch('./1.json')
+      console.log('qwe response', response)
+      let aa = await response.json()
+      myjson.textContent = aa
+      console.log('qwe aa', aa)
+    }
+    fetchJson()
+    // fetch('../images/girl.png')
+    fetch('https://dummyimage.com/600x400/2974cf/fff.png&text=fetch')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not OK')
+        }
+        return response.blob()
+      })
+      .then((myBlob) => {
+        myimage.src = URL.createObjectURL(myBlob)
+      })
+      .catch((error) => {
+        console.error('There has been a problem with your fetch operation:', error)
+      })
   </script>
 </html>

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -11,14 +11,7 @@
 
       .border-stripe {
         border: 12px solid;
-        border-image: repeating-linear-gradient(
-            -45deg,
-            red,
-            red 5px,
-            transparent 5px,
-            transparent 10px
-          )
-          12;
+        border-image: repeating-linear-gradient(-45deg, red, red 5px, transparent 5px, transparent 10px) 12;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -128,11 +121,7 @@
       <!-- <a href="##">惆怅</a>
     <a href="##">淡定</a> <a href="##">热血</a>
     asdfx -->
-      <img src="./images/01.jpg" alt="" srcset="" /><img
-        src="./images/01.jpg"
-        alt=""
-        srcset=""
-      /><span>xyx</span>
+      <img src="./images/01.jpg" alt="" srcset="" /><img src="./images/01.jpg" alt="" srcset="" /><span>xyx</span>
       <!-- <input type="text" /><input type="text" /> -->
 
       <svg>
@@ -157,18 +146,25 @@
 
     <div class="border-stripe">我们可以使用红色条纹边框表示警示</div>
 
-    <div
-      style="width: 500px; overflow-x: auto; height: 30px; white-space: nowrap"
-    >
+    <div style="width: 500px; overflow-x: auto; height: 30px; white-space: nowrap">
       <span
-        >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
-        adipisci eum inventore dicta dignissimos, exercitationem facilis vero
-        minima voluptates consequuntur!
+        >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio adipisci eum inventore dicta dignissimos,
+        exercitationem facilis vero minima voluptates consequuntur!
       </span>
       <span>qwe</span>
     </div>
 
-    <!-- <iframe width="1280" height="720" src="https://www.youtube.com/embed/vHa2XvW58EE?list=LL" title="【每天堅持聽1小时 英語越聽越清】沉浸式英語聽力練習｜美式英语｜這樣學英文天天有進步｜English Listening Practice 【从零开始学英语】  #從零開始學英語 #英文學習" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+    <iframe
+      width="1280"
+      height="720"
+      src="https://www.youtube.com/embed/vHa2XvW58EE?list=LL"
+      title="【每天堅持聽1小时 英語越聽越清】沉浸式英語聽力練習｜美式英语｜這樣學英文天天有進步｜English Listening Practice 【从零开始学英语】  #從零開始學英語 #英文學習"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      id="myiframe"
+    ></iframe>
 
     <form action="/sdf/">
       <input type="file" name="image" accept="image/*" capture="environment" />
@@ -177,24 +173,47 @@
 
     <button id="button">选择图片</button>
     <button id="btn">加载</button>
-    <iframe
-      src="https://v.bootstrapmb.com/2023/2/m4x7s13480/"
-      frameborder="0"
-    ></iframe>
+    <button onclick="switchSrc()">切换</button>
+    <iframe src="https://v.bootstrapmb.com/2023/2/m4x7s13480/" frameborder="0"></iframe>
   </body>
   <script>
+    function switchSrc() {
+      let aa = myiframe.contentWindow.location.href
+      console.log(aa)
+      myiframe.contentWindow.location = 'http://wwww.baidu.com'
+    }
     var aa = {
       a: 1,
     }
     Object.assign(aa, { b: 2 })
     console.log('qwe', aa)
+    var c = {
+      bbb: 'http://www.saa.com',
+      toString: function () {
+        console.log('qweqwe', this)
+        return this.bbb
+      },
+    }
+    let aaa = new URL(c)
+    console.log('aa', aaa)
+    // URL.createObjectURL
   </script>
   <script type="module">
+    import aaa from '/1.txt?row'
+    console.log('qwe aaa', aaa)
     btn.onclick = function name(params) {
-      console.log('qwe ')
-      import('/10.js').then(val => {
+      // console.log('qwe ')
+      // import('/10.js?raw').then((val) => {
+      //   console.log('qwe', val.default)
+      // })
+      import('/1.txt?raw').then((val) => {
         console.log('qwe', val.default)
       })
     }
+  </script>
+  <script>
+    // fetch('http://yesno.wtf/api')
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data))
   </script>
 </html>

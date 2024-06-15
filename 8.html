@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -39,10 +39,72 @@
   </head>
 
   <body>
+    <div id="mytxt"></div>
+    <input type="file" id="file" />
+    <img src="" alt="" id="myimage" style="width: 600px" />
+    <video
+      src=""
+      id="myvideo"
+      autoplay
+      controls
+      loop
+      width="600px"
+      poster="./images/girl.png"
+      controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar disablepictureinpicture"
+      disablepictureinpicture
+    ></video>
+    <video
+      src=""
+      id="myvideo1"
+      autoplay
+      controls
+      loop
+      width="600px"
+      poster="./images/girl.png"
+      controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar disablepictureinpicture"
+      disablepictureinpicture
+    ></video>
+    <!-- <video
+      src=""
+      id="myvideo"
+      autoplay
+      muted
+      poster="./images/girl.png"
+      loop
+      width="600px"
+      disablepictureinpicture
+    ></video> -->
     <div class="target">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil autem
-      temporibus quasi distinctio. Expedita laborum eligendi excepturi id sunt
-      qui maiores beatae maxime! Ipsam sed facerperiores.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil autem temporibus quasi distinctio. Expedita
+      laborum eligendi excepturi id sunt qui maiores beatae maxime! Ipsam sed facerperiores.
     </div>
   </body>
+  <script>
+    document.getElementById('file').onchange = function (e) {
+      // const s = e.target.files[0]
+      // const reader = new FileReader()
+      // reader.readAsText(s, 'utf-8')
+      // reader.readAsDataURL(s)
+      // reader.readAsArrayBuffer(s)
+      // reader.onload = function (res) {
+      // console.log('qwe', res)
+      // mytxt.textContent = res.target.result
+      // eval('console.log(123)')
+      // let a = res.target.result
+      // console.log('qwe', a)
+      // eval(a)
+      // myvideo.src = res.target.result
+      // myimage.src = res.target
+      // }
+      // console.log(e.target.files[0])
+      const s = URL.createObjectURL(e.target.files[0])
+      let aa = document.createElement('a')
+      // aa.target = '_blank'
+      aa.href = s
+      aa.click()
+      // window.open(s, '_blank')
+      console.log(s)
+      // myimage.src = s
+    }
+  </script>
 </html>
