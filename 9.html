@@ -199,16 +199,17 @@
     // URL.createObjectURL
   </script>
   <script type="module">
-    import aaa from '/1.txt?row'
+    console.log('qwe0')
+    // import aaa from '/1.txt?row'
     console.log('qwe aaa', aaa)
     btn.onclick = function name(params) {
-      // console.log('qwe ')
-      // import('/10.js?raw').then((val) => {
-      //   console.log('qwe', val.default)
-      // })
-      import('/1.txt?raw').then((val) => {
+      console.log('qwe ')
+      import('/10.js').then((val) => {
         console.log('qwe', val.default)
       })
+      // import('/1.txt?raw').then((val) => {
+      //   console.log('qwe', val.default)
+      // })
     }
   </script>
   <script>

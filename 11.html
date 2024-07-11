@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        outline: 2px solid red;
+        resize: both;
+        height: 100px;
+        overflow: hidden;
+      }
+      @supports not (background: paint(xxx)) {
+        button {
+          color: red;
+        }
+      }
+      div {
+        outline: 1px solid red;
+        /* padding: 50%; */
+        height: calc(0.1515 * (100vw - 2rem));
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box" style="width: 500px"></div>
+    <button>你好</button>
+    <div>asdf</div>
+  </body>
+</html>

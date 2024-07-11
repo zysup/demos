@@ -1,0 +1,64 @@
+<!-- <div>https://www.zhangxinxu.com/wordpress/2019/06/better-css-scroll-indicator/</div> -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css滚动指示器</title>
+    <style>
+      li {
+        outline: 1px solid black;
+        height: 300px;
+      }
+      body {
+        position: relative;
+      }
+      .indicator {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(to right top, teal 50%, transparent 50%) no-repeat;
+        background-size: 100% calc(100% - 100vh);
+        z-index: 1;
+        pointer-events: none;
+        mix-blend-mode: darken;
+      }
+      .indicator::after {
+        content: '';
+        position: fixed;
+        top: 5px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: #fff;
+        z-index: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li>01</li>
+      <li>02</li>
+      <li>03</li>
+      <li>04</li>
+      <li>05</li>
+      <li>06</li>
+      <li>07</li>
+      <li>08</li>
+      <li>09</li>
+      <li>10</li>
+      <li>11</li>
+      <li>12</li>
+      <li>13</li>
+      <li>14</li>
+      <li>15</li>
+      <li>16</li>
+      <li>17</li>
+    </ul>
+    <div class="indicator"></div>
+  </body>
+</html>

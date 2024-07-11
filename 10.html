@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="box"></div>
+  </body>
+  <script defer>
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener(
+        'deviceorientation',
+        function (event) {
+          // 获取alpha值，即绕z轴旋转的角度，范围为0到360
+          var alpha = event.alpha
+
+          // 获取beta值，即绕x轴旋转的角度，范围为-180到180
+          var beta = event.beta
+
+          // 获取gamma值，即绕y轴旋转的角度，范围为-90到90
+          var gamma = event.gamma
+
+          // 根据需要处理这些值，例如转换成角度或者做进一步的操作
+          box.innerText = `Alpha:, ${alpha}, Beta:, ${beta}, Gamma:, ${gamma}`
+          // console.log('Alpha:', alpha, 'Beta:', beta, 'Gamma:', gamma)
+        },
+        false
+      )
+    } else {
+      alert('你的浏览器不支持DeviceOrientation事件')
+    }
+  </script>
+</html>

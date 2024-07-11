@@ -1,0 +1,47 @@
+<!-- <em>https://www.jianshu.com/p/8208f0c5e3c4</em> -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>popover</title>
+    <style>
+      #pop {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button popovertarget="pop">显示悬浮层</button>
+    <div id="pop" popover>我是悬浮层</div>
+    <br />
+    <button popovertargetaction="show" popovertarget="pop">显示悬浮层</button>
+    <button popovertargetaction="hide" popovertarget="pop">隐藏悬浮层</button>
+    <button popovertargetaction="toggle" popovertarget="pop">切换悬浮层</button>
+    <div id="pop" popover>我是悬浮层</div>
+    <br />
+    <div id="btn">js控制显示悬浮层</div>
+    <div id="pop" popover>我是悬浮层</div>
+  </body>
+  <script>
+    const btn = document.querySelector('#btn')
+    const pop = document.querySelector('#pop')
+    btn.addEventListener('mouseenter', () => {
+      pop.showPopover()
+      console.log(pop.matches(':popover-open'))
+    })
+    btn.addEventListener('mouseleave', () => {
+      pop.hidePopover()
+      console.log(pop.matches(':popover-open'))
+    })
+  </script>
+</html>

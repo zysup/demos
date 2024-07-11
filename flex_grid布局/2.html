@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -8,11 +8,12 @@
       .container {
         display: flex;
         width: 400px;
-        height: 50px;
+        /* height: 50px; */
         outline: 1px solid red;
+        /* justify-content: space-between; */
       }
       .flex-auto item {
-        flex: auto;
+        /* flex: auto; */
         outline: 1px solid;
       }
     </style>
@@ -20,11 +21,19 @@
 
   <body>
     <div class="container flex-auto">
-      <item>范张范张范张范张范张范张范张范张范张</item>
-      <item>范鑫</item>
-      <item>范旭</item>
-      <item>范帅</item>
-      <item>范哥</item>
+      <!-- <item>范张范张范张范张范张范张范张范张范张</item> -->
+      <!-- <item>范鑫</item> -->
+      <item style="width: 100px">范旭</item>
+      <item style="margin-inline: auto"
+        >范帅 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo reiciendis alias quas maiores molestias ab,
+        earum magnam? Omnis, quaerat perferendis corrupti iure, aliquid voluptas doloribus totam vero earum molestiae
+        animi facilis eaque magni nulla alias fuga corporis quos vel molestias aperiam! Amet neque labore repellendus
+        libero hic itaque saepe blanditiis sequi optio, ratione voluptates iste ea, unde maxime. Sed debitis molestias
+        voluptatibus maxime, perferendis odio consectetur ducimus adipisci earum in numquam facilis deleniti tenetur
+        enim soluta. Optio, ea minus quis omnis porro quaerat asperiores eius corporis ut consectetur, alias quasi vero.
+        Quia, maiores? A, consequatur sed suscipit dolorum commodi sunt?
+      </item>
+      <!-- <item>范哥</item> -->
     </div>
   </body>
 </html>
