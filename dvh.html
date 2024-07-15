@@ -1,0 +1,39 @@
+<!-- https://zhuanlan.zhihu.com/p/550344604 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dvh</title>
+    <style>
+      body {
+        margin: 0;
+        height: 1000px;
+        font-size: 100px;
+      }
+      #dvh {
+        height: 100dvh;
+        outline: 1px solid pink;
+        outline-offset: -1px;
+      }
+      #vmin {
+        width: 100vmin;
+        height: 100vmin;
+        outline: 1px solid blue;
+        outline-offset: -1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="dvh"></div>
+    <div id="vmin"></div>
+  </body>
+  <script>
+    window.addEventListener('resize', () => {
+      dvh.innerText = getComputedStyle(dvh).height
+      vmin.innerText = getComputedStyle(vmin).height
+    })
+  </script>
+</html>
