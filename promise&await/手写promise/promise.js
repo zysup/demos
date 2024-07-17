@@ -13,18 +13,22 @@ class Promise {
     this.value = undefined
     // 定义 Promise 失败的原因
     this.reason = undefined
+    this.fulfilled = undefined
+    this.rejected = undefined
     // 定义 resolve 函数
-    const resolve = value => {
+    const resolve = (value) => {
       if (this.status === Promise.PENDING) {
         this.status = Promise.FULFILLED
         this.value = value
+        this.then()
       }
     }
     // 定义 reject 函数
-    const reject = reason => {
+    const reject = (reason) => {
       if (this.status === Promise.PENDING) {
         this.status = Promise.REJECTED
         this.reason = reason
+        this.then()
       }
     }
     try {
@@ -34,6 +38,10 @@ class Promise {
     }
   }
   then(onFulfilled, onRejected) {
+    this.fulfilled ||= onFulfilled
+    this.rejected ||= onRejected
+    onFulfilled ||= this.fulfilled
+    onFulfilled ||= this.rejected
     if (this.status === Promise.FULFILLED) {
       onFulfilled(this.value)
     }

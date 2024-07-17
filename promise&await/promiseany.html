@@ -16,52 +16,54 @@
     //   console.log(vue)
     // })
 
-    Promise.any([
-      Promise.resolve('123').then(() => 'home'),
-      fetch('https://v8.dev/blog').then(() => 'blog'),
-      fetch('https://v8.dev/docs').then(() => 'docs'),
-    ])
-      .then((first) => {
-        // 只要有一个 fetch() 请求成功
-        console.log(first)
-      })
-      .catch((error) => {
-        // 所有三个 fetch() 全部请求失败
-        console.log(error)
-      })
-
-    // const getJSON = function (url) {
-    //   const promise = new Promise(function (resolve, reject) {
-    //     throw '123'
-    //     const handler = function () {
-    //       if (this.readyState !== 4) {
-    //         return
-    //       }
-    //       if (this.status === 200) {
-    //         console.log('qwe', this.response, this)
-    //         resolve(this.response)
-    //         // resolve(this.responseText);
-    //       } else {
-    //         reject(new Error(this.statusText))
-    //       }
-    //     }
-    //     const client = new XMLHttpRequest()
-    //     client.open('GET', url)
-    //     client.onreadystatechange = handler
-    //     // client.responseType = "json";
-    //     // client.setRequestHeader("Accept", "application/json");
-    //     client.send()
+    // Promise.any([
+    //   Promise.resolve('123').then(() => 'home'),
+    //   fetch('https://v8.dev/blog').then(() => 'blog'),
+    //   fetch('https://v8.dev/docs').then(() => 'docs'),
+    // ])
+    //   .then((first) => {
+    //     // 只要有一个 fetch() 请求成功
+    //     console.log(first)
+    //   })
+    //   .catch((error) => {
+    //     // 所有三个 fetch() 全部请求失败
+    //     console.log(error)
     //   })
 
-    //   return promise
-    // }
+    const getJSON = function (url) {
+      const promise = new Promise(function (resolve, reject) {
+        throw '123'
+        const handler = function () {
+          if (this.readyState !== 4) {
+            return
+          }
+          if (this.status === 200) {
+            console.log('qwe', this.response, this)
+            resolve(this.response)
+            // resolve(this.responseText);
+          } else {
+            reject(new Error(this.statusText))
+          }
+        }
+        const client = new XMLHttpRequest()
+        client.open('GET', url)
+        client.onreadystatechange = handler
+        // client.responseType = "json";
+        // client.setRequestHeader("Accept", "application/json");
+        client.send()
+      })
 
-    // getJSON('https://httpbin.org/get')
-    // .then(function (json) {
-    //   console.log('Contents: ', json);
-    // }, function (error) {
-    //   console.error('出错了', error);
-    // });
+      return promise
+    }
+
+    getJSON('https://httpbin.org/get').then(
+      function (json) {
+        console.log('Contents: ', json)
+      },
+      function (error) {
+        console.error('出错了', error)
+      }
+    )
     // console.log('qwe ', 123)
     // const promise = new Promise(function (resolve, reject) {
     //   resolve('ok')

@@ -1,0 +1,188 @@
+<!-- https://blog.csdn.net/qq_41852789/article/details/128453341?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-128453341-blog-129815340.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-128453341-blog-129815340.235%5Ev43%5Econtrol&utm_relevant_index=2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./promise.js"></script>
+    <script>
+      // 1、基础
+      let promise = new MyPromise((resolve, reject) => {
+        resolve('成功1')
+        // reject('失败')
+      })
+      promise.then(
+        (value) => {
+          console.log(value)
+        },
+        (reason) => {
+          console.log(reason)
+        }
+      )
+
+      // 2、异步
+      promise = new MyPromise((resolve, reject) => {
+        setTimeout(() => {
+          // 异步
+          resolve('成功2')
+        }, 2000)
+        // reject('失败')
+      })
+      promise.then(
+        (value) => {
+          console.log(value)
+        },
+        (reason) => {
+          console.log(reason)
+        }
+      )
+
+      // 3、then方法链式调用
+      promise = new MyPromise((resolve, reject) => {
+        setTimeout(() => {
+          // 异步
+          resolve('成功3')
+        }, 2000)
+        // reject('失败')
+      })
+      function other() {
+        return new MyPromise((resolve, reject) => {
+          resolve('other')
+        })
+      }
+      promise
+        .then((value) => {
+          console.log(value)
+          return other()
+        })
+        .then((value) => {
+          console.log(value)
+        })
+
+      // 4、promise对象子返回循环报错
+      promise = new MyPromise(function (resolve, reject) {
+        resolve(100)
+      })
+      var p1 = promise.then(function (value) {
+        return p1
+      })
+      p1.then(
+        (value) => {
+          console.log(value)
+        },
+        (reason) => {
+          console.log(reason.message)
+        }
+      )
+
+      // 5、Promise实现捕获错误及then链式调用其他状态代码补充
+      promise = new MyPromise(function (resolve, reject) {
+        // setTimeout(() => {
+        //   resolve('成功。。。')
+        // },2000)
+        throw new Error('executor error')
+        // resolve('成功')
+      })
+      promise
+        .then(
+          (value) => {
+            console.log(value)
+            // throw new Error('then error')
+            return 'aaa'
+          },
+          (reason) => {
+            console.log('报错')
+            console.log(reason)
+            return '123'
+          }
+        )
+        .then(
+          (value) => {
+            console.log('value2')
+            console.log(value)
+          },
+          (reason) => {
+            console.log('报错2')
+            console.log(reason)
+          }
+        )
+
+      // 6、将then方法的参数变为可选参数
+      promise = new MyPromise(function (resolve, reject) {
+        resolve(101)
+      })
+      promise
+        .then()
+        .then((value) => value)
+        .then((value) => console.log(value))
+
+      // 7、Promise.all
+      // 按照异步代码调用顺序得到结果
+      // 类直接调用的方法是静态方法
+      function p1() {
+        return new MyPromise(function (resolve, reject) {
+          setTimeout(function () {
+            resolve('p1')
+          }, 2000)
+        })
+      }
+      function p2() {
+        return new MyPromise(function (resolve, reject) {
+          resolve('p2')
+        })
+      }
+      Promise.all(['a', 'b', p1(), p2(), 'c']).then(function (result) {
+        // result -> ['a', 'b', 'p1', 'p2', 'c']
+        console.log(result)
+      })
+
+      // 8、Promise.resolve将给定的值转换为promise对象
+      function p1() {
+        return new MyPromise(function (resolve, reject) {
+          resolve('hello')
+        })
+      }
+      Promise.resolve(10).then((value) => console.log(value))
+      Promise.resolve(p1()).then((value) => console.log(value))
+
+      // 9、finally方法无论promise执行成功或失败finally都会执行一次
+      // finally方法后可链式调用then方法拿到最终返回的结果
+      function p1() {
+        return new MyPromise(function (resolve, reject) {
+          reject('hello')
+        })
+      }
+      p1()
+        .finally(() => {
+          console.log('finally')
+        })
+        .then(
+          (value) => {
+            console.log(value)
+          },
+          (reason) => {
+            console.log('error')
+            console.log(reason)
+          }
+        )
+
+      // 10、catch
+      function p1() {
+        return new MyPromise(function (resolve, reject) {
+          resolve('hello')
+        })
+      }
+      p1()
+        .then((value) => {
+          return a
+        })
+        .then((value) => console.log('value2:' + value))
+        .catch((reason) => console.log('catch:' + reason))
+    </script>
+  </body>
+</html>

@@ -3,13 +3,16 @@
 const myPromise = require('./promise')
 
 const promise = new myPromise((resolve, reject) => {
-  resolve('ok')
+  setTimeout(() => {
+    resolve('ok')
+  }, 3000)
 })
+console.log('qwe', promise)
 promise.then(
-  value => {
+  (value) => {
     console.log('promise success:', value)
   },
-  reason => {
+  (reason) => {
     console.log('promise fail:', reason)
   }
 )

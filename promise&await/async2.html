@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -61,7 +61,7 @@
     function 摇色子(猜测) {
       return new Promise((resolve, reject) => {
         let sino = parseInt(Math.random() * 6 + 1)
-        // console.log('aa',sino);
+        console.log('aa', sino)
         // if (sino > 3) {
         //     if (猜测 === '大') {
         //         resolve(sino)
@@ -82,12 +82,12 @@
             if (猜测 === '大') {
               resolve(sino)
             } else {
-              console.log('error')
+              console.log('error 1', sino)
               reject(sino)
             }
           } else {
             if (猜测 === '大') {
-              console.log('error')
+              console.log('error 2', sino)
               reject(sino)
             } else {
               resolve(sino)

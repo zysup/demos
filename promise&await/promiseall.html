@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -19,7 +19,7 @@
       return (
         getUserInfo()
           .catch(() => {})
-          .then(res => {
+          .then((res) => {
             return res
             console.log(res)
           })
@@ -36,7 +36,7 @@
     }
 
     let timeout = function (delay, result) {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         setTimeout(() => resolve(result), delay)
       })
     }
