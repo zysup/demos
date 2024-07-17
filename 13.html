@@ -17,28 +17,51 @@
         height: 150px;
         outline: 2px solid blue;
       }
+      .aaa {
+        height: 50dvh;
+        outline: 1px solid red;
+      }
     </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('123 dom ok')
+      })
+      window.onload = function () {
+        console.log('onload ok')
+      }
+      let user = {
+        id: 1,
+      }
+      user.id &&= 2
+      console.log('qwe', user)
+    </script>
+    <!-- <script async src="./1.js"></script> -->
+    <script async src="./2.js"></script>
+    <!-- <script src="./4.js"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.core.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+    s
   </head>
 
   <body>
+    <div style="font-size: 2cm">&#127944; &#128720; ➡</div>
+
+    <div class="aaa"></div>
+
     <ui>
-      <li>01</li>
-      <li>02</li>
-      <li>03</li>
-      <li>04</li>
-      <li>05</li>
-      <li>06</li>
-      <li>07</li>
-      <li>08</li>
-      <li>09</li>
-      <li>10</li>
-      <li>11</li>
-      <li>12</li>
-      <li>13</li>
-      <li>14</li>
-      <li>15</li>
-      <li>16</li>
-      <li>17</li>
+      <script>
+        setTimeout(() => {
+          let el = document.createElement('script')
+          el.src = './1.js'
+          document.head.append(el, 'qwe')
+        }, 3000)
+        console.log('qwe', document.body, document.querySelector('ui'))
+        console.log('qwe1111')
+        ;(async () => console.log('qwe'))().then((res) => {
+          console.log('qwe999', res)
+        })
+      </script>
     </ui>
   </body>
 </html>

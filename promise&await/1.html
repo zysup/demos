@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -13,13 +13,16 @@
         resolve('123')
       }, 1000)
     })
-    aaa.then(res => {
-      console.log(res)
+    aaa.then((res) => {
+      console.log('qwe 1', res)
+    })
+    aaa.then((res) => {
+      console.log('qwe 2', res)
     })
     setTimeout(() => {
-      aaa.then(res => {
+      aaa.then((res) => {
         console.log('qwe', res)
       })
-    }, 500)
+    }, 3000)
   </script>
 </html>

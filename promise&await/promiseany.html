@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -8,65 +8,69 @@
 
   <body></body>
   <script>
-    // let startTime = +new Date();
-    // let importUnpkg = import('https://unpkg.com/vue@3.0.11/dist/vue.runtime.esm-browser.js');
-    // let importJsdelivr = import('https://cdn.jsdelivr.net/npm/jquery@3.2');
-    // Promise.any([importJsdelivr, importUnpkg]).then(vue => {
-    //   console.log('加载完毕，时间是：' + (+new Date() - startTime) + 'ms');
-    //   console.log(vue);
-    // });
+    // let startTime = +new Date()
+    // let importUnpkg = import('https://unpkg.com/vue@3.0.11/dist/vue.runtime.esm-browser.js')
+    // let importJsdelivr = import('https://cdn.jsdelivr.net/npm/jquery@3.2')
+    // Promise.any([importJsdelivr, importUnpkg]).then((vue) => {
+    //   console.log('加载完毕，时间是：' + (+new Date() - startTime) + 'ms')
+    //   console.log(vue)
+    // })
 
-    // Promise.any([
-    //   Promise.resolve('123').then(() => 'home'),
-    //   fetch('https://v8.dev/blog').then(() => 'blog'),
-    //   fetch('https://v8.dev/docs').then(() => 'docs')
-    // ]).then((first) => {  // 只要有一个 fetch() 请求成功
-    //   console.log(first);
-    // }).catch((error) => { // 所有三个 fetch() 全部请求失败
-    //   console.log(error);
-    // });
-
-    const getJSON = function (url) {
-      const promise = new Promise(function (resolve, reject) {
-        throw '123'
-        const handler = function () {
-          if (this.readyState !== 4) {
-            return
-          }
-          if (this.status === 200) {
-            console.log('qwe', this.response, this)
-            resolve(this.response)
-            // resolve(this.responseText);
-          } else {
-            reject(new Error(this.statusText))
-          }
-        }
-        const client = new XMLHttpRequest()
-        client.open('GET', url)
-        client.onreadystatechange = handler
-        // client.responseType = "json";
-        // client.setRequestHeader("Accept", "application/json");
-        client.send()
+    Promise.any([
+      Promise.resolve('123').then(() => 'home'),
+      fetch('https://v8.dev/blog').then(() => 'blog'),
+      fetch('https://v8.dev/docs').then(() => 'docs'),
+    ])
+      .then((first) => {
+        // 只要有一个 fetch() 请求成功
+        console.log(first)
+      })
+      .catch((error) => {
+        // 所有三个 fetch() 全部请求失败
+        console.log(error)
       })
 
-      return promise
-    }
+    // const getJSON = function (url) {
+    //   const promise = new Promise(function (resolve, reject) {
+    //     throw '123'
+    //     const handler = function () {
+    //       if (this.readyState !== 4) {
+    //         return
+    //       }
+    //       if (this.status === 200) {
+    //         console.log('qwe', this.response, this)
+    //         resolve(this.response)
+    //         // resolve(this.responseText);
+    //       } else {
+    //         reject(new Error(this.statusText))
+    //       }
+    //     }
+    //     const client = new XMLHttpRequest()
+    //     client.open('GET', url)
+    //     client.onreadystatechange = handler
+    //     // client.responseType = "json";
+    //     // client.setRequestHeader("Accept", "application/json");
+    //     client.send()
+    //   })
 
-    getJSON('https://httpbin.org/get')
+    //   return promise
+    // }
+
+    // getJSON('https://httpbin.org/get')
     // .then(function (json) {
     //   console.log('Contents: ', json);
     // }, function (error) {
     //   console.error('出错了', error);
     // });
-    console.log('qwe ', 123)
-    const promise = new Promise(function (resolve, reject) {
-      resolve('ok')
-      setTimeout(function () {
-        throw new Error('test')
-      }, 0)
-    })
-    promise.then(function (value) {
-      console.log(value)
-    })
+    // console.log('qwe ', 123)
+    // const promise = new Promise(function (resolve, reject) {
+    //   resolve('ok')
+    //   setTimeout(function () {
+    //     throw new Error('test')
+    //   }, 0)
+    // })
+    // promise.then(function (value) {
+    //   console.log(value)
+    // })
   </script>
 </html>

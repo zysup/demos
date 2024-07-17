@@ -204,7 +204,8 @@
     console.log('qwe aaa', aaa)
     btn.onclick = function name(params) {
       console.log('qwe ')
-      import('/10.js').then((val) => {
+      let a = Math.random().toString().slice(2)
+      import(`/10.js?a=${a}`).then((val) => {
         console.log('qwe', val.default)
       })
       // import('/1.txt?raw').then((val) => {
