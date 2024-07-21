@@ -17,6 +17,9 @@
         line-height: 100px;
         margin: auto;
       }
+      #btn {
+        outline: 1px solid goldenrod;
+      }
     </style>
   </head>
 
@@ -27,10 +30,8 @@
     <button popovertargetaction="show" popovertarget="pop">显示悬浮层</button>
     <button popovertargetaction="hide" popovertarget="pop">隐藏悬浮层</button>
     <button popovertargetaction="toggle" popovertarget="pop">切换悬浮层</button>
-    <div id="pop" popover>我是悬浮层</div>
     <br />
     <div id="btn">js控制显示悬浮层</div>
-    <div id="pop" popover>我是悬浮层</div>
   </body>
   <script>
     const btn = document.querySelector('#btn')

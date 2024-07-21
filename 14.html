@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        /* display: flex; */
+        position: relative;
+        z-index: 11;
+      }
+      .parent {
+        /* width: 200px;
+        height: 100px;
+        background: #168bf5;
+        z-index: 1; */
+      }
+      .child {
+        width: 100px;
+        height: 200px;
+        background: #32d19c;
+        position: fixed;
+
+        z-index: 11;
+      }
+      .box2 {
+        /* position: relative; */
+        opacity: 1;
+        z-index: 2;
+      }
+      .child2 {
+        width: 100px;
+        height: 200px;
+        background: red;
+        position: fixed;
+        left: 50px;
+        top: 50px;
+        z-index: 10;
+      }
+    </style>
+  </head>
+
+  <body>
+    <body>
+      <div class="box">
+        <div class="parent">
+          parent
+          <div class="child">child</div>
+        </div>
+      </div>
+      <div class="box2">
+        <div class="child2">child</div>
+      </div>
+    </body>
+  </body>
+</html>
