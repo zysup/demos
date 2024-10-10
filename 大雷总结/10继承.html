@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,11 +13,11 @@
       username: 'leson',
     }
 
-    function fn(hobby) {
-      alert(this.username + '喜欢' + hobby)
+    function fn(hobby, q) {
+      alert(this.username + '喜欢' + hobby + q)
     }
 
-    fn.apply(person, ['篮球'])
-    // fn.call(person, "篮球");
+    fn.apply(person, ['篮球', 'qwe'])
+    // fn.call(person, '篮球')
   </script>
 </html>

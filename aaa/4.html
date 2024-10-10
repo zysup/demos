@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -30,7 +30,7 @@
       }
 
       .background[foo]::after {
-        content: attr(foo) ' asd ' attr(foo) attr(data-abc);
+        content: attr(foo) ' asd      ' attr(foo) attr(data-abc);
         background-color: attr(data-background, yellow);
       }
     </style>
@@ -38,8 +38,8 @@
 
   <body>
     <span class="target"
-      >Lorem ipsum dolocing elit. Sapm assumenda, harum dolorem autem unde,
-      accusantium nostrum culpa tenetur iusto ut! Quasi, porro provident.</span
+      >Lorem ipsum dolocing elit. Sapm assumenda, harum dolorem autem unde, accusantium nostrum culpa tenetur iusto ut!
+      Quasi, porro provident.</span
     >
     <table border="1">
       <tr>
@@ -48,7 +48,7 @@
         <td>Lorem,dita?</td>
       </tr>
     </table>
-    <div class="background" foo="blue" data-abc="qwe" ="">
+    <div class="background" foo="blue" data-abc="qwe123">
       颜色应该是红色而不是绿色因为浏览器并不支持 attr() 的高级用法
     </div>
     <script type="module">

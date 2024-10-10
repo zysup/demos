@@ -43,27 +43,13 @@
     <input type="file" id="file" />
     <img src="" alt="" id="myimage" style="width: 600px" />
     <video
-      src=""
+      src="http://vd3.bdstatic.com/mda-qgcz9ztr6scwdsje/360p/h264/1720913410854988780/mda-qgcz9ztr6scwdsje.mp4"
       id="myvideo"
       autoplay
       controls
       loop
-      width="600px"
-      poster="./images/girl.png"
-      controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar disablepictureinpicture"
-      disablepictureinpicture
     ></video>
-    <video
-      src=""
-      id="myvideo1"
-      autoplay
-      controls
-      loop
-      width="600px"
-      poster="./images/girl.png"
-      controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar disablepictureinpicture"
-      disablepictureinpicture
-    ></video>
+    <video src="" id="myvideo1" autoplay controls loop width="600px" poster="./images/girl.png"></video>
     <!-- <video
       src=""
       id="myvideo"
@@ -81,29 +67,31 @@
   </body>
   <script>
     document.getElementById('file').onchange = function (e) {
-      // const s = e.target.files[0]
-      // const reader = new FileReader()
+      const s = e.target.files[0]
+      const reader = new FileReader()
       // reader.readAsText(s, 'utf-8')
-      // reader.readAsDataURL(s)
+      reader.readAsDataURL(s)
       // reader.readAsArrayBuffer(s)
-      // reader.onload = function (res) {
-      // console.log('qwe', res)
-      // mytxt.textContent = res.target.result
-      // eval('console.log(123)')
-      // let a = res.target.result
-      // console.log('qwe', a)
-      // eval(a)
-      // myvideo.src = res.target.result
-      // myimage.src = res.target
-      // }
+      reader.onload = function (res) {
+        console.log('qwe', res)
+        // let base64Str = reader.result.split(',')[1]
+        myimage.src = res.target.result
+        // mytxt.textContent = res.target.result
+        // eval('console.log(123)')
+        // let a = res.target.result
+        // console.log('qwe', a)
+        // eval(a)
+        // myvideo.src = res.target.result
+        // myimage.src = res.target
+      }
       // console.log(e.target.files[0])
-      const s = URL.createObjectURL(e.target.files[0])
-      let aa = document.createElement('a')
+      // const s = URL.createObjectURL(e.target.files[0])
+      // let aa = document.createElement('a')
       // aa.target = '_blank'
-      aa.href = s
-      aa.click()
+      // aa.href = s
+      // aa.click()
       // window.open(s, '_blank')
-      console.log(s)
+      // console.log(s)
       // myimage.src = s
     }
   </script>

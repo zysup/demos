@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" des="1">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,19 +7,16 @@
   </head>
 
   <body onload="on_load()" onunload="on_unload()">
-    <a href="2.html?name=zhangsan&age=18"
-      >去到页面2（带search ?name=zhangsan&age=18）</a
-    ><br /><br />
-    <a href="2.html?name=zhangsan&age=36#hobby"
-      >去到页面2(带search和hash ?name=zhangsan&age=36#hobby)</a
-    ><br /><br />
+    <a href="2.html?name=zhangsan&age=18">去到页面2（带search ?name=zhangsan&age=18）</a><br /><br />
+    <a href="2.html?name=zhangsan&age=36#hobby">去到页面2(带search和hash ?name=zhangsan&age=36#hobby)</a><br /><br />
     <a href="http://www.baidu.com">百度</a><br /><br />
-    <a href="http://www.baidu.com" target="_blank">百度_blank</a><br /><br />
+    <a href="http://www.baidu.com" target="qwe">百度_blank</a><br /><br />
     <h3>location 切换页面的几种方法</h3>
     <button onclick="l_assign()">Location.assign()</button><br /><br />
     <button onclick="l_replace()">Location.replace()</button><br /><br />
     <button onclick="l_href()">Location.href</button><br /><br />
     <button onclick="location_()">location</button><br /><br />
+    <button onclick="addnew()">添加新记录</button>
   </body>
   <script>
     console.log('history.length: ', history.length)
@@ -30,22 +27,16 @@
     window.name = '好好学习'
 
     function l_assign() {
-      location.assign(
-        'http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby'
-      )
+      location.assign('http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby')
     }
     function l_replace() {
-      location.replace(
-        'http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby'
-      )
+      location.replace('http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby')
     }
     function l_href() {
-      location.href =
-        'http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#hobby'
+      location.href = '3.html?name=zhangsan&age=36#hobby'
     }
     function location_() {
-      location =
-        'http://192.168.0.21:5500/history/2.html?name=zhangsan&age=36#aaa'
+      location = '2.html?name=zhangsan&age=36#aaa'
     }
 
     // 页面的销毁和加载
@@ -56,6 +47,10 @@
     function on_unload() {
       localStorage.setItem('1.html卸载', Math.random())
       console.log('页面销毁')
+    }
+    localStorage.setItem('aaa', '1')
+    function addnew() {
+      history.pushState({ a: 123 }, 'page 2', '2.html')
     }
   </script>
 </html>

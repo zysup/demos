@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -7,26 +7,18 @@
   </head>
 
   <body>
-    <button
-      onclick="downloadEvt('http://192.168.86.6:3001/文件下载/download/test-pdf.pdf', 'test')"
-    >
+    <button onclick="downloadEvt('http://192.168.1.196:3000/文件下载/download/test-pdf.pdf', 'test')">
       a标签下载1
     </button>
-    <button onclick="downloadEvt('/文件下载/download/test-pdf.pdf', 'test')">
-      a标签下载
-    </button>
-    <button
-      onclick="downloadEvt('/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/download/bian.apk', 'bian')"
-    >
-      a标签下载
-    </button>
+    <button onclick="downloadEvt('/文件下载/download/test-pdf.pdf', 'test')">a标签下载</button>
+    <button onclick="downloadEvt('/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/download/bian.apk', 'bian')">a标签下载</button>
     <input type="hidden" name="" id="" />
 
     <script>
       function downloadEvt(url, fileName = '未知文件') {
         const el = document.createElement('a')
         el.style.display = 'none'
-        // el.setAttribute('target', '_blank');
+        el.setAttribute('target', '_blank')
         /**
          * download的属性是HTML5新增的属性
          * href属性的地址必须是非跨域的地址，如果引用的是第三方的网站或者说是前后端分离的项目(调用后台的接口)，这时download就会不起作用。

@@ -1,13 +1,10 @@
 /**
  * 是否为空对象
- * @param {object} obj
+ * @param {Object} obj
  * @return {boolean}
  */
 export function isEmptyObject(obj) {
-  return (
-    (obj && Object.keys(obj).length === 0 && obj.constructor === Object) ||
-    false
-  )
+  return (obj && Object.keys(obj).length === 0 && obj.constructor === Object) || false
 }
 
 /**
@@ -106,10 +103,7 @@ export function floatMul(arg1, arg2) {
   try {
     m += s2.split('.')[1].length
   } catch (e) {}
-  return (
-    (Number(s1.replace('.', '')) * Number(s2.replace('.', ''))) /
-    Math.pow(10, m)
-  )
+  return (Number(s1.replace('.', '')) * Number(s2.replace('.', ''))) / Math.pow(10, m)
 }
 Number.prototype.floatMul = function (arg) {
   return floatMul(this, arg)
@@ -251,7 +245,7 @@ export function throttle(func, wait = 500, options = null) {
  * @param {number} 等待时间
  */
 export function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 /**
@@ -292,17 +286,10 @@ export function formatDate(timeStamp, fmt) {
     'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
     S: date.getMilliseconds(), // 毫秒
   }
-  if (/(y+)/.test(fmt))
-    fmt = fmt.replace(
-      RegExp.$1,
-      (date.getFullYear() + '').substr(4 - RegExp.$1.length)
-    )
+  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
   for (let k in o) {
     if (new RegExp('(' + k + ')').test(fmt))
-      fmt = fmt.replace(
-        RegExp.$1,
-        RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length)
-      )
+      fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length))
   }
   return fmt
 }

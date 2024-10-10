@@ -25,12 +25,32 @@
 
           // 根据需要处理这些值，例如转换成角度或者做进一步的操作
           box.innerText = `Alpha:, ${alpha}, Beta:, ${beta}, Gamma:, ${gamma}`
-          // console.log('Alpha:', alpha, 'Beta:', beta, 'Gamma:', gamma)
+          console.log('Alpha:', alpha, 'Beta:', beta, 'Gamma:', gamma)
         },
         false
       )
     } else {
       alert('你的浏览器不支持DeviceOrientation事件')
     }
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    }
+
+    function success(pos) {
+      var crd = pos.coords
+
+      console.log('Your current position is:')
+      console.log('Latitude : ' + crd.latitude)
+      console.log('Longitude: ' + crd.longitude)
+      console.log('More or less ' + crd.accuracy + ' meters.')
+    }
+
+    function error(err) {
+      console.warn('ERROR(' + err.code + '): ' + err.message)
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options)
   </script>
 </html>

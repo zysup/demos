@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,9 +38,7 @@
       .yw-tab-tab::after {
         border-bottom: solid;
         bottom: -2px;
-        transition:
-          left 0.2s,
-          width 0.2s;
+        transition: left 0.2s, width 0.2s;
       }
 
       .yw-tab-a {
@@ -78,14 +76,8 @@
 
       target.style.setProperty('--offsetx', event.offsetX)
       target.style.setProperty('--offsety', event.offsetY)
-      target.parentElement.style.setProperty(
-        '--target-width',
-        target.clientWidth
-      )
-      target.parentElement.style.setProperty(
-        '--target-height',
-        target.clientHeight
-      )
+      target.parentElement.style.setProperty('--target-width', target.clientWidth)
+      target.parentElement.style.setProperty('--target-height', target.clientHeight)
       target.parentElement.style.setProperty('--target-left', target.offsetLeft)
       target.parentElement.style.setProperty('--target-top', target.offsetTop)
     })

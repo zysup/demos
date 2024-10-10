@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,20 +22,20 @@
   </head>
 
   <body>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam nihil
-    eveniet praesentium!
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam nihil eveniet praesentium!
 
     <picture>
       <source srcset="../images/eye.png" media="(min-width: 480px)" />
       <img src="../images/404.svg" />
     </picture>
+
     <script>
       if (matchMedia('(max-width: 480px)').matches) {
         alert('屏幕宽度小于480px')
       }
       var change = matchMedia('(max-width: 480px)')
       change.onchange = function aa(params) {
-        console.log('qwe ')
+        console.log('qwe ', params)
       }
     </script>
   </body>
