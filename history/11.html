@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button id="btn1">增加1</button>
+    <button id="btn2">增加2</button>
+    <button id="btn3">增加3</button>
+    <iframe src="http://192.168.1.196:3000/aaa/12.html " frameborder="0"></iframe>
+  </body>
+  <script>
+    btn1.onclick = function () {
+      history.pushState({ page: 1 }, '', '/')
+    }
+    btn2.onclick = function () {
+      history.pushState({ page: 2 }, '', '/')
+    }
+    btn3.onclick = function () {
+      history.pushState({ page: 3 }, '', '/')
+    }
+
+    // 处理前进/回退按钮
+    window.addEventListener('popstate', (evt) => {
+      console.log('qwe', evt)
+    })
+  </script>
+</html>

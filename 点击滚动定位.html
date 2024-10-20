@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>点击滚动定位</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        padding-top: 100px;
+        margin: 0;
+      }
       ::-webkit-scrollbar {
         display: none;
       }
@@ -15,7 +26,8 @@
         outline: 1px solid red;
         /* font-size: 0; */
         padding: 0;
-        width: 500px;
+        /* width: 500px; */
+        width: 100%;
         margin: auto;
         overflow-x: scroll;
         white-space: nowrap;
@@ -81,9 +93,12 @@
         } else {
           startPoint -= 7
         }
-        // console.log(startPoint)
+        console.log(startPoint)
         ul.scrollLeft = startPoint
       }, 16)
+    }
+    function clickfn2(evt) {
+      evt.target.scrollIntoView({ behavior: 'smooth', inline: 'end' })
     }
     ul.onclick = clickfn
     line.style.width = (ul.firstElementChild?.offsetWidth ?? 60) + 'px'

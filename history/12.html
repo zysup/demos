@@ -1,0 +1,22 @@
+<!-- https://www.jianshu.com/p/8c8bbf367e95 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button onclick="history.forward()">前进</button>
+    <button onclick="history.back()">后退</button>
+    <button onclick="goGoogle()">google</button>
+    <script>
+      function goGoogle() {
+        console.log('qwe')
+        location.href = 'http://192.168.1.196:3000/aaa/4.html'
+      }
+      document.documentElement.setAttribute('data-page', '123')
+    </script>
+  </body>
+</html>

@@ -35,7 +35,9 @@
     <button onclick="clear_all2()">清除url的hash和search参数</button>
   </body>
   <script>
+    console.log('qweqwe', Date.now())
     console.log('history.length: ', history.length)
+    console.log('history.state: ', history.state)
     if (location.search) {
       // 方法1
       // let { groups: { age } } = /age=(?<age>\d+)/.exec(location.search)
@@ -54,13 +56,13 @@
     }
 
     function clear_search() {
-      window.history.replaceState({ page: 1 }, '', `${location.pathname}${location.hash}`)
+      window.history.replaceState({ page: 'replaceState1' }, '', `${location.pathname}${location.hash}`)
     }
     function clear_hash() {
-      window.history.replaceState({ page: 2 }, '', `${location.pathname}${location.search}`)
+      window.history.replaceState({ page: 'replaceState2' }, '', `${location.pathname}${location.search}`)
     }
     function clear_all() {
-      window.history.replaceState({ page: 3 }, '', `${location.pathname}`)
+      window.history.replaceState({ page: 'replaceState3' }, '', `${location.pathname}`)
     }
     function clear_search2() {
       window.history.pushState({ page: 1 }, '', `${location.pathname}${location.hash}`)

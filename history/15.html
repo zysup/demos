@@ -1,0 +1,42 @@
+<!-- https://www.iteye.com/blog/smiky-1917700 -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>backbone practise</title>
+    <!-- <script type="text/javascript" src="../vendor/jquery.js"></script>
+    <script type="text/javascript" src="../vendor/json2.js"></script>
+    <script type="text/javascript" src="../vendor/underscore.js"></script>
+    <script type="text/javascript" src="../vendor/backbone.js"></script>
+    <script type="text/javascript" src="router.js"></script> -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body onload="ready();">
+    <a href="#help">help</a>
+    <a href="#search">search</a>
+    <iframe name="abc" id="abc" style="width: 400px; height: 400px" src="backbone.html"></iframe>
+  </body>
+</html>
+<script type="text/javascript">
+  function ready() {
+    //window内部的子window的hash变化会影响 window.location的前进与后退
+    //因此，想不刷新页面情况下记录历史记录(如ajax请求了一个页面，可以用iframe来记录这个页面)，
+    //可以在主window上加个iframe,用它来记录加载的页面，那么
+    //window.history.back会触发子window的onhaschange事件
+    $('a').click(function () {
+      //两种方式会触发onhashchange,a)location.hash改变 2)location.href改变,改变href时#后面的内容要改变
+      //iframe.src不会触发onhashchange
+      //hash通常指的是backbone.html#defabc指的是url中#及后面的内容
+      //第一种情况
+      //location.href只针对src不变#后面的内容变时才会触发onhashchange,iframe.html不是当前页面，onhashchange不触发
+      // window.abc.location.href = 'iframe.html#' + Math.random()
+      // window.abc.location.href = '#' + Math.random()
+      //第二种情况
+      window.abc.location.hash = Math.random()
+    })
+    window.abc.onhashchange = function (arguments) {
+      console.log(window.abc.location.hash)
+    }
+  }
+</script>
