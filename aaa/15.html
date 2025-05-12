@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .progress {
+        height: 12px;
+        width: 300px;
+        background-color: #f0f2f3;
+      }
+      .progress::before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 100%;
+        background-color: #2486ff;
+      }
+      .progress.active::before {
+        transition: 10s width cubic-bezier(0.08, 0.81, 0.29, 0.99);
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    加载进度：
+    <div class="progress"></div>
+
+    <button id="button">开始加载</button>
+  </body>
+  <script>
+    var progress = document.querySelector('.progress')
+    button.onclick = function () {
+      progress.classList.remove('active')
+      progress.offsetHeight
+      progress.classList.add('active')
+    }
+  </script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+  <script>
+    function delay(params) {
+      return new Promise((r) => setTimeout(r, 3000, 123))
+      // return 123123
+    }
+    function delay2(params) {
+      // return new Promise((r) => setTimeout(r, 3000, 123))
+      // return 123123
+      throw 123123
+    }
+    // async function name(params) {
+    //   return await delay()
+    //   console.log('9999')
+    // }
+    // name().then((res) => {
+    //   console.log('qwe', res)
+    // })
+    // async function aaa(params) {
+    //   let u = await
+    // }
+
+    async function timeout(ms) {
+      await new Promise((resolve) => {
+        setTimeout(resolve, ms)
+      })
+    }
+
+    async function asyncPrint(value, ms) {
+      timeout(ms)
+      console.log(value)
+    }
+
+    asyncPrint('hello world', 5000)
+  </script>
+  <script type="module">
+    async function loadJson(url) {
+      // (1)
+      console.log(1)
+      let response = await fetch(url) // (2)
+      // let response = await delay2(url) // (2)
+      console.log(2)
+
+      // if (response.status == 200) {
+      return await delay() // (3)
+      // return json
+      console.log(3)
+      // }
+
+      throw new Error(response.status)
+    }
+
+    const res = await loadJson('https://javascript.info/no-such-user.json')
+    console.log('qwe999', res)
+  </script>
+</html>

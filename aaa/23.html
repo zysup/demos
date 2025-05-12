@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // console.time('fingerprintjs')
+      console.log('qwe0')
+      // Initialize the agent at application startup.
+      const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4').then((FingerprintJS) => {
+        // console.log('qwe', FingerprintJS.load())
+        console.log('qwe2')
+        // return FingerprintJS.load()
+        return Promise.reject('qwe')
+      })
+      console.log('qwe1', fpPromise)
+
+      // console.timeEnd('fingerprintjs')
+      // Get the visitor identifier when you need it.
+      fpPromise
+        .then((fp) => {
+          console.log('qwe3')
+          return fp.get()
+        })
+        .then((result) => {
+          // This is the visitor identifier:
+          const visitorId = result.visitorId
+          console.log(visitorId)
+        })
+        .catch((error) => console.error('error', error))
+    </script>
+  </body>
+</html>

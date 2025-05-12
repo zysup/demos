@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>接收</title>
+  </head>
+
+  <body>
+    <!-- <button onclick="handleClick">发送</button> -->
+    broadCastChannel2
+  </body>
+  <script>
+    const bc = new BroadcastChannel('zhangxinxu')
+    bc.onmessage = function (event) {
+      console.log(event.data)
+      // 输出'欢迎支持正版书籍'
+    }
+    window.addEventListener('storage', function (event) {
+      console.log('qwe', event.key, event.newValue)
+    })
+  </script>
+</html>

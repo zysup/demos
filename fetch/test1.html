@@ -14,33 +14,33 @@
   <script>
     async function fetchText() {
       let response = await fetch('./1.txt')
-      console.log('qwe response', response)
+      // console.log('qwe response', response)
       let aa = await response.text()
+      await new Promise((r) => setTimeout(r, 3300))
       mytxt.textContent = aa
-      console.log('qwe aa', aa)
     }
     fetchText()
     async function fetchJson() {
       let response = await fetch('./1.json')
-      console.log('qwe response', response)
+      // console.log('qwe response', response)
       let aa = await response.json()
       myjson.textContent = aa
       console.log('qwe aa', aa)
     }
     fetchJson()
-    // fetch('../images/girl.png')
-    fetch('https://dummyimage.com/600x400/2974cf/fff.png&text=fetch')
-      .then((response) => {
+    async function fetchImage() {
+      try {
+        let response = await fetch('../images/girl.png')
+        // let response = await fetch('https://dummyimage.com/600x400/2974cf/fff.png&text=fetch')
         if (!response.ok) {
           throw new Error('Network response was not OK')
         }
-        return response.blob()
-      })
-      .then((myBlob) => {
+        let myBlob = await response.blob()
         myimage.src = URL.createObjectURL(myBlob)
-      })
-      .catch((error) => {
-        console.error('There has been a problem with your fetch operation:', error)
-      })
+      } catch (error) {
+        console.error('Fetch error: ', error)
+      }
+    }
+    fetchImage()
   </script>
 </html>

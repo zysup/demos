@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button onclick="handleClick()">发送</button>
+    <iframe src="./broadCastChannel2.html" frameborder="0"></iframe>
+  </body>
+  <script>
+    const bc = new BroadcastChannel('zhangxinxu')
+    function handleClick() {
+      bc.postMessage('欢迎支持正版书籍')
+      localStorage.setItem('zhangxinxu', '欢迎支持正版书籍')
+    }
+    var bca = new BroadcastChannel('zhangxinxu')
+    bca.onmessage = function (event) {
+      console.log('qwe', event.data)
+      // 输出'欢迎支持正版书籍'
+    }
+  </script>
+</html>

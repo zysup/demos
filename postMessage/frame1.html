@@ -1,13 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iframe1</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" /> -->
     <style></style>
   </head>
 
@@ -16,13 +13,8 @@
     <button onclick="setCookie()">设置cookie</button>
     <button onclick="delCookie()">删除cookie</button>
     <button onclick="logContextInfo()">打印上下文信息</button>
-    <textarea
-      name="showlog"
-      id="showlog"
-      cols="30"
-      rows="10"
-      readonly
-    ></textarea>
+    <button onclick="setItem()">setItem</button>
+    <textarea name="showlog" id="showlog" cols="30" rows="10" readonly></textarea>
     <script>
       function setCookie() {
         document.cookie = 'test1=hello'
@@ -35,18 +27,13 @@
         console.log('window.top =>', window.top)
         console.log('window.parent =>', window.parent)
         console.log('window.self =>', window.self)
-        console.log(
-          'window.top === window.parent? =>',
-          window.top === window.parent
-        )
-        console.log(
-          'window.self === window.parent? =>',
-          window.self === window.parent
-        )
+        console.log('window.top === window.parent? =>', window.top === window.parent)
+        console.log('window.self === window.parent? =>', window.self === window.parent)
       }
       showlog.textContent = `window.name => ${window.name}\n`
 
       window.onhashchange = function () {
+        console.log('qweqwe')
         var message = window.location.hash
         showlog.textContent += `onhashchange => ${message}\n`
       }
@@ -58,25 +45,33 @@
       window.addEventListener(
         'message',
         function (e) {
-          // console.log(e, e.source, e.target, e.origin, e.data)
+          console.log(e, e.source, e.target, e.origin, e.data)
           var payload = JSON.stringify(e.data, null, 2)
           showlog.textContent += `resmessage => ${payload}\n`
 
           // 子窗口向父窗口发消息
           // window.opener.postMessage('Nice to see you', 'http://192.168.0.21:5501/postMessage/home.html');
-          window.top.postMessage(
-            'Nice to see you',
-            'http://192.168.0.21:5501/postMessage/home.html'
-          )
+          window.top.postMessage('Nice to see you', 'http://localhost:3000/postMessage/home.html')
 
           // 子窗口将父窗口发来的消息，写入自己的 LocalStorage
-          if (e.origin !== 'http://192.168.0.21:5501') {
+          if (e.origin !== 'http://localhost:3000') {
             return
           }
+          console.log('qwe123')
           localStorage.setItem(e.data.key, payload)
         },
         false
       )
+
+      const bc = new BroadcastChannel('zhangxinxu')
+      bc.onmessage = function (event) {
+        console.log(event.data)
+        // 输出'欢迎支持正版书籍'
+      }
+
+      function setItem() {
+        localStorage.setItem('qwe', Math.random())
+      }
     </script>
   </body>
 </html>

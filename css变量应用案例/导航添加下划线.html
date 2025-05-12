@@ -61,7 +61,7 @@
      * @author zhangxinxu(.com)
      * @description 点击页面任意位置，标记坐标位置
      */
-    document.addEventListener('mousedown', function (event) {
+    document.addEventListener('click', function (event) {
       var target = event.target
       var body = document.body
       var html = document.documentElement
@@ -80,6 +80,13 @@
       target.parentElement.style.setProperty('--target-height', target.clientHeight)
       target.parentElement.style.setProperty('--target-left', target.offsetLeft)
       target.parentElement.style.setProperty('--target-top', target.offsetTop)
+    })
+
+    Array.from(document.querySelectorAll('div')[0].children).forEach((item, index) => {
+      if (index === 0) {
+        console.log('qwe', item)
+        item.click()
+      }
     })
   </script>
 </html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      ul {
+        display: flex;
+        width: min-content;
+      }
+      ul.reverse {
+        flex-direction: row-reverse;
+      }
+      li {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+      .element {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+
+        animation: seed 2s both;
+        opacity: calc(var(--seed) / 100);
+      }
+      .spin {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation: seed 1s linear infinite;
+        transform: rotate(calc(var(--seed) * 3.6deg));
+      }
+      /* @property --seed {
+        syntax: '<integer>';
+        inherits: true;
+        initial-value: 0;
+      } */
+
+      @keyframes seed {
+        from {
+          --seed: 0;
+        }
+        to {
+          --seed: 100;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="element">hello</div>
+    <div class="spin">hello</div>
+    <h4 class="fill">DOM位置调整</h4>
+    <ul id="ul">
+      <li style="view-transition-name: li-1">1</li>
+      <li style="view-transition-name: li-2">2</li>
+      <li style="view-transition-name: li-3">3</li>
+      <li style="view-transition-name: li-4">4</li>
+    </ul>
+
+    <h4 class="fill">CSS属性调整</h4>
+    <ul id="ul2">
+      <li style="view-transition-name: li-5">1</li>
+      <li style="view-transition-name: li-6">2</li>
+      <li style="view-transition-name: li-7">3</li>
+      <li style="view-transition-name: li-8">4</li>
+    </ul>
+    <button id="button">点击水平倒序呈现</button>
+  </body>
+  <script>
+    window.CSS.registerProperty({
+      name: '--seed',
+      syntax: '<integer>',
+      inherits: false,
+      initialValue: 'aqua',
+    })
+    button.onclick = function () {
+      document.startViewTransition(() => {
+        ;[...ul.children].reverse().forEach((child) => {
+          ul.append(child)
+        })
+
+        ul2.classList.toggle('reverse')
+      })
+    }
+  </script>
+</html>

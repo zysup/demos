@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+  <script>
+    const a =
+      'eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyNzgzMjc2MDcyMDYtMGk5MjQxYXNmZDQxYmNkMnVlb3ZvcHNxNzFjN2gwODMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyNzgzMjc2MDcyMDYtMGk5MjQxYXNmZDQxYmNkMnVlb3ZvcHNxNzFjN2gwODMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTE0ODA3MTQxMDQyMjIzNzUxODIiLCJlbWFpbCI6Inl6MjYzMjE0OUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImFKOS1Fa3FhTUg3akJiRjR4dUhOZ3ciLCJuYW1lIjoi6YaJ5oy95riF6aOOIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0xtTVcwSE9MNjJjbXJvVEZmeFN0ZUktYlppYVI3TFZ4X0xhdlJiUjBWV29kbkxBS1U9czk2LWMiLCJnaXZlbl9uYW1lIjoi6YaJ5oy95riF6aOOIiwiaWF0IjoxNzM0MDE0OTA0LCJleHAiOjE3MzQwMTg1MDR9'
+
+    // 解密方法改写，处理中文乱码
+    function decodeBase64Utf8(base64) {
+      const decodedString = atob(base64) // 解码 Base64
+      // 将 Latin-1 字符串转换为 UTF-8
+      const utf8String = decodeURIComponent(
+        Array.from(decodedString)
+          .map((char) => `%${char.charCodeAt(0).toString(16).padStart(2, '0')}`)
+          .join('')
+      )
+      return utf8String
+    }
+
+    try {
+      const decodedBase64 = decodeBase64Utf8(a) // 解码并处理中文
+      console.log('Decoded Base64 (UTF-8):', decodedBase64)
+
+      const parsedData = JSON.parse(decodedBase64) // 解析 JSON 数据
+      console.log('Parsed Data:', parsedData)
+    } catch (error) {
+      console.error('Error decoding or parsing JSON:', error)
+    }
+  </script>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        outline: 1px solid blue;
+        /* font-size: 0; */
+      }
+
+      .item {
+        display: inline-block;
+        outline: 1px solid red;
+        padding-inline: 20px;
+        vertical-align: top;
+        font-size: 20px;
+      }
+      img {
+        display: inline-block;
+        vertical-align: top;
+        /* display: block; */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <div class="container"> -->
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <!-- </div> -->
+    <br />
+    <div style="border: 1px solid red">
+      <img src="../images/04.jpg" />
+      <img src="../images/04.jpg" />
+    </div>
+    <script>
+      class Foo {
+        #p = 1
+        name = 'Foo'
+        bbb = 999
+        constructor() {
+          // console.log('My name is ', Object.keys(this))
+          setTimeout(() => {
+            // console.log('My name is ', Object.keys(this))
+          })
+        }
+        getP() {
+          console.trace()
+          console.log('qwe this', this, this.getP, this.ageAge)
+          return this.#p
+        }
+        static hello(qwe) {
+          console.log('hello world', this.hello, qwe)
+        }
+        static isC(obj) {
+          if (#p in obj) {
+            // 私有属性 #brand 存在
+            return true
+          } else {
+            // 私有属性 #foo 不存在
+            return false
+          }
+        }
+      }
+      const aaa = new Foo()
+      console.log(aaa, aaa.__proto__, Object.getPrototypeOf(aaa), aaa.constructor.prototype)
+      // aaa.getP()
+
+      class Bar extends Foo {
+        name = 'Bar'
+        static prop = 1
+        #pp = 2
+        aaa = 456
+        constructor() {
+          super()
+          // super.getP()
+          // console.log('qwe Bar', this.#pp)
+          // console.log(this.getP()) // 1
+          // console.log(super.getP()) // 1
+        }
+        // getP() {
+        //   return 123
+        //   // console.log('getP')
+        // }
+        ageAge() {
+          console.log('ageAge')
+        }
+        static hello2() {
+          super.hello(123)
+          console.log('hello world 2', this.hello2)
+        }
+      }
+      var bbb = new Bar()
+      console.log('qwe bar', Bar.hello2())
+      console.log('qwe Foo', Foo.hello())
+      console.log(bbb, bbb instanceof Bar, Object.keys(bbb))
+      console.log(Bar.prototype instanceof Foo)
+      // console.log(Bar.prototype.constructor.hello())
+
+      // function aaab() {
+      //   for (let value of [1, 2, 3]) {
+      //     if (value === 2) {
+      //       return (() => 'qwe')()
+      //     }
+      //   }
+      // }
+      // const bbbc = aaab()
+      // console.log(bbbc)
+    </script>
+  </body>
+</html>

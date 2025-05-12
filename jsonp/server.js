@@ -10,6 +10,7 @@ const server = http.createServer((req, res) => {
 
   if (params.callback) {
     str = `${params.callback}(${JSON.stringify(data)})`
+    console.log('qwe str', str)
     res.end(str)
   } else {
     res.end()

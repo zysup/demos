@@ -77,9 +77,9 @@
         paint-order: stroke;
       }
 
-      /* .b.b.b.a {
+      .b.b.b.a {
         color: red;
-      } */
+      }
       .b.b {
         color: BLUE;
       }
@@ -173,7 +173,10 @@
       <input type="file" name="image" accept="image/*" capture="user" />
     </form>
 
-    <button id="button">选择图片</button>
+    <button id="button">
+      <div>123</div>
+      选择图片
+    </button>
     <button id="btn">加载</button>
     <button onclick="switchSrc()">切换</button>
     <iframe src="https://v.bootstrapmb.com/2023/2/m4x7s13480/" frameborder="0"></iframe>
@@ -184,19 +187,14 @@
       console.log(aa)
       myiframe.contentWindow.location = 'http://wwww.baidu.com'
     }
-    var aa = {
-      a: 1,
-    }
-    Object.assign(aa, { b: 2 })
-    // console.log('qwe', aa)
     var c = {
       bbb: 'http://www.saa.com',
       toString: function () {
         console.log('qweqwe', this)
-        return this.bbb
+        return this.bbb + 123
       },
     }
-    let aaa = new URL(c)
+    let aaa = new URL(location.href)
     console.log('aa', aaa)
     // URL.createObjectURL
   </script>
@@ -210,7 +208,7 @@
       // import(`/10.js?a=${a}`).then((val) => {
       //   console.log('qwe', val.default)
       // })
-      import(`/10.js`).then((val) => {
+      import(`/19.js`).then((val) => {
         console.log('qwe', val.default)
       })
       // import('/1.txt?raw').then((val) => {

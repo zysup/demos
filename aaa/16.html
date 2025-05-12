@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      swiper-container {
+        width: 100%;
+        height: 100%;
+      }
+
+      swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      swiper-slide {
+        width: 80%;
+      }
+
+      swiper-slide:nth-child(2n) {
+        width: 60%;
+      }
+
+      swiper-slide:nth-child(3n) {
+        width: 40%;
+      }
+      swiper-container::part(bullet-active) {
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <swiper-container
+      class="mySwiper"
+      slides-per-view="auto"
+      pagination="true"
+      pagination-clickable="true"
+      autoplay
+      loop
+      pauseOnMouseEnter="true"
+      slides-per-view="1"
+      init="false"
+      style="height: 60vh"
+    >
+      <div slot="container-start">Rendered before wrapper</div>
+      <div slot="container-end">Rendered after wrapper</div>
+      <swiper-slide>Slide 1</swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>Slide 4</swiper-slide>
+      <swiper-slide>Slide 5</swiper-slide>
+      <swiper-slide>Slide 6</swiper-slide>
+      <swiper-slide>Slide 7</swiper-slide>
+      <swiper-slide>Slide 8</swiper-slide>
+      <swiper-slide>Slide 9</swiper-slide>
+    </swiper-container>
+    <!-- <button>Update</button> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script>
+      var swiperEl = document.querySelector('swiper-container')
+      const buttonEl = document.querySelector('button')
+
+      console.log('qwe swiperEl', swiperEl)
+      // swiper parameters
+      const swiperParams = {
+        spaceBetween: 30,
+        on: {
+          init() {
+            console.log('qwe init')
+          },
+          progress(a, b, c) {
+            console.log('qwe progress', a, b, c)
+          },
+          virtual: {
+            // virtual slides
+            slides: ['Slide 1', 'Slide 2', 'Slide 3'],
+          },
+        },
+      }
+
+      // now we need to assign all parameters to Swiper element
+      Object.assign(swiperEl, swiperParams)
+
+      // and now initialize it
+      swiperEl.initialize()
+      buttonEl.addEventListener('click', () => {
+        // if it was initialized with attributes
+        // swiperEl.setAttribute('slides-per-view', '2.5')
+
+        // or if it was initialized with props
+        swiperEl.slidesPerView = 1
+      })
+      // swiperEl.addEventListener('swiperprogress', (event) => {
+      //   const [swiper, progress] = event.detail
+      //   console.log('qwe e', swiper, progress)
+      // })
+
+      // swiperEl.addEventListener('swiperslidechange', (event) => {
+      //   console.log('slide changed', event,)
+      // })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+  <script>
+    class PollingService {
+      constructor(url, interval = 1000) {
+        this.url = url
+        this.interval = interval
+        this.timer = null
+        this.isPolling = false
+      }
+
+      async fetchData() {
+        try {
+          const response = await fetch(this.url)
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+          }
+          const data = await response.json()
+          console.log('数据:', data)
+          // 在这里处理接收到的数据
+        } catch (error) {
+          console.error('请求错误:', error)
+          // 在这里处理错误
+        }
+      }
+
+      startPolling() {
+        if (this.isPolling) return
+        this.isPolling = true
+        this.timer = setInterval(() => this.fetchData(), this.interval)
+        console.log('开始轮询')
+      }
+
+      stopPolling() {
+        if (!this.isPolling) return
+        clearInterval(this.timer)
+        this.timer = null
+        this.isPolling = false
+        console.log('停止轮询')
+      }
+
+      setIntervalTime(newInterval) {
+        this.interval = newInterval
+        if (this.isPolling) {
+          this.stopPolling()
+          this.startPolling()
+        }
+      }
+    }
+
+    // 使用示例
+    const pollingService = new PollingService('https://api.example.com/data', 2000)
+    pollingService.startPolling()
+
+    // 停止轮询
+    // pollingService.stopPolling();
+
+    // 更改轮询间隔时间
+    // pollingService.setIntervalTime(5000);
+  </script>
+</html>
